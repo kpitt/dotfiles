@@ -1,0 +1,31 @@
+" Vim settings for GUI only
+
+if has("gui_gtk2")
+    set guifont=Monospace\ 10,DejaVu\ Sans\ Mono\ 10,Inconsolata\ Medium\ 12
+elseif has("gui_macvim")
+    set guifont=Inconsolata:h14,Lucida_Sans_Typewriter_Regular:h12,Consolas:h13,Andale_Mono:h12,Monaco:h12
+else
+    set guifont=Consolas:h9,Andale_Mono:h8,Courier_New:h8
+endif
+set lines=56
+set columns=120
+
+" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
+set guioptions-=t
+
+" I can't remember the last time I clicked anything on the toolbar, so just
+" turn it off to save space.
+set guioptions-=T
+
+" Set personal GUI colors  {{{
+if v:version >= 600
+  "colorscheme inkpot
+  "colorscheme desert
+  set background=light
+  colorscheme solarized
+endif
+" }}}
+
+set number      " show line numbers in GUI mode only
+
+" vim600:fdm=marker:fdl=1:
