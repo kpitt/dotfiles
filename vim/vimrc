@@ -1,22 +1,25 @@
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
+" Vim settings for all instances
 
-set autoindent		" always set autoindenting on
-set nobackup		" do not keep a backup file
+" General options "{{{
 set history=50		" keep 50 lines of command line history
+
+behave mswin
+"}}}
+" Appearance options "{{{
 set laststatus=2	" show status line all the time
 set ruler		    " show the cursor position all the time
 set showcmd		    " display incomplete commands
+syntax on           " syntax highlighting
+"}}}
+" Search options "{{{
 set incsearch		" do incremental searching
+set hlsearch        " highlight the last used search pattern
 
 " Use GNU grep instead of findstr for the :grep command
 set grepprg=grep\ -nH
-
-" Don't use Ex mode, use Q for formatting
-map Q gq
-
-syntax on               " syntax highlighting
-set hlsearch            " highlight the last used search pattern
+"}}}
+" File handling options "{{{
+set nobackup		" do not keep a backup file
 
 " Enable file type detection.
 filetype on
@@ -24,6 +27,20 @@ filetype on
 if v:version >= 600
   filetype plugin indent on
 endif
+"}}}
+
+" Default file options "{{{
+" (these can be overridden later for specific filetypes)
+set autoindent		" always set autoindenting on
+"}}}
+
+" Keyboard mappings and behavior "{{{
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+" Don't use Ex mode, use Q for formatting
+map Q gq
+"}}}
 
 " For all text files set 'textwidth' to 78 characters.
 autocmd FileType text setlocal textwidth=78
@@ -36,4 +53,4 @@ autocmd BufReadPost *
   \   exe "normal g`\"" |
   \ endif
 
-behave mswin
+" vim:foldmethod=marker:foldlevel=0
