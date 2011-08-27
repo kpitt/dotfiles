@@ -32,6 +32,10 @@ endif
 " Default file options "{{{
 " (these can be overridden later for specific filetypes)
 set autoindent		" always set autoindenting on
+set tabstop=4       " I almost always use 4-space tabs
+set softtabstop=4
+set shiftwidth=4
+set expandtab
 "}}}
 
 " Keyboard mappings and behavior "{{{
