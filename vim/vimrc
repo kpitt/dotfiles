@@ -38,12 +38,31 @@ set shiftwidth=4
 set expandtab
 "}}}
 
-" Keyboard mappings and behavior "{{{
-" allow backspacing over everything in insert mode
+" Keyboard mappings "{{{
+" Allow backspacing over everything in insert mode.
 set backspace=indent,eol,start
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
+" Use Q for formatting the current paragraph or selection.
+nmap Q gqap
+vmap Q gq
+
+" Move up/down by screen lines, not file lines.
+nnoremap j gj
+nnoremap k gk
+
+" Change leader key to something more convenient, and use the default \ for
+" the local leader key instead.
+let mapleader = ","
+let maplocalleader = "\\"
+
+" Clear the search highlighting.
+nmap <silent> <leader>/ :nohlsearch<CR>
+
+" Reselect the text that was just pasted.
+nnoremap <leader>v V`]
+
+" Quit current window on <leader>q.
+nnoremap <leader>q :q<CR>
 "}}}
 
 " For all text files set 'textwidth' to 78 characters.
