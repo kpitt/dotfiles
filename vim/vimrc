@@ -14,6 +14,7 @@ behave mswin
 " Appearance options "{{{
 set laststatus=2	" show status line all the time
 set ruler		    " show the cursor position all the time
+set statusline=%<%f%(\ %h%m%r%)\ %{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set showcmd		    " display incomplete commands
 syntax on           " syntax highlighting
 "}}}
