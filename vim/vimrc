@@ -1,5 +1,11 @@
 " Vim settings for all instances
 
+" Initialization "{{{
+set nocompatible
+
+call pathogen#infect()
+" }}}
+
 " General options "{{{
 set history=50		" keep 50 lines of command line history
 
