@@ -5,9 +5,6 @@ endif
 
 augroup filetypedetect
 
-" Markdown
-au BufNewFile,BufRead *.mkd                 setf mkd
-
 " Textile
 au BufNewFile,BufRead *.textile             setf textile
 
