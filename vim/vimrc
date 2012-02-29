@@ -70,6 +70,10 @@ nnoremap <leader>v V`]
 
 " Quit current window on <leader>q.
 nnoremap <leader>q :q<CR>
+
+" Buffer switching.
+nnoremap <leader>n :bn<CR>
+nnoremap <leader>p :bp<CR>
 "}}}
 
 " For all text files set 'textwidth' to 78 characters.
