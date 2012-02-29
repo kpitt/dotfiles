@@ -19,3 +19,6 @@
 [submodule "vim/vimfiles/bundle/markdown"]
 	path = vim/vimfiles/bundle/markdown
 	url = https://github.com/tpope/vim-markdown.git
+[submodule "vim/vimfiles/bundle/molokai"]
+	path = vim/vimfiles/bundle/molokai
+	url = https://github.com/tomasr/molokai.git
