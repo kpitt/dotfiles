@@ -22,3 +22,6 @@
 [submodule "vim/vimfiles/bundle/molokai"]
 	path = vim/vimfiles/bundle/molokai
 	url = https://github.com/tomasr/molokai.git
+[submodule "vim/vimfiles/bundle/scala"]
+	path = vim/vimfiles/bundle/scala
+	url = https://github.com/derekwyatt/vim-scala.git
