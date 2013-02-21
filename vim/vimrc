@@ -20,6 +20,8 @@ syntax on           " syntax highlighting
 "}}}
 " Search options "{{{
 set incsearch		" do incremental searching
+set ignorecase      " use smart case-insensitivity
+set smartcase
 set hlsearch        " highlight the last used search pattern
 
 " Use GNU grep instead of findstr for the :grep command
