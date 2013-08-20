@@ -25,3 +25,6 @@
 [submodule "vim/vimfiles/bundle/scala"]
 	path = vim/vimfiles/bundle/scala
 	url = https://github.com/derekwyatt/vim-scala.git
+[submodule "vim/vimfiles/bundle/badwolf"]
+	path = vim/vimfiles/bundle/badwolf
+	url = https://github.com/sjl/badwolf.git
