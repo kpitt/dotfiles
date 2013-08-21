@@ -14,4 +14,7 @@ au BufNewFile,BufRead *.rnc                 setf rnc
 " ActionScript Syntax
 au BufNewFile,BufRead *.as                  setf actionscript
 
+" Syntax for Google Protocol Buffers specifications
+au! BufRead,BufNewFile *.proto              setf proto
+
 augroup END
