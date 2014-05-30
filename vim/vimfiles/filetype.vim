@@ -17,4 +17,7 @@ au BufNewFile,BufRead *.as                  setf actionscript
 " Syntax for Google Protocol Buffers specifications
 au! BufRead,BufNewFile *.proto              setf proto
 
+" Use Groovy syntax for Gradle files
+au BufNewFile,BufRead *.gradle              setf groovy
+
 augroup END
