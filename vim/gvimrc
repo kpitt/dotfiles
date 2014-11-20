@@ -28,5 +28,6 @@ endif
 " }}}
 
 set number      " show line numbers in GUI mode only
+set cursorline  " highlight the current line
 
 " vim600:fdm=marker:fdl=1:
