@@ -20,10 +20,11 @@ set guioptions-=T
 " Set personal GUI colors  {{{
 if v:version >= 600
   let g:molokai_original = 1
-  "colorscheme inkpot
-  "colorscheme desert
-  set background=light
-  colorscheme solarized
+  set background=dark
+  "colorscheme molokai
+  colorscheme vwilight
+  "set background=light
+  "colorscheme solarized
 endif
 " }}}
 
