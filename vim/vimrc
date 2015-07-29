@@ -3,7 +3,7 @@
 " Initialization "{{{
 set nocompatible
 
-call pathogen#infect()
+execute pathogen#infect()
 " }}}
 
 " General options "{{{
