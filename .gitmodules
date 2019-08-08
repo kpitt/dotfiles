@@ -37,3 +37,6 @@
 [submodule "vim/vimfiles/bundle/zenburn"]
 	path = vim/vimfiles/bundle/zenburn
 	url = https://github.com/jnurmine/Zenburn.git
+[submodule "vim/vimfiles/bundle/iceberg"]
+	path = vim/vimfiles/bundle/iceberg
+	url = https://github.com/cocopon/iceberg.vim.git

@@ -23,6 +23,8 @@ if v:version >= 600
   set background=dark
   "colorscheme molokai
   colorscheme vwilight
+  "colorscheme zenburn
+  "colorscheme iceberg
   "set background=light
   "colorscheme solarized
 endif
