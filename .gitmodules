@@ -10,9 +10,6 @@
 [submodule "vim/vimfiles/bundle/commentary"]
 	path = vim/vimfiles/bundle/commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "vim/vimfiles/bundle/sparkup"]
-	path = vim/vimfiles/bundle/sparkup
-	url = https://github.com/sjl/vim-sparkup.git
 [submodule "vim/vimfiles/bundle/liquid"]
 	path = vim/vimfiles/bundle/liquid
 	url = https://github.com/kpitt/vim-liquid.git
@@ -43,3 +40,6 @@
 [submodule "vim/vimfiles/bundle/taskpaper"]
 	path = vim/vimfiles/bundle/taskpaper
 	url = https://github.com/davidoc/taskpaper.vim.git
+[submodule "vim/vimfiles/bundle/emmet"]
+	path = vim/vimfiles/bundle/emmet
+	url = https://github.com/mattn/emmet-vim.git
