@@ -43,3 +43,6 @@
 [submodule "vim/vimfiles/bundle/emmet"]
 	path = vim/vimfiles/bundle/emmet
 	url = https://github.com/mattn/emmet-vim.git
+[submodule "vim/vimfiles/bundle/typescript"]
+	path = vim/vimfiles/bundle/typescript
+	url = https://github.com/leafgarland/typescript-vim.git
