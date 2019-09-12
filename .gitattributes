@@ -3,4 +3,4 @@
 *.cmd text eol=crlf
 
 *.sh text eol=lf
-
+*.zsh text eol=lf
