@@ -49,3 +49,6 @@
 [submodule "vim/vimfiles/bundle/nord"]
 	path = vim/vimfiles/bundle/nord
 	url = https://github.com/arcticicestudio/nord-vim.git
+[submodule "vim/vimfiles/bundle/vim-airline"]
+	path = vim/vimfiles/bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
