@@ -1,11 +1,14 @@
 " Vim settings for GUI only
 
+" Set a default font list that should be installed on all machines...
+set guifont=FiraCode-Regular:h12,MesloLGSNerdFontComplete:h12,HackNerdFontComplete-Regular:h12
+" then add extra OS-specific fallbacks just in case.
 if has("gui_gtk2")
-    set guifont=Monospace\ 9,DejaVu\ Sans\ Mono\ 9,Inconsolata\ Medium\ 12
+    set guifont+=Monospace\ 9,DejaVu\ Sans\ Mono\ 9
 elseif has("gui_macvim")
-    set guifont=Inconsolata:h14,Menlo_Regular:h12,Consolas:h13
+    set guifont+=Menlo-Regular:h12
 else
-    set guifont=Consolas:h9,Andale_Mono:h8,Courier_New:h8
+    set guifont+=Consolas:h9,Andale_Mono:h8,Courier_New:h8
 endif
 set lines=56
 set columns=120
@@ -19,18 +22,16 @@ set guioptions-=T
 
 " Set personal GUI colors  {{{
 if v:version >= 600
-  let g:molokai_original = 1
   set background=dark
-  "colorscheme molokai
-  colorscheme vwilight
+  "colorscheme vwilight
   "colorscheme zenburn
-  "colorscheme iceberg
-  "set background=light
-  "colorscheme solarized
+  colorscheme iceberg
 endif
 " }}}
 
 set number      " show line numbers in GUI mode only
-set cursorline  " highlight the current line
 
-" vim600:fdm=marker:fdl=1:
+" Additional GUI-only airline options
+let g:airline#extensions#tabline#enabled = 1
+
+" vim:fdm=marker:fdl=1:
