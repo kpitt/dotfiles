@@ -1,0 +1,15 @@
+# vim:ft=gitconfig
+[user]
+    name = Kenny Pitt
+
+[core]
+    quotepath = false
+
+[color]
+    ui = auto
+
+[push]
+    default = upstream
+
+[merge]
+    summary = true

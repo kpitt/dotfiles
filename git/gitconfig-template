@@ -1,0 +1,11 @@
+# vim:ft=gitconfig
+[user]
+    email = kenny.pitt@example.com
+
+[core]
+    excludesfile = ~/.gitignore_global
+    editor = gvim -f
+    autocrlf = input
+
+[include]
+    path = ~/.dotfiles/git/gitconfig_common
