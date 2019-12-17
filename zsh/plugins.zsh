@@ -1,6 +1,8 @@
 ## Load the Antigen plugin manager
 source ~/.dotfiles/zsh/antigen.zsh
 
+# Disable oh-my-zsh "paste-magic" functions for faster paste at command prompt.
+DISABLE_MAGIC_FUNCTIONS=true
 # Load the oh-my-zsh library
 antigen use oh-my-zsh
 
