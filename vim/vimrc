@@ -109,4 +109,21 @@ autocmd BufReadPost *
   \   exe "normal g`\"" |
   \ endif
 
+" Diff Mode options "{{{
+if &diff
+    " Add a mapping to toggle the 'ignore whitespace' option.
+    map gs :call IwhiteToggle()<CR>
+    function! IwhiteToggle()
+        if &diffopt =~ 'iwhite'
+            set diffopt-=iwhite
+        else
+            set diffopt+=iwhite
+        endif
+    endfunction
+
+    " Turn off cursorline highlighting because it hides line differences.
+    set nocursorline
+endif
+"}}}
+
 " vim:foldmethod=marker:foldlevel=0
