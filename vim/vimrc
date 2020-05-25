@@ -126,4 +126,14 @@ if &diff
 endif
 "}}}
 
+" Other options (these need to be organized) "{{{
+
+" If ripgrep is available, use it as the grep prog.
+if executable("rg")
+    set grepprg=rg\ --vimgrep\ --no-heading
+    set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
+
+"}}}
+
 " vim:foldmethod=marker:foldlevel=0
