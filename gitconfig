@@ -3,6 +3,7 @@
     name = Kenny Pitt
 
 [core]
+    excludesfile = ~/.gitignore
     quotepath = false
 
 [color]

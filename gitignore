@@ -1,0 +1,12 @@
+!tags/
+*.pyc
+*.sw[nop]
+*.zwc
+.DS_Store
+tags
+.git/
+/node_modules/
+/log
+log/*.log
+/tmp
+tmp/**/*
