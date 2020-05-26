@@ -101,6 +101,11 @@
     bcdiff  = difftool -y --tool=bc3
     bcmerge = mergetool -y --tool=bc3 --trust-exit-code
 
+[url "git@github.com:"]
+    insteadOf = gh:
+[url "git@bitbucket.org"]
+    insteadOf = bb:
+
 [include]
     # Local config
     path = ~/.gitconfig.local
