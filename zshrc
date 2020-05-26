@@ -8,7 +8,7 @@ done
 source ~/.zsh/plugins.zsh
 
 # load custom executable functions
-for function in ~/.zsh/functions/*; do
+for function in ~/.zsh/functions/*(N); do
   source $function
 done
 
