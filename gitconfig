@@ -100,3 +100,7 @@
 
     bcdiff  = difftool -y --tool=bc3
     bcmerge = mergetool -y --tool=bc3 --trust-exit-code
+
+[include]
+    # Local config
+    path = ~/.gitconfig.local

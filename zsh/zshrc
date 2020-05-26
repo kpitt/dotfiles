@@ -19,5 +19,6 @@ export PAGER=less
 #   -x4  tabs are 4 instead of 8
 export LESS=-iRFXMx4
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+# Local config
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+

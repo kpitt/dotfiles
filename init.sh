@@ -1,41 +1,25 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 cd $(dirname $0)
 DOTFILES_ROOT=$(pwd)
-echo $DOTFILES_ROOT
+print "Dotfiles directory: $DOTFILES_ROOT"
 
 set -e
 
-copy_file () {
-    local src=$1 dst=$2
-
-    if [ -f "$dst" -o -d "$dst" -o -L "$dst" ]
-    then
-        printf "File already exists: $dst -> $src\n"
-    else
-        cp -p "$src" "$dst"
-        printf "copied $src to $dst\n"
-    fi
-}
-
 link_file () {
-    local src=$1 dst=$2
+    local src="$DOTFILES_ROOT/$1" dst="$HOME/${2:-.$1}"
 
     if [ -f "$dst" -o -d "$dst" -o -L "$dst" ]
     then
-        printf "File already exists: $dst -> $src\n"
+        print "File already exists: $dst -> $src"
     else
-        src=${src#$HOME/}
         ln -s "$src" "$dst"
-        printf "linked $src to $dst\n"
+        print "linked $src to $dst"
     fi
 }
 
-# Copy all config file templates to the correct locations.
-for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*-template')
-do
-    dst="$HOME/.$(basename "${src%-*}")"
-    copy_file "$src" "$dst"
-done
-
+# Symlink config files.
+link_file "vimrc"
+link_file "gvimrc"
+link_file "zsh/zshrc" ".zshrc"
 # Symlink config directories.
-link_file "$DOTFILES_ROOT/vim" "$HOME/.vim"
+link_file "vim"

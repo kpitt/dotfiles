@@ -136,4 +136,9 @@ endif
 
 "}}}
 
+" Local config
+if filereadable($HOME . "/.vimrc.local")
+  source ~/.vimrc.local
+endif
+
 " vim:foldmethod=marker:foldlevel=0
