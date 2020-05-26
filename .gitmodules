@@ -1,54 +1,54 @@
-[submodule "vim/vimfiles/bundle/fugitive"]
+[submodule "vim/bundle/fugitive"]
 	path = vim/bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "vim/vimfiles/bundle/repeat"]
+[submodule "vim/bundle/repeat"]
 	path = vim/bundle/repeat
 	url = https://github.com/tpope/vim-repeat.git
-[submodule "vim/vimfiles/bundle/surround"]
+[submodule "vim/bundle/surround"]
 	path = vim/bundle/surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "vim/vimfiles/bundle/commentary"]
+[submodule "vim/bundle/commentary"]
 	path = vim/bundle/commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "vim/vimfiles/bundle/liquid"]
+[submodule "vim/bundle/liquid"]
 	path = vim/bundle/liquid
 	url = https://github.com/kpitt/vim-liquid.git
-[submodule "vim/vimfiles/bundle/markdown"]
+[submodule "vim/bundle/markdown"]
 	path = vim/bundle/markdown
 	url = https://github.com/tpope/vim-markdown.git
-[submodule "vim/vimfiles/bundle/molokai"]
+[submodule "vim/bundle/molokai"]
 	path = vim/bundle/molokai
 	url = https://github.com/tomasr/molokai.git
-[submodule "vim/vimfiles/bundle/scala"]
+[submodule "vim/bundle/scala"]
 	path = vim/bundle/scala
 	url = https://github.com/derekwyatt/vim-scala.git
-[submodule "vim/vimfiles/bundle/badwolf"]
+[submodule "vim/bundle/badwolf"]
 	path = vim/bundle/badwolf
 	url = https://github.com/sjl/badwolf.git
-[submodule "vim/vimfiles/bundle/ps1"]
+[submodule "vim/bundle/ps1"]
 	path = vim/bundle/ps1
 	url = https://github.com/PProvost/vim-ps1.git
-[submodule "vim/vimfiles/bundle/coffee-script"]
+[submodule "vim/bundle/coffee-script"]
 	path = vim/bundle/coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule "vim/vimfiles/bundle/zenburn"]
+[submodule "vim/bundle/zenburn"]
 	path = vim/bundle/zenburn
 	url = https://github.com/jnurmine/Zenburn.git
-[submodule "vim/vimfiles/bundle/iceberg"]
+[submodule "vim/bundle/iceberg"]
 	path = vim/bundle/iceberg
 	url = https://github.com/cocopon/iceberg.vim.git
-[submodule "vim/vimfiles/bundle/taskpaper"]
+[submodule "vim/bundle/taskpaper"]
 	path = vim/bundle/taskpaper
 	url = https://github.com/davidoc/taskpaper.vim.git
-[submodule "vim/vimfiles/bundle/emmet"]
+[submodule "vim/bundle/emmet"]
 	path = vim/bundle/emmet
 	url = https://github.com/mattn/emmet-vim.git
-[submodule "vim/vimfiles/bundle/typescript"]
+[submodule "vim/bundle/typescript"]
 	path = vim/bundle/typescript
 	url = https://github.com/leafgarland/typescript-vim.git
-[submodule "vim/vimfiles/bundle/nord"]
+[submodule "vim/bundle/nord"]
 	path = vim/bundle/nord
 	url = https://github.com/arcticicestudio/nord-vim.git
-[submodule "vim/vimfiles/bundle/vim-airline"]
+[submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
