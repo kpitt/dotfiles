@@ -5,7 +5,7 @@ for f in ~/.profile.d/*.sh ; do
     fi
 done
 
-source ~/.dotfiles/zsh/plugins.zsh
+source ~/.zsh/plugins.zsh
 
 export PAGER=less
 #

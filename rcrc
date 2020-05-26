@@ -1,0 +1,3 @@
+DOTFILES_DIRS="$HOME/.dotfiles"
+EXCLUDES="init.sh init.cmd local_templates"
+SYMLINK_DIRS="bundle colors"

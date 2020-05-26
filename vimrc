@@ -93,8 +93,8 @@ nnoremap <S-F3>  :cpfile<CR>
 if has('osxdarwin')
     " Use C-K to format with `clang-format`
     " (this should probably be scoped to specific file types)
-    map <C-K> :pyf ~/.dotfiles/vim/tools/clang-format.py<cr>
-    imap <C-K> <c-o>:pyf ~/.dotfiles/vim/tools/clang-format.py<cr>
+    map <C-K> :pyf ~/.vim/tools/clang-format.py<cr>
+    imap <C-K> <c-o>:pyf ~/.vim/tools/clang-format.py<cr>
 endif
 "}}}
 
