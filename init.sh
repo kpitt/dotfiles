@@ -38,4 +38,4 @@ do
 done
 
 # Symlink config directories.
-link_file "$DOTFILES_ROOT/vim/vimfiles" "$HOME/.vim"
+link_file "$DOTFILES_ROOT/vim" "$HOME/.vim"
