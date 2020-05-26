@@ -19,6 +19,9 @@
     # View abbreviated SHA, description, and history graph of the latest 20 commits
     l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
+    # Additional git log aliases
+    ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+
     # View the current working tree status using the short format
     s = status -s
     sb = status -sb
@@ -64,7 +67,7 @@
     # Fetch remote changes for the current repository and all its submodules
     f = fetch --prune --recurse-submodules
 
-    # basic convenience shortcuts
+    # Basic convenience shortcuts
     ci = commit
     co = checkout
  
@@ -73,7 +76,10 @@
     sma = submodule add
     smd = submodule deinit
     sms = submodule status --recursive
+    smi = submodule init
     smu = submodule update --init --recursive
+    smeach = submodule foreach
+    smeachr = submodule foreach --recursive
 
     ## Shortcuts for update-index commands
     assume = update-index --assume-unchanged
@@ -87,3 +93,10 @@
     locked = !git ls-files -v | grep ^S | cut -c 3-
     lockall = !git status -s | grep -v ^\\?\\? | awk {'print $2'} | xargs git lock
     unlockall = !git locked | xargs git update-index --no-skip-worktree
+
+    ## External merge tool shortcuts
+    p4diff  = difftool -y --tool=p4merge
+    p4merge = mergetool -y --tool=p4merge
+
+    bcdiff  = difftool -y --tool=bc3
+    bcmerge = mergetool -y --tool=bc3 --trust-exit-code
