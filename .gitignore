@@ -5,3 +5,7 @@
 ## ZSH Antigen
 
 *.zwc
+
+## Homebrew
+
+Brewfile.lock.json
