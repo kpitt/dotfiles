@@ -16,9 +16,6 @@ antigen bundle zsh-users/zsh-completions
 # Load the SSH agent for git authentication
 antigen bundle ssh-agent
 
-# Easier switching to most-used directories
-antigen bundle rupa/z
-
 # Bundles from the default repo (robbyrussell's oh-my-zsh)
 antigen bundle git
 

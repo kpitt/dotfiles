@@ -17,6 +17,7 @@ brew "ctags"
 brew "clang-format"
 
 # other useful utilities
+brew "jump"
 brew "p7zip"
 brew "tree"
 brew "pstree"

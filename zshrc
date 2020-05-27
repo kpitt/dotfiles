@@ -7,6 +7,10 @@ done
 
 source ~/.zsh/plugins.zsh
 
+if [ -x "$(command -v jump)" ]; then
+  eval "$(jump shell)"
+fi
+
 # load custom executable functions
 for function in ~/.zsh/functions/*(N-.); do
   source $function
