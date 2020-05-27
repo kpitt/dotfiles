@@ -8,13 +8,14 @@ done
 source ~/.zsh/plugins.zsh
 
 # load custom executable functions
-for function in ~/.zsh/functions/*(N); do
+for function in ~/.zsh/functions/*(N-.); do
   source $function
 done
 
 # extra files in ~/.zsh/configs/pre , ~/.zsh/configs , and ~/.zsh/configs/post
 # these are loaded first, second, and third, respectively.
 _load_settings() {
+  setopt localoptions extendedglob
   _dir="$1"
   if [ -d "$_dir" ]; then
     if [ -d "$_dir/pre" ]; then
