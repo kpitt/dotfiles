@@ -14,6 +14,7 @@ brew "ripgrep"
 brew "ack"
 brew "fzf"
 brew "ctags"
+brew "clang-format"
 
 # other useful utilities
 brew "p7zip"
