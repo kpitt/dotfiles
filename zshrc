@@ -55,6 +55,8 @@ export PAGER=less
 #   -x4  tabs are 4 instead of 8
 export LESS=-iRFXMx4
 
+[[ -r ~/.rgrc ]] && export RIPGREP_CONFIG_PATH=~/.rgrc
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
