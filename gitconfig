@@ -107,6 +107,9 @@
 [url "git@bitbucket.org"]
     insteadOf = bb:
 
+[hub]
+	protocol = ssh
+
 [include]
     # Local config
     path = ~/.gitconfig.local

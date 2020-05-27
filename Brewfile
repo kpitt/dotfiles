@@ -37,3 +37,6 @@ brew "diffutils"
 
 # a modern Vim fork
 brew "neovim"
+
+# CLI for working with GitHub and GitHub Enterprise
+brew "hub"
