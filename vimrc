@@ -96,6 +96,9 @@ if has('osxdarwin')
     map <C-K> :pyf ~/.vim/tools/clang-format.py<cr>
     imap <C-K> <c-o>:pyf ~/.vim/tools/clang-format.py<cr>
 endif
+
+" Plugin key mappings
+nnoremap <C-p> :<C-u>FZF<CR>
 "}}}
 
 " For all text files set 'textwidth' to 78 characters.
