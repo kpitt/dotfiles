@@ -98,7 +98,7 @@ if has('osxdarwin')
 endif
 
 " Plugin key mappings
-nnoremap <C-p> :<C-u>FZF<CR>
+nnoremap <C-p> :<C-u>Files<CR>
 "}}}
 
 " For all text files set 'textwidth' to 78 characters.
