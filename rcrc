@@ -1,3 +1,4 @@
 DOTFILES_DIRS="$HOME/.dotfiles"
 EXCLUDES="init.sh init.cmd Brewfile local_templates *.zwc"
 SYMLINK_DIRS="bundle colors"
+TAGS="tmux"
