@@ -50,8 +50,10 @@
     # Amend the currently staged files to the latest commit
     amend = commit --amend --reuse-message=HEAD
 
-    # Shortcut for forcing a fast-forward merge
+    # Shortcuts for various types of merges
     ff = merge --ff-only
+    rb = rebase
+    rbi = rebase --interactive
 
     ## Shortcuts for accessing remote repositories
 
