@@ -23,6 +23,7 @@ colorscheme nord    " default terminal color scheme, can be overridden for GUI i
 
 " Airline configuration settings
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 "}}}
 " Search options "{{{
 set incsearch		" do incremental searching
