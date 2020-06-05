@@ -15,6 +15,7 @@ brew "ack"
 brew "fzf"
 brew "ctags"
 brew "clang-format"
+brew "direnv"
 
 # other useful utilities
 brew "jump"
