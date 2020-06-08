@@ -36,6 +36,9 @@ brew "jq"
 # macOS ships with version 2.8. Get version 3.4+ so `diff --color` works.
 brew "diffutils"
 
+# Personal manpages, written in Markdown
+brew "um"
+
 # a modern Vim fork
 brew "neovim"
 
