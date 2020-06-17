@@ -1,9 +1,3 @@
-# Load all the init scripts in `~/.profile.d`
-for f in ~/.profile.d/*.sh ; do
-    if [ -r "$f" ]; then
-        source $f
-    fi
-done
 
 source ~/.zsh/plugins.zsh
 
