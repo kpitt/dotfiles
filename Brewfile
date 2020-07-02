@@ -18,6 +18,7 @@ brew "clang-format"
 brew "direnv"
 
 # other useful utilities
+brew "fd"
 brew "jump"
 brew "p7zip"
 brew "tree"
@@ -26,9 +27,11 @@ brew "wget"
 brew "gnupg"
 brew "hexyl"
 brew "graphviz"
+brew "xz"
 
 brew "tig"
 brew "htop"
+brew "ncdu"
 
 # sed for json: https://robots.thoughtbot.com/jq-is-sed-for-json
 brew "jq"
