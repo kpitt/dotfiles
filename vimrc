@@ -43,6 +43,13 @@ filetype on
 if v:version >= 600
   filetype plugin indent on
 endif
+
+if !has('nvim')
+    if !isdirectory($HOME.'/.local/share/vim/swap')
+        silent call mkdir($HOME.'/.local/share/vim/swap', 'p')
+    endif
+    set dir=~/.local/share/vim/swap//
+endif
 "}}}
 
 " Default file options "{{{
