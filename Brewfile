@@ -4,40 +4,42 @@ tap "thoughtbot/formulae"
 # rcm: dotfile management
 brew "rcm"
 
-# updated versions of core tools
+## updated versions of core tools
 brew "git"
 brew "vim"
 brew "zsh"
+# macOS ships with an older version that doesn't support `diff --color`.
+brew "diffutils"
 
-# utilities used by config files and plugins
-brew "ripgrep"
+## utilities used by config files and plugins
 brew "ack"
 brew "fzf"
 brew "ctags"
 brew "clang-format"
 brew "direnv"
+brew "ripgrep"
 
-# other useful utilities
+## other useful CLI utilities
 brew "fd"
+brew "gnupg"
+brew "graphviz"
+brew "hexyl"
 brew "jump"
 brew "p7zip"
-brew "tree"
 brew "pstree"
+brew "tree"
 brew "wget"
-brew "gnupg"
-brew "hexyl"
-brew "graphviz"
 brew "xz"
 
-brew "tig"
+## useful ncurses utilities
 brew "htop"
 brew "ncdu"
+brew "tig"
 
+## other miscellaneous tools
+#
 # sed for json: https://robots.thoughtbot.com/jq-is-sed-for-json
 brew "jq"
-
-# macOS ships with version 2.8. Get version 3.4+ so `diff --color` works.
-brew "diffutils"
 
 # Personal manpages, written in Markdown
 brew "um"
