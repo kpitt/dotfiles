@@ -1,4 +1,3 @@
-
 source ~/.zsh/plugins.zsh
 
 if [ -x "$(command -v jump)" ]; then
@@ -69,3 +68,6 @@ export FZF_DEFAULT_OPTS='--color fg:188,bg:233,hl:103,fg+:222,bg+:234,hl+:104
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
