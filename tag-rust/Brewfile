@@ -1,0 +1,4 @@
+# vim: syntax=ruby filetype=ruby
+
+# Initialization script for rust toolchain
+brew "rustup-init"
