@@ -22,6 +22,7 @@ syntax on           " syntax highlighting
 colorscheme nord    " default terminal color scheme, can be overridden for GUI in gvimrc
 
 " Airline configuration settings
+set noshowmode      " only show mode in the airline status bar
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 "}}}
