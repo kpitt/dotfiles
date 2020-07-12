@@ -39,12 +39,9 @@ set grepprg=grep\ -nH
 " File handling options "{{{
 set nobackup		" do not keep a backup file
 
-" Enable file type detection.
+" Enable file type detection and language-dependent indenting.
 filetype on
-" Also load indent files, to automatically do language-dependent indenting.
-if v:version >= 600
-  filetype plugin indent on
-endif
+filetype plugin indent on
 
 if !has('nvim')
     if !isdirectory($HOME.'/.local/share/vim/swap')
