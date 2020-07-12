@@ -11,6 +11,7 @@ set history=50		" keep 50 lines of command line history
 
 behave mswin
 set wildmenu
+set wildmode=longest:full
 "}}}
 " Appearance options "{{{
 set laststatus=2	" show status line all the time
