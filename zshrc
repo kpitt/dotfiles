@@ -53,16 +53,6 @@ export ACK_PAGER=less
 
 [[ -r ~/.rgrc ]] && export RIPGREP_CONFIG_PATH=~/.rgrc
 
-# Note that these FZF options are used by fzf.vim automatically! Yay!
-# Use a separate tool to smartly ignore files
-export FZF_DEFAULT_COMMAND='rg --hidden --files'
-# Jellybeans theme: https://github.com/junegunn/fzf/wiki/Color-schemes
-export FZF_DEFAULT_OPTS='--color fg:188,bg:233,hl:103,fg+:222,bg+:234,hl+:104
---color info:183,prompt:110,spinner:107,pointer:167,marker:215
---bind ctrl-u:page-up,ctrl-f:page-down
---reverse
-'
-
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
