@@ -33,8 +33,14 @@ set ignorecase      " use smart case-insensitivity
 set smartcase
 set hlsearch        " highlight the last used search pattern
 
-" Use GNU grep instead of findstr for the :grep command
-set grepprg=grep\ -nH
+" If ripgrep is available, use it as the grep prog.
+" Otherwise, fall back to GNU grep.
+if executable("rg")
+    set grepprg=rg\ --vimgrep\ --no-heading
+    set grepformat=%f:%l:%c:%m,%f:%l:%m
+else
+    set grepprg=grep\ -nH
+endif
 "}}}
 " File handling options "{{{
 set nobackup		" do not keep a backup file
@@ -134,16 +140,6 @@ if &diff
     " Turn off cursorline highlighting because it hides line differences.
     set nocursorline
 endif
-"}}}
-
-" Other options (these need to be organized) "{{{
-
-" If ripgrep is available, use it as the grep prog.
-if executable("rg")
-    set grepprg=rg\ --vimgrep\ --no-heading
-    set grepformat=%f:%l:%c:%m,%f:%l:%m
-endif
-
 "}}}
 
 " Local config
