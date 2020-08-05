@@ -1,5 +1,10 @@
 " Vim settings for all instances
 
+" Change Leader to <Space>.  This needs to be set early because leader is used
+" at the moment mappings are defined.  Changing it after a mapping is defined
+" has no effect on the mapping.
+let mapleader=' '
+
 " Initialization "{{{
 set nocompatible
 
@@ -77,11 +82,6 @@ vmap Q gq
 " Move up/down by screen lines, not file lines.
 nnoremap j gj
 nnoremap k gk
-
-" Change leader key to something more convenient, and use the default \ for
-" the local leader key instead.
-let mapleader = ","
-let maplocalleader = "\\"
 
 " Clear the search highlighting.
 nmap <silent> <leader>/ :nohlsearch<CR>
