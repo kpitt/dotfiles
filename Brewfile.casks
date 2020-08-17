@@ -1,0 +1,15 @@
+# vim: syntax=ruby filetype=ruby
+
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+
+# monospaced fonts
+cask "font-fira-code"
+cask "font-meslo-nerd-font"
+cask "font-iosevka"
+
+# better terminal emulator
+cask "iterm2"
+
+# keyboard customization
+cask "karabiner-elements"

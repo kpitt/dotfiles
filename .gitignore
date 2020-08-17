@@ -1,11 +1,8 @@
 ## Vim
-
 .netrwhist
 
 ## ZSH Antigen
-
 *.zwc
 
 ## Homebrew
-
-Brewfile.lock.json
+Brewfile*.lock.json
