@@ -29,8 +29,6 @@ if v:version >= 600
 endif
 " }}}
 
-set number      " show line numbers in GUI mode only
-
 " Additional GUI-only airline options
 let g:airline#extensions#tabline#enabled = 1
 

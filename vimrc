@@ -24,6 +24,9 @@ set ruler		    " show the cursor position all the time
 set cursorline      " highlight the current line
 set statusline=%<%f%(\ %h%m%r%)\ %{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set showcmd		    " display incomplete commands
+if winwidth(0) >= 80
+    set number      " show line numbers unless window is unusually narrow
+endif
 syntax on           " syntax highlighting
 colorscheme nord    " default terminal color scheme, can be overridden for GUI in gvimrc
 
