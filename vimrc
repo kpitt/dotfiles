@@ -71,7 +71,9 @@ set autoindent		" always set autoindenting on
 set tabstop=4       " I almost always use 4-space tabs
 set softtabstop=4
 set shiftwidth=4
-set expandtab
+set expandtab       " use spaces, not hard tabs
+set smarttab        " use shiftwidth, not tabstop, at start of line
+set shiftround      " always shift to a multiple of 'shiftwidth'
 "}}}
 
 " Keyboard mappings "{{{
