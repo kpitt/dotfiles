@@ -101,8 +101,8 @@
     p4diff  = difftool -y --tool=p4merge
     p4merge = mergetool -y --tool=p4merge
 
-    bcdiff  = difftool -y --tool=bc3
-    bcmerge = mergetool -y --tool=bc3 --trust-exit-code
+    bcdiff  = difftool -y --tool=bc3 --trust-exit-code
+    bcmerge = mergetool -y --tool=bc3
 
 [url "git@github.com:"]
     insteadOf = gh:
