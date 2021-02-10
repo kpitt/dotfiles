@@ -9,8 +9,9 @@ cask "font-meslo-nerd-font"
 cask "font-jetbrains-mono"
 cask "font-iosevka"
 
-# better terminal emulator
+# better terminal emulators
 cask "iterm2"
+cask "kitty"
 
 # keyboard customization
 cask "karabiner-elements"
