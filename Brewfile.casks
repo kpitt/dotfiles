@@ -6,6 +6,7 @@ tap "homebrew/cask-fonts"
 # monospaced fonts
 cask "font-fira-code"
 cask "font-meslo-nerd-font"
+cask "font-jetbrains-mono"
 cask "font-iosevka"
 
 # better terminal emulator
