@@ -1,0 +1,13 @@
+{{/* boolean feature flags */}}
+{{- $tmux := false -}}
+{{- $rust := false -}}
+{{- "" -}}
+
+{{- if stdinIsATTY -}}
+{{-   $tmux := promptBool "tmux" -}}
+{{-   $rust := promptBool "rust" -}}
+{{- end -}}
+
+[data]
+  feature.tmux = {{ $tmux }}
+  feature.rust = {{ $rust }}
