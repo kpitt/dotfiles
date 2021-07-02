@@ -6,3 +6,6 @@
 
 ## Homebrew
 Brewfile*.lock.json
+
+## Temp Files
+*.swp

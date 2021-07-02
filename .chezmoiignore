@@ -1,0 +1,24 @@
+init.sh
+init.cmd
+local_templates
+*.zwc
+
+# Directories that hold symlink targets
+vim/
+
+# Brewfiles for macOS homebrew initialization
+homebrew/
+
+{{ if not .feature.tmux }}
+# tmux files and directories
+.tmux.conf
+bin/projects
+bin/t
+bin/tmux-session-exists
+{{ end }}
+
+{{ if not .feature.rust }}
+# rust files and directories
+.vim/pack/lang/start/rust
+.zsh/configs/rust.zsh
+{{ end }}
