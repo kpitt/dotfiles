@@ -87,6 +87,13 @@
     smeach = submodule foreach
     smeachr = submodule foreach --recursive
 
+    ## Shortcuts for working with worktrees
+    wt = worktree
+    wta = worktree add
+    wtl = worktree list
+    wtmv = worktree move
+    wtrm = worktree remove
+
     ## Shortcuts for update-index commands
     assume = update-index --assume-unchanged
     unassume = update-index --no-assume-unchanged
