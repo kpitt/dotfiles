@@ -1,24 +1,32 @@
-" Vim settings for all instances
+" vim: foldmethod=marker foldlevel=1
+
+" Disable Vi compatibility.
+set nocompatible
 
 " Change Leader to <Space>.  This needs to be set early because leader is used
 " at the moment mappings are defined.  Changing it after a mapping is defined
 " has no effect on the mapping.
 let mapleader=' '
 
-" Initialization "{{{
-set nocompatible
-
+" ============================================================================
+" PLUGINS "{{{
+" ============================================================================
 execute pathogen#infect()
 " }}}
 
+" ============================================================================
 " General options "{{{
+" ============================================================================
 set history=50		" keep 50 lines of command line history
 
 behave mswin
 set wildmenu
-set wildmode=longest:full
+set wildmode=longest:full,full
 "}}}
+
+" ============================================================================
 " Appearance options "{{{
+" ============================================================================
 set laststatus=2	" show status line all the time
 set ruler		    " show the cursor position all the time
 set cursorline      " highlight the current line
@@ -35,7 +43,10 @@ set noshowmode      " only show mode in the airline status bar
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 "}}}
+
+" ============================================================================
 " Search options "{{{
+" ============================================================================
 set incsearch		" do incremental searching
 set ignorecase      " use smart case-insensitivity
 set smartcase
@@ -50,7 +61,10 @@ else
     set grepprg=grep\ -nH
 endif
 "}}}
+
+" ============================================================================
 " File handling options "{{{
+" ============================================================================
 set nobackup		" do not keep a backup file
 
 " Enable file type detection and language-dependent indenting.
@@ -65,7 +79,9 @@ if !has('nvim')
 endif
 "}}}
 
+" ============================================================================
 " Default file options "{{{
+" ============================================================================
 " (these can be overridden later for specific filetypes)
 set autoindent		" always set autoindenting on
 set tabstop=4       " I almost always use 4-space tabs
@@ -76,7 +92,9 @@ set smarttab        " use shiftwidth, not tabstop, at start of line
 set shiftround      " always shift to a multiple of 'shiftwidth'
 "}}}
 
-" Keyboard mappings "{{{
+" ============================================================================
+" MAPPINGS "{{{
+" ============================================================================
 " Allow backspacing over everything in insert mode.
 set backspace=indent,eol,start
 
@@ -119,6 +137,9 @@ endif
 nnoremap <C-p> :<C-u>Files<CR>
 "}}}
 
+" ============================================================================
+" AUTOCOMMANDS "{{{
+" ============================================================================
 " For all text files set 'textwidth' to 78 characters.
 autocmd FileType text setlocal textwidth=78
 
@@ -129,8 +150,11 @@ autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \   exe "normal g`\"" |
   \ endif
+"}}}
 
+" ============================================================================
 " Diff Mode options "{{{
+" ============================================================================
 if &diff
     " Add a mapping to toggle the 'ignore whitespace' option.
     map gs :call IwhiteToggle()<CR>
@@ -147,9 +171,16 @@ if &diff
 endif
 "}}}
 
+" ============================================================================
+" OTHER "{{{
+" ============================================================================
+" (these need to be organized)
+set scrolloff=1   " Always keep a line of context above or below the cursor
+"}}}
+
+" ============================================================================
+
 " Local config
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
-
-" vim:foldmethod=marker:foldlevel=0
