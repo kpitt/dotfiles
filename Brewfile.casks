@@ -15,3 +15,6 @@ cask "kitty"
 
 # keyboard customization
 cask "karabiner-elements"
+
+# GPG GUI
+cask "gpg-suite-no-mail"

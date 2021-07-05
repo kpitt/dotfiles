@@ -36,6 +36,9 @@ brew "htop"
 brew "ncdu"
 brew "tig"
 
+# GPG passphrase entry
+brew "pinentry-mac"
+
 ## other miscellaneous tools
 #
 # sed for json: https://robots.thoughtbot.com/jq-is-sed-for-json
