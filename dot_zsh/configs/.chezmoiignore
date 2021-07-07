@@ -1,0 +1,4 @@
+{{- if ne "darwin" .chezmoi.os }}
+# macOS-only scripts
+homebrew.zsh
+{{- end }}
