@@ -1,4 +1,5 @@
 {{- if ne "darwin" .chezmoi.os }}
 # macOS-only pages
 shell/xattr.md
+xcode/
 {{- end }}
