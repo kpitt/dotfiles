@@ -1,8 +1,0 @@
-# vim:ft=gitconfig
-[user]
-    email = kenny.pitt@example.com
-
-[core]
-    excludesfile = ~/.gitignore_global
-    editor = gvim -f
-    autocrlf = input
