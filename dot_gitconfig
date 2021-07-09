@@ -1,9 +1,0 @@
-# vim:ft=gitconfig
-
-# Include shared config first, and then add to or override it with local
-# settings.
-[include]
-	path = ~/.gitconfig.shared
-
-[user]
-    name = Kenny Pitt

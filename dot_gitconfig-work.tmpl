@@ -1,0 +1,22 @@
+# vim:ft=gitconfig
+
+[user]
+    email = {{ .email.work }}
+
+[core]
+    autocrlf = input
+
+[url "git@github.houston.softwaregrp.net:"]
+    insteadOf = ghe:
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[git-p4]
+    detectRename = true
+
+[hub]
+    host = github.houston.softwaregrp.net

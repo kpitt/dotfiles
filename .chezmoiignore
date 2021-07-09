@@ -22,3 +22,8 @@ bin/tmux-session-exists
 .vim/pack/lang/start/rust
 .zsh/configs/rust.zsh
 {{ end }}
+
+{{ if not .work }}
+# work-specific files and directories
+.gitconfig-work
+{{ end }}

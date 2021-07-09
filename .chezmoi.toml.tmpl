@@ -1,13 +1,16 @@
 {{/* boolean feature flags */}}
 {{- $tmux := false -}}
 {{- $rust := false -}}
+{{- $work := false -}}
 {{- "" -}}
 
 {{- if stdinIsATTY -}}
-{{-   $tmux := promptBool "tmux" -}}
-{{-   $rust := promptBool "rust" -}}
+{{-   $tmux := promptBool "include tmux" -}}
+{{-   $rust := promptBool "include rust" -}}
+{{-   $work := promptBool "work machine" -}}
 {{- end -}}
 
 [data]
   feature.tmux = {{ $tmux }}
   feature.rust = {{ $rust }}
+  work = {{ $work }}

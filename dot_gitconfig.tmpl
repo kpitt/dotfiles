@@ -1,0 +1,47 @@
+# vim:ft=gitconfig
+
+[user]
+    name = Kenny Pitt
+    # default to personal email
+    email = {{ .email.personal }}
+
+[core]
+    excludesfile = ~/.gitignore
+    quotepath = false
+
+[color]
+    ui = auto
+
+[push]
+    default = upstream
+
+[merge]
+    summary = true
+
+[mergetool "smerge"]
+	cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
+
+[url "git@github.com:"]
+    insteadOf = gh:
+[url "git@bitbucket.org"]
+    insteadOf = bb:
+
+[hub]
+	protocol = ssh
+
+# Include alias definitions from a separate file.
+[include]
+    path = .gitconfig-aliases
+
+{{  if .work -}}
+# Include work-specific settings and overrides.
+# This must come after all of the shared settings.
+[include]
+    path = .gitconfig-work
+{{- end -}}
+
+# Include optional local-only settings last so that they can override
+# anything defined in this configuration.
+[include]
+	path = .gitconfig.local

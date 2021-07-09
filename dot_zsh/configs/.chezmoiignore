@@ -2,3 +2,8 @@
 # macOS-only scripts
 homebrew.zsh
 {{- end }}
+
+{{- if not .work }}
+# scripts for work machines
+post/work_devenv.zsh
+{{- end }}
