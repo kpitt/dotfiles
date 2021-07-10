@@ -4,6 +4,10 @@ if [ -x "$(command -v jump)" ]; then
   eval "$(jump shell)"
 fi
 
+if [ -f "/usr/local/etc/profile.d/z.sh" ]; then
+  . /usr/local/etc/profile.d/z.sh
+fi
+
 # load custom executable functions
 for function in ~/.zsh/functions/*(N-.); do
   source $function
