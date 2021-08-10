@@ -1,0 +1,3 @@
+# vim: syntax=ruby filetype=ruby
+
+brew "kak"

@@ -1,0 +1,116 @@
+# bootstrap the plugin manager
+evaluate-commands %sh{
+    plugins="${kak_config:?}/plugins"
+    mkdir -p "$plugins"
+    [ ! -e "$plugins/plug.kak" ] && \
+        git clone -q https://github.com/andreyorst/plug.kak.git --branch master "$plugins/plug.kak"
+    printf "%s\n" "source '$plugins/plug.kak/rc/plug.kak'"
+}
+
+plug "andreyorst/plug.kak" noload config %{
+    set-option global plug_always_ensure true
+    # set-option global plug_profile true
+    hook global WinSetOption filetype=plug %{
+        remove-highlighter buffer/numbers
+        remove-highlighter buffer/matching
+        remove-highlighter buffer/wrap
+        remove-highlighter buffer/show-whitespaces
+    }
+}
+
+colorscheme tomorrow-night
+
+set-option global ui_options ncurses_set_title=no ncurses_assistant=none
+
+set-option global tabstop 4
+set-option global indentwidth 4
+
+set-option global scrolloff 2,5
+
+# Display line numbers (if not special buffer)
+hook global WinCreate ^[^*]+$ %{
+    add-highlighter window/ number-lines -hlcursor
+}
+
+# Highlight matching brackets
+add-highlighter global/ show-matching
+
+# Find best available grep tool
+eval %sh{
+    for tool in rg ag pt; do
+        if command -V "$tool" >/dev/null 2>/dev/null; then
+            printf "set global grepcmd '%s --column'\n" "$tool"
+        fi
+    done
+}
+
+# Enable editor config
+hook global BufOpenFile .* %{ editorconfig-load }
+hook global BufNewFile .* %{ editorconfig-load }
+
+# Keyboard mappings
+# ─────────────────
+
+# User key mappings
+map global user q ':wq<ret>' -docstring 'save and quit'
+map global user Q ':q<ret>' -docstring 'quit without saving'
+map global user w ':w<ret>' -docstring 'save file'
+map global user b ':buffer-next<ret>' -docstring 'next buffer'
+map global user B ':buffer-previous<ret>' -docstring 'previous buffer'
+
+# Additional mappings
+map global normal '#' :comment-line<ret>
+
+# System clipboard handling
+# ─────────────────────────
+
+evaluate-commands %sh{
+    case $(uname) in
+        Linux)
+            copy="xclip -i -sel clipboard"; paste="xclip -o -sel clipboard"
+            printf "map global user -docstring 'yank to primary selection' Y '<a-|>%s<ret>:echo -markup %%{{Information}copied selection to X11 primary selection}<ret>'\n" "xclip -i"
+            ;;
+        Darwin)
+            copy="pbcopy"; paste="pbpaste" ;;
+    esac
+
+    printf "map global user -docstring 'paste (after) from clipboard' p '<a-!>%s<ret>'\n" "$paste"
+    printf "map global user -docstring 'paste (before) from clipboard' P '!%s<ret>'\n" "$paste"
+    printf "map global user -docstring 'yank to clipboard' y '<a-|>%s<ret>:echo -markup %%{{Information}copied selection to clipboard}<ret>'\n" "$copy"
+    printf "map global user -docstring 'replace from clipboard' R '|%s<ret>'\n" "$paste"
+}
+
+# Plugins
+# ───────
+
+plug "andreyorst/powerline.kak" defer powerline %{
+    set-option global powerline_ignore_warnings true
+    set-option global powerline_format 'git bufname filetype smarttab mode_info line_column position'
+} defer powerline_bufname %{
+    set-option global powerline_shorten_bufname 'short'
+} defer powerline_tomorrow_night %{
+    powerline-theme tomorrow-night
+} config %{
+    powerline-start
+}
+
+plug "andreyorst/smarttab.kak" defer smarttab %{
+    set-option global softtabstop 4
+    set-option global smarttab_expandtab_mode_name   '⋅a⋅'
+    set-option global smarttab_noexpandtab_mode_name '→a→'
+    set-option global smarttab_smarttab_mode_name    '→a⋅'
+    # default to expandtab mode
+    expandtab
+} config %{
+    hook global WinSetOption filetype=(makefile) noexpandtab
+}
+
+plug 'delapouite/kakoune-text-objects'
+plug "icantjuddle/ayu-kak" theme
+
+# plug "andreyorst/fzf.kak" config %{
+#     map -docstring 'fzf mode' global normal '<c-p>' ': fzf-mode<ret>'
+# } defer fzf %{
+#     set-option global fzf_preview_width '65%'
+#     set-option global fzf_project_use_tilde true
+# }
