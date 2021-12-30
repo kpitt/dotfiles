@@ -1,0 +1,13 @@
+# vim: syntax=ruby filetype=ruby
+
+# Pass password manager and important extensions.
+brew "pass"
+brew "pass-otp"
+
+tap "simplydanny/pass-extensions"
+brew "pass-update"
+brew "pass-tail"
+brew "pass-clip"
+
+# GoPass alternative CLI for "pass" password store.
+brew "gopass"
