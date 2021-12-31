@@ -20,6 +20,7 @@ brew "direnv"
 brew "ripgrep"
 
 ## other useful CLI utilities
+brew "bat"
 brew "fd"
 brew "gnupg"
 brew "graphviz"
@@ -36,19 +37,25 @@ brew "htop"
 brew "ncdu"
 brew "tig"
 
+## other miscellaneous tools
+
 # GPG passphrase entry
 brew "pinentry-mac"
 
-## other miscellaneous tools
-#
 # sed for json: https://robots.thoughtbot.com/jq-is-sed-for-json
 brew "jq"
+# jq-like utility for yaml files
+brew "yq"
 
 # Personal manpages, written in Markdown
 brew "um"
 
 # a modern Vim fork
 brew "neovim"
+
+# better formatting of diff and patch output
+brew "diff-so-fancy"
+brew "git-delta"
 
 # CLI for working with GitHub and GitHub Enterprise
 brew "hub"
