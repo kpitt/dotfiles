@@ -1,5 +1,8 @@
 " Vim settings for all instances
 
+" Load Tim Pope's "sensible" vim defaults.
+runtime! plugins/sensible.vim
+
 " Change Leader to <Space>.  This needs to be set early because leader is used
 " at the moment mappings are defined.  Changing it after a mapping is defined
 " has no effect on the mapping.
