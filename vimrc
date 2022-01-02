@@ -9,21 +9,13 @@ runtime! plugins/sensible.vim
 let mapleader=' '
 
 " Initialization "{{{
-set nocompatible
-
 execute pathogen#infect()
 " }}}
 
 " General options "{{{
-set history=50		" keep 50 lines of command line history
-
-behave mswin
-set wildmenu
 set wildmode=longest:full
 "}}}
 " Appearance options "{{{
-set laststatus=2	" show status line all the time
-set ruler		    " show the cursor position all the time
 set cursorline      " highlight the current line
 set statusline=%<%f%(\ %h%m%r%)\ %{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set showcmd		    " display incomplete commands
@@ -49,7 +41,6 @@ if stridx($TERM, "kitty") >= 0
 endif
 "}}}
 " Search options "{{{
-set incsearch		" do incremental searching
 set ignorecase      " use smart case-insensitivity
 set smartcase
 set hlsearch        " highlight the last used search pattern
@@ -66,10 +57,6 @@ endif
 " File handling options "{{{
 set nobackup		" do not keep a backup file
 
-" Enable file type detection and language-dependent indenting.
-filetype on
-filetype plugin indent on
-
 if !has('nvim')
     if !isdirectory($HOME.'/.local/share/vim/swap')
         silent call mkdir($HOME.'/.local/share/vim/swap', 'p')
@@ -80,18 +67,14 @@ endif
 
 " Default file options "{{{
 " (these can be overridden later for specific filetypes)
-set autoindent		" always set autoindenting on
 set tabstop=4       " I almost always use 4-space tabs
 set softtabstop=4
 set shiftwidth=4
-set expandtab       " use spaces, not hard tabs
-set smarttab        " use shiftwidth, not tabstop, at start of line
 set shiftround      " always shift to a multiple of 'shiftwidth'
+set expandtab       " use spaces, not hard tabs
 "}}}
 
 " Keyboard mappings "{{{
-" Allow backspacing over everything in insert mode.
-set backspace=indent,eol,start
 
 " Use Q for formatting the current paragraph or selection.
 nmap Q gqap
