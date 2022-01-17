@@ -1,0 +1,31 @@
+[directory]
+style = "fg:031"
+# Show 2 full parent directories (setting to 0 means no truncation)
+truncation_length = 3
+# truncation_symbol = "…/"
+# Replace shortened dirs with first character
+fish_style_pwd_dir_length = 1
+# When in a Git repo, keep showing parent directories
+truncate_to_repo = false
+repo_root_style = "bold fg:039"
+
+[git_branch]
+style = "fg:076" # green
+
+[git_status]
+format = '([($ahead_behind )\[$all_status\]]($style) )'
+style = "fg:178" # yellow
+conflicted = "[=](fg:196)" # red
+stashed = '[\$](dimmed fg:076)' # dimmed green
+untracked = "[?](fg:039)" # blue
+deleted = "[✘](fg:124)" # dark red
+ahead = "[⇡](fg:076)" # green
+behind = "[⇣](fg:178)" # yellow
+diverged = "[⇡⇣](fg:197)" # red
+
+[git_commit]
+commit_hash_length = 8
+style = "fg:245" # medium gray
+
+[aws]
+disabled = true

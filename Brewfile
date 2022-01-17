@@ -50,6 +50,9 @@ brew "yq"
 # Personal manpages, written in Markdown
 brew "um"
 
+# Prompt: https://starship.rs
+brew "starship"
+
 # a modern Vim fork
 brew "neovim"
 

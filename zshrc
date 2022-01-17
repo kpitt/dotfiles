@@ -57,11 +57,11 @@ export ACK_PAGER=less
 
 [[ -r ~/.rgrc ]] && export RIPGREP_CONFIG_PATH=~/.rgrc
 
+# Enable Starship prompt
+eval "$(starship init zsh)"
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

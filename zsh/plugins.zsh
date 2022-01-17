@@ -16,9 +16,5 @@ antigen bundle zsh-users/zsh-completions
 # Load the SSH agent for git authentication
 antigen bundle ssh-agent
 
-## Load the prompt theme
-#antigen theme robbyrussell
-antigen theme romkatv/powerlevel10k
-
 ## Tell antigen that we're done
 antigen apply
