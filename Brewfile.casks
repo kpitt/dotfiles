@@ -9,12 +9,6 @@ cask "font-inconsolata"
 # Jetbrains Mono font
 cask "font-jetbrains-mono"
 
-# keyboard customization
-cask "karabiner-elements"
-
-# GPG GUI
-cask "gpg-suite-no-mail"
-
 cask "1password"
 cask "appcleaner"
 cask "dropbox"
@@ -22,3 +16,6 @@ cask "google-chrome"
 cask "kitty"
 cask "sublime-merge"
 cask "sublime-text"
+
+# keyboard customization
+cask "karabiner-elements"

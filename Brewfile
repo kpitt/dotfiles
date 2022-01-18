@@ -22,7 +22,6 @@ brew "ripgrep"
 ## other useful CLI utilities
 brew "bat"
 brew "fd"
-brew "gnupg"
 brew "graphviz"
 brew "hexyl"
 brew "jump"
@@ -38,9 +37,6 @@ brew "ncdu"
 brew "tig"
 
 ## other miscellaneous tools
-
-# GPG passphrase entry
-brew "pinentry-mac"
 
 # sed for json: https://robots.thoughtbot.com/jq-is-sed-for-json
 brew "jq"

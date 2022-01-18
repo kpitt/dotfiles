@@ -1,0 +1,5 @@
+# vim: syntax=ruby filetype=ruby
+
+brew "gnupg"
+# passphrase entry
+brew "pinentry-mac"
