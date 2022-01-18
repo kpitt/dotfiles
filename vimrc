@@ -107,14 +107,6 @@ nnoremap <S-F2>  :cprev<CR>
 nnoremap <F3>    :cnfile<CR>
 nnoremap <S-F3>  :cpfile<CR>
 
-" Additional bindings for macOS only.
-if has('osxdarwin')
-    " Use C-K to format with `clang-format`
-    " (this should probably be scoped to specific file types)
-    map <C-K> :pyf ~/.vim/tools/clang-format.py<cr>
-    imap <C-K> <c-o>:pyf ~/.vim/tools/clang-format.py<cr>
-endif
-
 " Plugin key mappings
 nnoremap <C-p> :<C-u>Files<CR>
 "}}}
