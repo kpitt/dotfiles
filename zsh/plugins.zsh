@@ -13,8 +13,17 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 
-# Load the SSH agent for git authentication
-antigen bundle ssh-agent
+# load extra files in ~/.zsh/plugins
+_load_plugins() {
+  setopt localoptions extendedglob
+  _dir="$1"
+  if [ -d "$_dir" ]; then
+    for config in "$_dir"/**/*~*.zwc(N-.); do
+      . $config
+    done
+  fi
+}
+_load_plugins "$HOME/.zsh/plugins"
 
 ## Tell antigen that we're done
 antigen apply
