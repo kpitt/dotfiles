@@ -11,11 +11,16 @@ cask "font-jetbrains-mono"
 
 cask "1password"
 cask "appcleaner"
+cask "daisydisk"
+cask "dash"
 cask "dropbox"
 cask "google-chrome"
 cask "kitty"
+cask "launchbar"
+cask "marked"
 cask "sublime-merge"
 cask "sublime-text"
+cask "workflowy"
 
 # keyboard customization
 cask "karabiner-elements"
