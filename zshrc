@@ -57,9 +57,6 @@ export ACK_PAGER=less
 
 [[ -r ~/.rgrc ]] && export RIPGREP_CONFIG_PATH=~/.rgrc
 
-# Enable Starship prompt
-eval "$(starship init zsh)"
-
 # Local config
 [[ ! -f ~/.zshrc.local ]] || source ~/.zshrc.local
 
