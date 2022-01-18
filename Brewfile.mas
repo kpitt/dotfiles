@@ -1,0 +1,19 @@
+# vim: syntax=ruby filetype=ruby
+
+# Install things from the Mac App Store.
+# To get a list of your current apps: `mas list`.
+
+# *Note* that if these apps were never purchased on your current account, then
+# this script will NOT purchase and install them. This will happen if you're
+# setting up a new account for work, for example.
+mas "Amphetamine", id: 937984704
+mas "Deliveries", id: 290986013
+mas "GoodLinks", id: 1474335294
+mas "iA Writer", id: 775737590
+mas "Magnet", id: 441258766
+mas "Pocket", id: 568494494
+mas "Reading Queue", id: 1387881185
+mas "TaskPaper", id: 1090940630
+mas "Textastic", id: 572491815
+mas "The Unarchiver", id: 425424353
+mas "Things", id: 904280696
