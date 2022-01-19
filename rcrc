@@ -1,5 +1,5 @@
 DOTFILES_DIRS="$HOME/.dotfiles"
-EXCLUDES="init.sh init.cmd system Brewfile Brewfile.casks Brewfile.mas local_templates *.zwc"
+EXCLUDES="system Brewfile Brewfile.casks Brewfile.mas install.sh setup init.cmd local_templates *.zwc"
 SYMLINK_DIRS="vim/bundle vim/colors vim/pack/*/start/* vim/pack/*/opt/* um"
 COPY_ALWAYS="gitconfig Library/Fonts/*"
 UNDOTTED="Library"

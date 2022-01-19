@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo "Installing rust..."
+rustup-init -y > /dev/null
+# Make sure `cargo` is in $PATH
+source $HOME/.cargo/env
+rustup component add clippy
+
+# for `cargo add`
+cargo install edit
