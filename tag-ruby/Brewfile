@@ -1,0 +1,4 @@
+# vim: syntax=ruby filetype=ruby
+# rbenv version manager for Ruby
+brew "rbenv"
+brew "rbenv-default-gems"

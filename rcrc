@@ -3,4 +3,4 @@ EXCLUDES="system Brewfile Brewfile.casks Brewfile.mas install.sh setup init.cmd 
 SYMLINK_DIRS="vim/bundle vim/colors vim/pack/*/start/* vim/pack/*/opt/* um"
 COPY_ALWAYS="gitconfig Library/Fonts/*"
 UNDOTTED="Library"
-TAGS="tmux"
+TAGS="ruby tmux"
