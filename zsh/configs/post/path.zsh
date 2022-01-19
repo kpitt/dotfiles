@@ -1,14 +1,6 @@
 # Prepend user-specific PATH directories, if they exist.
 # Each directory is added to the beginning of the path, so
 # these should be in reverse order of priority.
-
-# This prevents duplicate entries in $PATH (e.g. from other config scripts).
-typeset -U path
-
-# prepend Hombebrew directories to path
-PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-
-# add user bin directories if they exist
 [[ -d $HOME/.local/bin ]] && PATH="$HOME/.local/bin:$PATH"
 [[ -d $HOME/bin ]] && PATH="$HOME/bin:$PATH"
 

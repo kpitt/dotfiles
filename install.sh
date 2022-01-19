@@ -62,9 +62,22 @@ if command_does_not_exist xcodebuild; then
   stay_awake_while xcode-select --install
 fi
 
+# Ensure that Homebrew doesn't send analytics during install.
+export HOMEBREW_NO_ANALYTICS=1
+# Don't show environment hints during install.
+export HOMEBREW_NO_ENV_HINTS=1
+
 info "Installing Homebrew (if not already installed)..."
 if command_does_not_exist brew; then
   stay_awake_while /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  # Check the location of the `brew` command because install path is
+  # different for Apple Silicon.
+  BREW_COMMAND=/usr/local/bin/brew
+  if command_does_not_exist $BREW_COMMAND; then
+    BREW_COMMAND=/opt/homebrew/bin/brew
+  fi
+  # Make sure Homebrew is in the path.
+  eval "$($BREW_COMMAND shellenv)"
 fi
 
 info "Installing Homebrew packages..."
