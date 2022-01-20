@@ -134,5 +134,5 @@ done
 green "== Success!"
 
 yellow "== Post-install instructions =="
-yellow "1. Sign in to 1Password"
-yellow "2. Configure license info for installed apps"
+yellow "You must log out and back in for updated settings to take effect"
+yellow "before proceeding with manual installation steps."
