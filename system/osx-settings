@@ -29,7 +29,7 @@ defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desk
 defaults write com.apple.dock showhidden -bool true
 
 # Show remaining battery percentage (can't show time in recent macOS versions)
-defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool true
 
 # Use current directory as default search scope in Finder
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
