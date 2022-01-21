@@ -82,27 +82,9 @@ fi
 
 info "Installing Homebrew packages..."
 brew tap homebrew/bundle
-brew install mas 2>/dev/null
 for brewfile in Brewfile $(tagged Brewfile); do
   quietly_brew_bundle "$brewfile" --verbose
 done
-
-app_store_id=$(mas account || true)
-desired_app_store_id="kp01@pittcrew.net"
-if [[ "$app_store_id" == "$desired_app_store_id" ]]; then
-  for brewfile in Brewfile.mas $(tagged Brewfile.mas); do
-    quietly_brew_bundle "$brewfile"
-  done
-else
-  if mas account &>/dev/null; then
-    error "You are signed in to the App Store as $app_store_id."
-    error "Sign out and re-sign in as $desired_app_store_id"
-  else
-    error "You are not signed in to the App Store."
-    error "Sign in as $desired_app_store_id"
-  fi
-  error "(This won't affect your iCloud account.)"
-fi
 
 # Brewfile.casks exits 1 sometimes but didn't actually fail
 for brewfile in Brewfile.casks $(tagged Brewfile.casks); do
