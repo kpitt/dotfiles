@@ -39,6 +39,10 @@ colorscheme iceberg " default terminal color scheme, can be overridden for GUI i
 set noshowmode      " only show mode in the airline status bar
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+if stridx($TERM, "kitty") >= 0
+    " Powerline fonts are always available if running Kitty terminal.
+    let g:airline_powerline_fonts = 1
+endif
 "}}}
 " Search options "{{{
 set incsearch		" do incremental searching
