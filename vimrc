@@ -28,7 +28,12 @@ if winwidth(0) >= 80
     set number      " show line numbers unless window is unusually narrow
 endif
 syntax on           " syntax highlighting
-colorscheme nord    " default terminal color scheme, can be overridden for GUI in gvimrc
+
+" Enable truecolor terminal support if available
+if has('termguicolors') && $COLORTERM == "truecolor"
+    set termguicolors
+endif
+colorscheme iceberg " default terminal color scheme, can be overridden for GUI in gvimrc
 
 " Airline configuration settings
 set noshowmode      " only show mode in the airline status bar
