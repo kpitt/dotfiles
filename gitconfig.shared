@@ -149,10 +149,10 @@
     diffFilter = delta --color-only
 
 [delta]
-    plus-style = "syntax #084000"
-    plus-emph-style = "brightwhite #108000"
-    minus-style = "syntax #400000"
-    minus-emph-style = "brightwhite #800000"
+    plus-style = "syntax #344E56"
+    plus-emph-style = "syntax #2E696F"
+    minus-style = "syntax #494049"
+    minus-emph-style = "syntax #67414B"
     syntax-theme = Colddark-Dark
     navigate = true
     line-numbers = true
