@@ -138,3 +138,21 @@
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    plus-style = "syntax #084000"
+    plus-emph-style = "brightwhite #108000"
+    minus-style = "syntax #400000"
+    minus-emph-style = "brightwhite #800000"
+    syntax-theme = Colddark-Dark
+    navigate = true
+    line-numbers = true
