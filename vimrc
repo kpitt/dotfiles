@@ -120,6 +120,7 @@ nnoremap <S-F3>  :cpfile<CR>
 nnoremap <C-p> :<C-u>Files<CR>
 "}}}
 
+" Autocommands {{{
 " For all text files set 'textwidth' to 78 characters.
 autocmd FileType text setlocal textwidth=78
 
@@ -130,6 +131,11 @@ autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \   exe "normal g`\"" |
   \ endif
+
+" Writing pass/gopass files to disk might leak plaintext secrets.
+au BufNewFile,BufRead /private/**/pass** setlocal noswapfile nobackup noundofile
+au BufNewFile,BufRead /private/**/gopass** setlocal noswapfile nobackup noundofile
+"}}}
 
 " Diff Mode options "{{{
 if &diff
