@@ -11,12 +11,15 @@ export HOMEBREW_BAT=1
 # Disable additional hints about environment config.
 export HOMEBREW_NO_ENV_HINTS=1
 
-# Initialize Homebrew depending on Intel or Apple Silicon
+# Initialize Homebrew depending on Intel or Apple Silicon.
 if command -v /opt/homebrew/bin/brew > /dev/null; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 else
     eval "$(/usr/local/bin/brew shellenv)"
 fi
+
+# Make sure Homebrew-installed completions are on the FPATH.
+fpath+="$(brew --prefix)/share/zsh/site-functions"
 # }}}
 
 source ~/.zsh/plugins.zsh
