@@ -7,6 +7,9 @@
 # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
 
+# Get macOS major version because some settings are version-dependent.
+os_major=$(sw_vers -productVersion | cut -d. -f1)
+
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
@@ -96,7 +99,12 @@ defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder ShowStatusBar -bool true
 
 # Display full POSIX path as Finder window title
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+# (only if macOS < 11 because there isn't room in the updated Finder UI)
+if [[ os_major -lt 11 ]]; then
+    defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+else
+    defaults write com.apple.finder _FXShowPosixPathInTitle -bool false
+fi
 
 # Keep folders on top when sorting by name
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
