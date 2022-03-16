@@ -20,15 +20,6 @@ set guioptions-=t
 " turn it off to save space.
 set guioptions-=T
 
-" Set personal GUI colors  {{{
-if v:version >= 600
-  set background=dark
-  "colorscheme vwilight
-  "colorscheme zenburn
-  colorscheme iceberg
-endif
-" }}}
-
 " Additional GUI-only airline options
 let g:airline#extensions#tabline#enabled = 1
 

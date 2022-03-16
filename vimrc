@@ -33,6 +33,7 @@ syntax on           " syntax highlighting
 if has('termguicolors') && $COLORTERM == "truecolor"
     set termguicolors
 endif
+set background=dark " set background before colorscheme to avoid possible screen flash
 colorscheme iceberg " default terminal color scheme, can be overridden for GUI in gvimrc
 
 " Airline configuration settings
