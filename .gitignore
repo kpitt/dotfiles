@@ -4,5 +4,8 @@
 ## ZSH Antigen
 *.zwc
 
-## Homebrew
+## Homebrew lock files
 Brewfile*.lock.json
+
+## Vim temp files
+*.swp

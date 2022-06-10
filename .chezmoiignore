@@ -1,0 +1,24 @@
+# Setup files
+install.sh
+init.cmd
+setup
+Brewfile*
+system/
+
+# Directories that hold symlink targets
+vim/
+
+# Templates for "*.local" override files.  These are intended to be
+# manually copied to the appropriate location as needed.
+local_templates/
+
+# These are generated cache files that appear for rcm because everything
+# symlinked back to the repo directory.  The file-copy behavior of chezmoi
+# may make ignoring these unnecessary.
+# *.zwc
+
+# Ignore rcm `tag-*` directories until updated for chezmoi feature flags
+tag-*/
+
+# Ignore rcm config file.  It will be removed after conversion is complete.
+rcrc
