@@ -153,6 +153,6 @@
     plus-emph-style = "syntax #2E696F"
     minus-style = "syntax #494049"
     minus-emph-style = "syntax #67414B"
-    syntax-theme = Colddark-Dark
+    syntax-theme = Coldark-Dark
     navigate = true
     line-numbers = true
