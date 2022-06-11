@@ -5,5 +5,7 @@
 {{-   $email = promptString "email" -}}
 {{- end -}}
 
+sourceDir = {{ .chezmoi.sourceDir | quote }}
+
 [data]
     email = {{ $email | quote }}
