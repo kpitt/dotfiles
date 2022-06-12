@@ -2,10 +2,16 @@
 
 [user]
     name = Kenny Pitt
+    email = {{ .email }}
 
 [core]
     excludesfile = ~/.gitignore
     quotepath = false
+{{- if eq .chezmoi.os "windows" }}
+    autocrlf = true
+{{- else }}
+    autocrlf = input
+{{- end }}
 
 [color]
     ui = auto
