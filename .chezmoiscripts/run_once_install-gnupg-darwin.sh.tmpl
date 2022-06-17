@@ -1,0 +1,15 @@
+{{- if and .features.gnupg (eq .chezmoi.os "darwin") -}}
+#!/bin/bash
+set -e
+
+. "{{ .chezmoi.sourceDir }}/script-helpers.sh"
+
+info "Installing gnupg packages..."
+quietly_brew_bundle /dev/stdin --verbose <<EOF
+brew "gnupg"
+brew "pinentry-mac"
+cask "gpg-suite-no-mail"
+EOF
+
+# vim: syntax=bash filetype=bash
+{{ end -}}

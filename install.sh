@@ -82,14 +82,9 @@ fi
 
 info "Installing Homebrew packages..."
 brew tap homebrew/bundle
-for brewfile in Brewfile $(tagged Brewfile); do
-  quietly_brew_bundle "$brewfile" --verbose
-done
-
+quietly_brew_bundle Brewfile --verbose
 # Brewfile.casks exits 1 sometimes but didn't actually fail
-for brewfile in Brewfile.casks $(tagged Brewfile.casks); do
-  quietly_brew_bundle "$brewfile" || true
-done
+quietly_brew_bundle Brewfile.casks || true
 
 if ! echo "$SHELL" | grep -Fq zsh; then
   info "Your shell is not Zsh. Changing it to Zsh..."
@@ -105,13 +100,6 @@ info "Creating ~/Desktop/screenshots so screenshots can be saved there..."
 mkdir -p ~/Desktop/screenshots
 
 stay_awake_while ./system/osx-settings
-
-info "Running all setup scripts..."
-for setup in $(tagged setup); do
-  dir=$(basename "$(dirname "$setup")")
-  info "Running setup for ${dir#tag-}..."
-  . "$setup"
-done
 
 green "== Success!"
 

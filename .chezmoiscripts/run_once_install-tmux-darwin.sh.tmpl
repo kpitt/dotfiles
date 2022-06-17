@@ -1,0 +1,13 @@
+{{- if and .features.tmux (eq .chezmoi.os "darwin") -}}
+#!/bin/bash
+set -e
+
+. "{{ .chezmoi.sourceDir }}/script-helpers.sh"
+
+info "Installing tmux packages..."
+quietly_brew_bundle /dev/stdin --verbose <<EOF
+brew "tmux"
+EOF
+
+# vim: syntax=bash filetype=bash
+{{ end -}}

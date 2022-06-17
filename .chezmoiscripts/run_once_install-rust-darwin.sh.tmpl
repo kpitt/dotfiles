@@ -1,0 +1,21 @@
+{{- if and .features.rust (eq .chezmoi.os "darwin") -}}
+#!/bin/bash
+set -e
+
+. "{{ .chezmoi.sourceDir }}/script-helpers.sh"
+
+info "Installing rust packages..."
+quietly_brew_bundle /dev/stdin --verbose <<EOF
+brew "rustup-init"
+EOF
+
+info "Installing rust..."
+rustup-init -y --no-modify-path > /dev/null
+# Make sure `cargo` is in $PATH
+source $HOME/.cargo/env
+
+# for `cargo add`
+cargo install edit
+
+# vim: syntax=bash filetype=bash
+{{ end -}}

@@ -1,4 +1,0 @@
-# vim: syntax=ruby filetype=ruby
-
-# GPG GUI
-cask "gpg-suite-no-mail"

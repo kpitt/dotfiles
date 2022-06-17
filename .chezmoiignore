@@ -1,12 +1,14 @@
 # Setup files
 install.sh
 init.cmd
-setup
 Brewfile*
 system/
 
 # Directories that hold symlink targets
 vim/
+
+# Helper functions for chezmoi setup scripts
+script-helpers.sh
 
 # Templates for "*.local" override files.  These are intended to be
 # manually copied to the appropriate location as needed.
