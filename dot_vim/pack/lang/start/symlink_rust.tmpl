@@ -1,1 +1,3 @@
-{{ .chezmoi.sourceDir }}/tag-rust/vim/pack/lang/start/rust
+{{- if .features.rust -}}
+{{ .chezmoi.sourceDir }}/vim/lang/rust
+{{- end -}}

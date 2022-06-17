@@ -8,8 +8,10 @@
 PATH="$HOME/.bin:$PATH"
 
 # Rust
-[[ -r "$HOME"/.cargo/env ]] && source "$HOME"/.cargo/env
-alias ci="cargo install --path . --force"
+if [[ -r "$HOME"/.cargo/env ]]; then
+  source "$HOME"/.cargo/env
+  alias ci="cargo install --path . --force"
+fi
 
 # rbenv
 if command -v rbenv &>/dev/null; then
