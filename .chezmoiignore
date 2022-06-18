@@ -1,6 +1,5 @@
 # Setup files
 install.sh
-init.cmd
 Brewfile*
 system/
 
