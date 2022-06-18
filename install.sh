@@ -96,9 +96,6 @@ info "Linking dotfiles into ~..."
 export RCRC=rcrc
 stay_awake_while rcup -d .
 
-info "Creating ~/Desktop/screenshots so screenshots can be saved there..."
-mkdir -p ~/Desktop/screenshots
-
 stay_awake_while ./system/osx-settings
 
 green "== Success!"
