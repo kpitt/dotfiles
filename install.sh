@@ -29,19 +29,6 @@ error(){
   red "!! $@"
 }
 
-tags=( $(grep TAGS rcrc | cut -d '"' -f 2) )
-tag_dirs=( "${tags[@]/#/tag-}" )
-
-# Generates a list of files in enabled tag directories.
-# Use with command substitution: $(tagged filename)
-tagged(){
-  for f in ${tag_dirs[@]/%//$1}; do
-    if [[ -f "$f" ]]; then
-      echo "$f"
-    fi
-  done
-}
-
 stay_awake_while(){
   caffeinate -dims "$@"
 }
@@ -90,11 +77,6 @@ if ! echo "$SHELL" | grep -Fq zsh; then
   info "Your shell is not Zsh. Changing it to Zsh..."
   chsh -s /bin/zsh
 fi
-
-info "Linking dotfiles into ~..."
-# Before `rcup` runs, there is no ~/.rcrc, so we must tell `rcup` where to look.
-export RCRC=rcrc
-stay_awake_while rcup -d .
 
 stay_awake_while ./system/osx-settings
 

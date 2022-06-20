@@ -1,8 +1,7 @@
 # vim: syntax=ruby filetype=ruby
 
-tap "thoughtbot/formulae"
-# rcm: dotfile management
-brew "rcm"
+# dotfile management
+brew "chezmoi"
 
 brew "ack"
 brew "bat"
