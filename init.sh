@@ -14,6 +14,7 @@ command_does_not_exist(){
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
 
+info "Checking for Homebrew..."
 if command_does_not_exist brew; then
   info "Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
