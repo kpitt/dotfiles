@@ -2,7 +2,7 @@
 #!/bin/bash
 
 # Ensure that we are in the dotfiles directory.
-cd $(dirname $0)
+cd "{{ .chezmoi.sourceDir }}"
 DOTFILES_ROOT=$(pwd)
 
 set -eo pipefail
