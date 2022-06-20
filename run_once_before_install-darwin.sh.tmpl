@@ -1,5 +1,5 @@
+{{- if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
-# vim: tw=0
 
 # Ensure that we are in the dotfiles directory.
 cd $(dirname $0)
@@ -85,3 +85,6 @@ green "== Success!"
 yellow "== Post-install instructions =="
 yellow "You must log out and back in for updated settings to take effect"
 yellow "before proceeding with manual installation steps."
+
+# vim: syntax=bash filetype=bash tw=0
+{{ end -}}
