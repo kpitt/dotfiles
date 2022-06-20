@@ -1,8 +1,5 @@
 # vim: syntax=ruby filetype=ruby
 
-# dotfile management
-brew "chezmoi"
-
 brew "ack"
 brew "bat"
 brew "ctags"
