@@ -35,6 +35,7 @@ brew tap homebrew/bundle
 ( brew bundle --no-lock --file=/dev/stdin --verbose || true ) <<EOB
 cask "1password"
 cask "1password-cli"
+brew "age"
 brew "chezmoi"
 EOB
 

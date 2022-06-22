@@ -29,17 +29,23 @@ These are my personal home-directory dotfiles, managed by [chezmoi](https://www.
     export SSH_AUTH_SOCK=~/.1password/agent.sock
     ```
 
-6. Initialize the `chezmoi` configuration and download the dotfiles repository.
+6. Run the `init_age.sh` bootstrap script to install the identity file for `age` encryption.
+
+    ```sh
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/kpitt/dotfiles/chezmoi/init_age.sh)"
+    ```
+
+7. Initialize the `chezmoi` configuration and download the dotfiles repository.
 
     ```sh
     chezmoi init kpitt -S ~/.dotfiles --branch chezmoi --ssh
     ```
 
-7. Edit the file `~/.config/chezmoi/chezmoi.toml` and confirm the settings, or modify them as needed.
-8. Apply the `chezmoi` configuration to the home-directory.
+8. Edit the file `~/.config/chezmoi/chezmoi.toml` and confirm the settings, or modify them as needed.
+9. Apply the `chezmoi` configuration to the home-directory.
 
     ```sh
     chezmoi apply
     ```
 
-9. After `chezmoi apply` completes successfully, close the terminal window and restart the machine to make sure that any updates to the system settings take effect.
+10. After `chezmoi apply` completes successfully, close the terminal window and restart the machine to make sure that any updates to the system settings take effect.

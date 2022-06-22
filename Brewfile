@@ -1,6 +1,7 @@
 # vim: syntax=ruby filetype=ruby
 
 brew "ack"
+brew "age"
 brew "bat"
 brew "ctags"
 brew "diff-so-fancy"
