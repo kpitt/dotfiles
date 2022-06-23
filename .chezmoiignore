@@ -2,6 +2,7 @@ README.md
 
 # Setup files
 init.sh
+init_age.sh
 Brewfile*
 system/
 
