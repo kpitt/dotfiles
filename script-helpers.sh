@@ -1,29 +1,44 @@
-set -eo pipefail
+#!/bin/bash source-this-script
 
-color() {
-  local colornumber="$1"
+# This script draws heavily from the Homebrew installer script:
+#   https://raw.githubusercontent.com/Homebrew/install/master/install.sh
+
+abort() {
+  printf "%s\n" "$@" >&2
+  exit 1
+}
+
+# string formatters
+if [[ -t 1 ]]; then
+  tty_escape() { printf "\033[%sm" "$1"; }
+else
+  tty_escape() { :; }
+fi
+tty_mkbold() { tty_escape "1;$1"; }
+tty_underline="$(tty_escape "4;39")"
+tty_blue="$(tty_mkbold 34)"
+tty_bold="$(tty_mkbold 39)"
+tty_reset="$(tty_escape 0)"
+
+shell_join() {
+  local arg
+  printf "%s" "$1"
   shift
-  tput setaf "$colornumber"
-  echo "$*"
-  tput sgr0
+  for arg in "$@"
+  do
+    printf " "
+    printf "%s" "${arg// /\ }"
+  done
 }
 
-# blue = 4
-# magenta = 5
-red(){ color 1 "$*"; }
-green(){ color 2 "$*"; }
-yellow(){ color 3 "$*"; }
-
-info(){
-  green "=== $@"
+info() {
+  printf "${tty_blue}==>${tty_bold} %s${tty_reset}\n" "$(shell_join "$@")"
 }
 
-warn(){
-  yellow "** $@"
-}
-
-error(){
-  red "!! $@"
+execute() {
+  if ! "$@"; then
+    abort "$(printf "Failed during: %s" "$(shell_join "$@")")"
+  fi
 }
 
 stay_awake_while(){
@@ -37,6 +52,6 @@ quietly_brew_bundle(){
   stay_awake_while brew bundle --no-lock --file="$brewfile" "$@" | (grep -vE "$regex" || true)
 }
 
-command_does_not_exist(){
-  ! command -v "$1" > /dev/null
+is_command(){
+  command -v "$1" > /dev/null
 }

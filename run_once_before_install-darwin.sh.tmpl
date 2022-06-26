@@ -16,14 +16,13 @@ export HOMEBREW_NO_ENV_HINTS=1
 
 # The bootstrap script also installs Homebrew, but we check again here
 # in case the bootstrap scipt wasn't used.
-info "Checking for Homebrew..."
-if command_does_not_exist brew; then
+if ! is_command brew; then
   info "Installing Homebrew..."
   stay_awake_while /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   # Check the location of the `brew` command because install path is
   # different for Apple Silicon.
   BREW_COMMAND=/usr/local/bin/brew
-  if command_does_not_exist $BREW_COMMAND; then
+  if ! is_command $BREW_COMMAND; then
     BREW_COMMAND=/opt/homebrew/bin/brew
   fi
   # Make sure Homebrew is in the path.
@@ -39,17 +38,19 @@ quietly_brew_bundle Brewfile --verbose
 quietly_brew_bundle Brewfile.casks || true
 
 if ! echo "$SHELL" | grep -Fq zsh; then
-  info "Your shell is not Zsh. Changing it to Zsh..."
-  chsh -s /bin/zsh
+  info "Changing default shell to Zsh..."
+  execute chsh -s /bin/zsh
 fi
 
+info "Updating macOS system settings..."
 stay_awake_while ./system/osx-settings
 
-green "== Success!"
+info "Success!"
+echo
 
-yellow "== Post-install instructions =="
-yellow "You must log out and back in for updated settings to take effect"
-yellow "before proceeding with manual installation steps."
+info "Next steps:"
+echo "You must log out and back in for updated system settings to take effect."
+echo
 
 # vim: syntax=bash filetype=bash tw=0
 {{ end -}}
