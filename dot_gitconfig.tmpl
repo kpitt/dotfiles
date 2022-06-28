@@ -163,3 +163,10 @@
     syntax-theme = Coldark-Dark
     navigate = true
     line-numbers = true
+
+# Optional extension files (last value wins, so order is important)
+[include]
+    # work can override personal
+    path = ~/.gitconfig-work
+    # local can override anything
+    path = ~/.gitconfig-local
