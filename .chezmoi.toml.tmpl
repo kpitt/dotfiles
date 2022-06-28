@@ -1,5 +1,6 @@
 {{/* feature flag default values */}}
 {{- $gnupg := false -}}
+{{- $java  := false -}}
 {{- $ruby  := true  -}}
 {{- $rust  := true  -}}
 
@@ -7,6 +8,9 @@
 {{- with .features -}}
 {{-   if hasKey . "gnupg" -}}
 {{-     $gnupg = .gnupg -}}
+{{-   end -}}
+{{-   if hasKey . "java" -}}
+{{-     $java = .java -}}
 {{-   end -}}
 {{-   if hasKey . "ruby" -}}
 {{-     $ruby = .ruby -}}
@@ -31,5 +35,6 @@ email = {{ $email | quote }}
 
   [data.features]
   gnupg = {{ $gnupg }}
+  java = {{ $java }}
   ruby = {{ $ruby }}
   rust = {{ $rust }}

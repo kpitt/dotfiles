@@ -1,0 +1,47 @@
+{{- if and .features.java (eq .chezmoi.os "darwin") -}}
+#!/bin/bash
+set -e
+
+. "{{ .chezmoi.sourceDir }}/script-helpers.sh"
+require_homebrew
+
+installing_feature "Java"
+
+install_packages <<'EOB'
+# Make sure we always have a system default version
+tap "homebrew/cask-versions"
+cask "zulu11"
+
+# Other versions will be installed via `asdf`
+brew "asdf"
+
+# Install standard Java build tools
+brew "ant"
+brew "ant-contrib"
+brew "maven"
+brew "gradle"
+EOB
+
+# Ensure that `asdf` is loaded.
+ASDF_PREFIX="$(brew --prefix asdf)"
+. "${ASDF_PREFIX}/asdf.sh"
+
+asdf_plugin_exists() {
+  (asdf plugin list | rg -x "$1" > /dev/null)
+}
+
+if ! asdf_plugin_exists java; then
+  info "Installing asdf java plugin..."
+  asdf plugin add java
+else
+  info "Updating asdf java plugin:"
+  asdf plugin update java
+fi
+
+info "Installing latest Zulu Java 11 (LTS):"
+asdf install java latest:zulu-11
+# Use Java 11 as the global default
+asdf global java latest:zulu-11
+
+# vim: syntax=bash filetype=bash
+{{ end -}}
