@@ -2,7 +2,6 @@
 {{- $gnupg := false -}}
 {{- $ruby  := true  -}}
 {{- $rust  := true  -}}
-{{- $tmux  := false -}}
 
 {{/* preserve feature flag edits */}}
 {{- with .features -}}
@@ -14,9 +13,6 @@
 {{-   end -}}
 {{-   if hasKey . "rust" -}}
 {{-     $rust = .rust -}}
-{{-   end -}}
-{{-   if hasKey . "tmux" -}}
-{{-     $tmux = .tmux -}}
 {{-   end -}}
 {{- end -}}
 
@@ -37,4 +33,3 @@ email = {{ $email | quote }}
   gnupg = {{ $gnupg }}
   ruby = {{ $ruby }}
   rust = {{ $rust }}
-  tmux = {{ $tmux }}
