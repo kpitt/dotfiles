@@ -30,6 +30,17 @@
 
 sourceDir = {{ .chezmoi.sourceDir | quote }}
 
+{{/* age encryption */}}
+{{- $age_key_file := joinPath .chezmoi.homeDir ".config/age/me.key.txt" -}}
+{{- if stat $age_key_file -}}
+encryption = "age"
+
+[age]
+identity = {{ $age_key_file | quote }}
+recipient = "age1wx4x86nt97ya4tfmfhkpj8urfylwlqg8vjg206wy0w2jn9d57sfsc76efl"
+
+{{ end -}}
+
 [data]
 email = {{ $email | quote }}
 
