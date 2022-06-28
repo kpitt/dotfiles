@@ -3,9 +3,11 @@
 set -e
 
 . "{{ .chezmoi.sourceDir }}/script-helpers.sh"
+require_homebrew
 
-info "Installing gnupg packages..."
-quietly_brew_bundle /dev/stdin --verbose <<EOF
+installing_feature "GnuPG"
+
+install_packages <<EOF
 brew "gnupg"
 brew "pinentry-mac"
 cask "gpg-suite-no-mail"

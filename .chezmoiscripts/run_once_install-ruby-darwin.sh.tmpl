@@ -3,9 +3,11 @@
 set -e
 
 . "{{ .chezmoi.sourceDir }}/script-helpers.sh"
+require_homebrew
 
-info "Installing ruby packages..."
-quietly_brew_bundle /dev/stdin --verbose <<EOF
+installing_feature "Ruby"
+
+install_packages <<EOF
 brew "rbenv"
 brew "rbenv-default-gems"
 EOF

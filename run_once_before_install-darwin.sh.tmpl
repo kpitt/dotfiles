@@ -31,7 +31,7 @@ else
   info "Homebrew is already installed."
 fi
 
-info "Installing Homebrew packages..."
+info "Installing or updating Homebrew packages..."
 brew tap homebrew/bundle
 quietly_brew_bundle Brewfile --verbose
 # Brewfile.casks exits 1 sometimes but didn't actually fail

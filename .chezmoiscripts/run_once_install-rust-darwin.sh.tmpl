@@ -3,13 +3,15 @@
 set -e
 
 . "{{ .chezmoi.sourceDir }}/script-helpers.sh"
+require_homebrew
 
-info "Installing rust packages..."
-quietly_brew_bundle /dev/stdin --verbose <<EOF
+installing_feature "Rust"
+
+install_packages <<EOF
 brew "rustup-init"
 EOF
 
-info "Installing rust..."
+info "Installing rust toolchain..."
 rustup-init -y --no-modify-path > /dev/null
 # Make sure `cargo` is in $PATH
 source $HOME/.cargo/env

@@ -3,9 +3,12 @@
 set -e
 
 . "{{ .chezmoi.sourceDir }}/script-helpers.sh"
+require_homebrew
+
+installing_feature "tmux"
 
 info "Installing tmux packages..."
-quietly_brew_bundle /dev/stdin --verbose <<EOF
+install_packages <<EOF
 brew "tmux"
 EOF
 
