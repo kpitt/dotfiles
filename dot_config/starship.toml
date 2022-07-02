@@ -27,5 +27,9 @@ diverged = "[⇡⇣](fg:197)" # red
 commit_hash_length = 8
 style = "fg:245" # medium gray
 
+[c]
+# C/C++ version detection is too slow
+disabled = true
+
 [aws]
 disabled = true
