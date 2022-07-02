@@ -28,6 +28,14 @@
 {{-   $email = promptString "email" -}}
 {{- end -}}
 
+{{/* prompt for work machine */}}
+{{- $work := "" -}}
+{{- if hasKey . "work" -}}
+{{-   $work = .work -}}
+{{- else if stdinIsATTY -}}
+{{-   $work = promptBool "work" -}}
+{{- end -}}
+
 sourceDir = {{ .chezmoi.sourceDir | quote }}
 
 {{/* age encryption */}}
@@ -43,6 +51,7 @@ recipient = "age1wx4x86nt97ya4tfmfhkpj8urfylwlqg8vjg206wy0w2jn9d57sfsc76efl"
 
 [data]
 email = {{ $email | quote }}
+work = {{ $work }}
 
   [data.features]
   gnupg = {{ $gnupg }}
