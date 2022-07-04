@@ -10,22 +10,20 @@ truncate_to_repo = false
 repo_root_style = "bold fg:039"
 
 [git_branch]
-style = "fg:076" # green
-
-[git_status]
-format = '([($ahead_behind )\[$all_status\]]($style) )'
-style = "fg:178" # yellow
-conflicted = "[=](fg:196)" # red
-stashed = '[\$](dimmed fg:076)' # dimmed green
-untracked = "[?](fg:039)" # blue
-deleted = "[✘](fg:124)" # dark red
-ahead = "[⇡](fg:076)" # green
-behind = "[⇣](fg:178)" # yellow
-diverged = "[⇡⇣](fg:197)" # red
+only_attached = true
 
 [git_commit]
+format = "at [($tag )](bold purple)[\\($hash\\)]($style) "
 commit_hash_length = 8
+tag_disabled = false
+tag_symbol = "#"
 style = "fg:245" # medium gray
+
+[git_status]
+format = '([\[$conflicted$deleted$renamed$modified$staged$untracked\]]($style) )[($ahead_behind$stashed )](cyan)'
+conflicted = "~"
+stashed = "≡"
+diverged = "⇡⇣"
 
 [c]
 # C/C++ version detection is too slow
