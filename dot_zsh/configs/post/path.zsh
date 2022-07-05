@@ -18,6 +18,11 @@ if command -v rbenv &>/dev/null; then
   eval "$(rbenv init - zsh)"
 fi
 
+# jenv
+if command -v jenv &>/dev/null; then
+  eval "$(jenv init - zsh)"
+fi
+
 # mkdir .git/safe in the root of repositories you trust
 PATH=".git/safe/../../bin:$PATH"
 

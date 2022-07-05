@@ -12,8 +12,8 @@ install_packages <<'EOB'
 tap "homebrew/cask-versions"
 cask "zulu11"
 
-# Other versions will be installed via `asdf`
-brew "asdf"
+# Use `jenv` to manage alternate versions
+brew "jenv"
 
 # Install standard Java build tools
 brew "ant"
@@ -23,26 +23,13 @@ brew "gradle"
 brew "bazelisk"
 EOB
 
-# Ensure that `asdf` is loaded.
-ASDF_PREFIX="$(brew --prefix asdf)"
-. "${ASDF_PREFIX}/asdf.sh"
-
-asdf_plugin_exists() {
-  (asdf plugin list | rg -x "$1" > /dev/null)
-}
-
-if ! asdf_plugin_exists java; then
-  info "Installing asdf java plugin..."
-  asdf plugin add java
+if [[ ! -d ~/.jenv/versions/11.0 ]]; then
+  # No Java 11 alias, so try to add the default Java 11 JDK
+  jenv add "$(/usr/libexec/java_home -v 11)"
 else
-  info "Updating asdf java plugin:"
-  asdf plugin update java
+  # Refresh version aliases in case Homebrew upgraded `zulu11`
+  jenv refresh-versions
 fi
-
-info "Installing latest Zulu Java 11 (LTS):"
-asdf install java latest:zulu-11
-# Use Java 11 as the global default
-asdf global java latest:zulu-11
 
 # vim: syntax=bash filetype=bash
 {{ end -}}
