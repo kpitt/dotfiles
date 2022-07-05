@@ -1,6 +1,3 @@
-## Load the Antigen plugin manager
-source ~/.zsh/antigen.zsh
-
 # Disable oh-my-zsh "paste-magic" functions for faster paste at command prompt.
 DISABLE_MAGIC_FUNCTIONS=true
 # Load the oh-my-zsh library
@@ -13,6 +10,8 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 
+antigen theme romkatv/powerlevel10k
+
 # load extra files in ~/.zsh/plugins
 _load_plugins() {
   setopt localoptions extendedglob
@@ -24,6 +23,3 @@ _load_plugins() {
   fi
 }
 _load_plugins "$HOME/.zsh/plugins"
-
-## Tell antigen that we're done
-antigen apply

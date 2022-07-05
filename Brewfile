@@ -40,9 +40,6 @@ brew "diffutils"
 # Personal manpages, written in Markdown
 brew "um"
 
-# Prompt: https://starship.rs
-brew "starship"
-
 # Git Large File Support
 brew "git-lfs"
 
