@@ -15,12 +15,12 @@ fi
 
 # rbenv
 if command -v rbenv &>/dev/null; then
-  eval "$(rbenv init - zsh)"
+  _evalcache rbenv-init rbenv init - zsh
 fi
 
 # jenv
 if command -v jenv &>/dev/null; then
-  eval "$(jenv init - zsh)"
+  _evalcache jenv-init jenv init - zsh
 fi
 
 # mkdir .git/safe in the root of repositories you trust

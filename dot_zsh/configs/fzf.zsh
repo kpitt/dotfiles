@@ -1,4 +1,4 @@
-FZF_HOME=$(brew --prefix)/opt/fzf
+FZF_HOME=${HOMEBREW_PREFIX}/opt/fzf
 if [[ -d $FZF_HOME ]]
 then
     # Auto-completion

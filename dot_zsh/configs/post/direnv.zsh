@@ -1,2 +1,2 @@
 # Install `chpwd` hook to update environment.
-eval "$(direnv hook zsh)"
+_evalcache direnv-init direnv hook zsh

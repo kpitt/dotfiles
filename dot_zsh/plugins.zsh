@@ -23,3 +23,4 @@ _load_plugins() {
   fi
 }
 _load_plugins "$HOME/.zsh/plugins"
+unset -f _load_plugins

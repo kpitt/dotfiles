@@ -19,7 +19,7 @@ else
 fi
 
 # Make sure Homebrew-installed completions are on the FPATH.
-fpath+="$(brew --prefix)/share/zsh/site-functions"
+fpath+="${HOMEBREW_PREFIX}/share/zsh/site-functions"
 # }}}
 
 ## Load the Antigen plugin manager
@@ -36,6 +36,28 @@ fi
 
 # Load and initialize the plugins
 antigen apply
+
+_evalcache() {
+  local cache_dir="$HOME/.cache/zsh/init"
+  local cache_filename="$1"
+  shift
+
+  local cacheFile="${cache_dir}/${cache_filename}.zsh"
+
+  if [ -s "$cacheFile" ]; then
+    source "$cacheFile"
+  else
+    if command -v "$1" > /dev/null; then
+      mkdir -p "$cache_dir"
+      "$@" > "$cacheFile"
+      source "$cacheFile"
+    fi
+  fi
+}
+
+_evalcache_clear() {
+  rm -i "$HOME/.cache/zsh/init"/*.zsh
+}
 
 # load custom executable functions
 for function in ~/.zsh/functions/*(N-.); do
@@ -73,6 +95,7 @@ _load_settings() {
   fi
 }
 _load_settings "$HOME/.zsh/configs"
+unset -f _load_settings
 
 # i   smart case search ala Vim
 # R   color
