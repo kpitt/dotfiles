@@ -7,26 +7,12 @@ require_homebrew
 
 installing_feature "Ruby"
 
-install_packages <<EOF
-brew "rbenv"
-brew "rbenv-default-gems"
-EOF
+install_packages <<BUNDLE
+brew "chruby"
+brew "ruby-install"
+BUNDLE
 
-# Load rbenv in case it's the first time installing
-eval "$(rbenv init -)"
-
-latest_ruby_version(){
-  rbenv install -l 2>/dev/null | rg '^\d' | tail -1
-}
-
-latest_ruby="$(latest_ruby_version)"
-info "Installing latest Ruby (version $latest_ruby)..."
-if rbenv versions | rg "$latest_ruby" > /dev/null; then
-  echo "Already installed"
-else
-  rbenv install "$latest_ruby"
-  rbenv global "$latest_ruby"
-fi
+ruby-install --latest
 
 # vim: syntax=bash filetype=bash
 {{ end -}}

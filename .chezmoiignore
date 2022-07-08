@@ -12,4 +12,9 @@ vim/
 # Helper functions for chezmoi setup scripts
 script-helpers.sh
 
+# Ignore files for features that are not enabled
+{{ if not .features.ruby }}
+.zsh/configs/chruby.zsh
+{{ end }}
+
 # EOF

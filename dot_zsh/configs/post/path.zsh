@@ -13,11 +13,6 @@ if [[ -r "$HOME"/.cargo/env ]]; then
   alias ci="cargo install --path . --force"
 fi
 
-# rbenv
-if command -v rbenv &>/dev/null; then
-  _evalcache rbenv-init rbenv init - zsh
-fi
-
 # jenv
 if command -v jenv &>/dev/null; then
   _evalcache jenv-init jenv init - zsh
