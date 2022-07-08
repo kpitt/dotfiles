@@ -22,7 +22,6 @@ brew "tree"
 brew "vim"
 brew "wget"
 brew "xz"
-brew "z"
 
 ## useful ncurses utilities
 brew "htop"
