@@ -53,10 +53,9 @@ _evalcache_clear() {
   rm -i "$HOME/.cache/zsh/init"/*.zsh
 }
 
-# load custom executable functions
-for function in ~/.zsh/functions/*(N-.); do
-  source $function
-done
+# autoload custom executable functions
+fpath+="$HOME/.zsh/functions"
+autoload -Uz $HOME/.zsh/functions/*(.:t)
 
 # extra files in ~/.zsh/configs/pre , ~/.zsh/configs , and ~/.zsh/configs/post
 # these are loaded first, second, and third, respectively.
