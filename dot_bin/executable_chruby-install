@@ -1,0 +1,131 @@
+#!/usr/bin/env bash
+#
+# Portions of this script are derived from functionality in the
+# `rbenv-install` and `ruby-build` scripts from `rbenv`.
+set -e
+[[ -n "$CHRUBY_INSTALL_DEBUG" ]] && set -x
+
+num_cpu_cores() {
+  local num
+  case "$(uname -s)" in
+  Darwin | *BSD )
+    num="$(sysctl -n hw.ncpu 2>/dev/null || true)"
+    ;;
+  SunOS )
+    num="$(getconf NPROCESSORS_ONLN 2>/dev/null || true)"
+    ;;
+  * )
+    num="$({ getconf _NPROCESSORS_ONLN ||
+             grep -c ^processor /proc/cpuinfo; } 2>/dev/null)"
+    num="${num#0}"
+    ;;
+  esac
+  echo "${num:-2}"
+}
+
+usage() {
+	cat <<'USAGE'
+Usage: chruby-install [-kfU] [<ruby-version>]
+       chruby-install -l|--list
+       chruby-install -L|--latest
+       chruby-install -V|--version
+
+  -k, --keep    Do not remove source tree after installation
+  -f, --force   Install even if the version appears to be installed already
+  -U, --update  Download the latest ruby versions before installing
+  -l, --list    List latest stable releases for each supported Ruby
+  -V, --version Show version of ruby-install
+  -h, --help    Show this help message
+
+If <ruby-version> is not specified, chruby-install will try to determine
+a local Ruby version to install by searching for a `.ruby-version` file.
+
+USAGE
+}
+
+read_version_file() {
+  local dir="$PWD/" version
+
+	until [[ -z "$dir" ]]; do
+		dir="${dir%/*}"
+
+		if { read -r version <"$dir/.ruby-version"; } 2>/dev/null || [[ -n "$version" ]]; then
+      echo "$version"
+      return
+		fi
+	done
+}
+
+argv=()
+install_opts=()
+unset FORCE
+unset KEEP
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    -l|--list)
+      exec ruby-install
+      ;;
+    -U|--update)
+      install_opts+=("--latest")
+      shift
+      ;;
+    -f|--force)
+      FORCE=true
+      shift
+      ;;
+    -k|--keep)
+      KEEP=true
+      shift
+      ;;
+    -V|--version)
+      exec ruby-install --version
+      ;;
+    -*)
+      echo "chruby-install: unrecognized option $1" >&2
+      exit 1
+      ;;
+    *)
+      argv+=($1)
+      shift
+      ;;
+  esac
+done
+
+if (( UID == 0 )); then
+  echo "chruby-install: cannot be run as root" >&2
+  exit 1
+fi
+
+cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/ruby-install"
+
+install_opts+=("--src-dir" "$cache_dir/src")
+install_opts+=("--jobs" "$(num_cpu_cores)")
+install_opts+=("--no-install-deps")
+[[ -n "$FORCE" ]] || install_opts+=("--no-reinstall")
+[[ -n "$KEEP" ]] || install_opts+=("--cleanup")
+
+case ${#argv[*]} in
+  2) install_opts+=("${argv[0]}" "${argv[1]}") ;;
+  1) install_opts+=("${argv[0]}") ;;
+  0)
+    auto_ver="$(read_version_file)"
+    if [[ -z "$auto_ver" ]]; then
+      echo 'chruby-install: no `.ruby-version` file was found' >&2
+      exit 1
+    else
+      install_opts+=("$auto_ver")
+    fi
+    ;;
+  *)
+    echo "chruby-install: too many arguments: ${argv[*]}" >&2
+    usage >&2
+    exit 1
+    ;;
+esac
+
+exec ruby-install ${install_opts[@]}

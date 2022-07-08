@@ -15,6 +15,7 @@ script-helpers.sh
 # Ignore files for features that are not enabled
 {{ if not .features.ruby }}
 .zsh/configs/chruby.zsh
+.bin/chruby-install
 {{ end }}
 
 # EOF
