@@ -9,6 +9,9 @@ let mapleader=' '
 set nocompatible
 
 execute pathogen#infect()
+
+" chezmoi plugin must be loaded early before `syntax` or `filetype` options
+packadd chezmoi
 " }}}
 
 " General options "{{{
