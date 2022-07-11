@@ -18,4 +18,8 @@ script-helpers.sh
 .bin/chruby-install
 {{ end }}
 
+{{ if not .features.rust }}
+.zsh/pack/syntax/start/rust
+{{ end }}
+
 # EOF
