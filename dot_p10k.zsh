@@ -66,23 +66,19 @@
     # java_version          # java version (https://www.java.com/)
     # package               # name@version from package.json (https://docs.npmjs.com/files/package.json)
     rbenv                   # ruby version from rbenv (https://github.com/rbenv/rbenv)
-    rvm                     # ruby version from rvm (https://rvm.io)
     fvm                     # flutter version management (https://github.com/leoafarias/fvm)
     luaenv                  # lua version from luaenv (https://github.com/cehoffman/luaenv)
     jenv                    # java version from jenv (https://github.com/jenv/jenv)
     plenv                   # perl version from plenv (https://github.com/tokuhirom/plenv)
-    perlbrew                # perl version from perlbrew (https://github.com/gugod/App-perlbrew)
     phpenv                  # php version from phpenv (https://github.com/phpenv/phpenv)
     scalaenv                # scala version from scalaenv (https://github.com/scalaenv/scalaenv)
     haskell_stack           # haskell version from stack (https://haskellstack.org/)
     context                 # user@hostname
-    nordvpn                 # nordvpn connection status, linux only (https://nordvpn.com/)
     ranger                  # ranger shell (https://github.com/ranger/ranger)
     nnn                     # nnn shell (https://github.com/jarun/nnn)
     xplr                    # xplr shell (https://github.com/sayanarijit/xplr)
     vim_shell               # vim shell indicator (:sh)
     midnight_commander      # midnight commander shell (https://midnight-commander.org/)
-    nix_shell               # nix shell (https://nixos.org/nixos/nix-pills/developing-with-nix-shell.html)
     # vpn_ip                # virtual private network indicator
     # load                  # CPU load
     # disk_usage            # disk usage
@@ -691,15 +687,6 @@
   # typeset -g POWERLEVEL9K_ASDF_JULIA_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_JULIA_SHOW_ON_UPGLOB='*.foo|*.bar'
 
-  ##########[ nordvpn: nordvpn connection status, linux only (https://nordvpn.com/) ]###########
-  # NordVPN connection indicator color.
-  typeset -g POWERLEVEL9K_NORDVPN_FOREGROUND=39
-  # Hide NordVPN connection indicator when not connected.
-  typeset -g POWERLEVEL9K_NORDVPN_{DISCONNECTED,CONNECTING,DISCONNECTING}_CONTENT_EXPANSION=
-  typeset -g POWERLEVEL9K_NORDVPN_{DISCONNECTED,CONNECTING,DISCONNECTING}_VISUAL_IDENTIFIER_EXPANSION=
-  # Custom icon.
-  # typeset -g POWERLEVEL9K_NORDVPN_VISUAL_IDENTIFIER_EXPANSION='⭐'
-
   #################[ ranger: ranger shell (https://github.com/ranger/ranger) ]##################
   # Ranger shell color.
   typeset -g POWERLEVEL9K_RANGER_FOREGROUND=178
@@ -729,16 +716,6 @@
   typeset -g POWERLEVEL9K_MIDNIGHT_COMMANDER_FOREGROUND=178
   # Custom icon.
   # typeset -g POWERLEVEL9K_MIDNIGHT_COMMANDER_VISUAL_IDENTIFIER_EXPANSION='⭐'
-
-  #[ nix_shell: nix shell (https://nixos.org/nixos/nix-pills/developing-with-nix-shell.html) ]##
-  # Nix shell color.
-  typeset -g POWERLEVEL9K_NIX_SHELL_FOREGROUND=74
-
-  # Tip: If you want to see just the icon without "pure" and "impure", uncomment the next line.
-  # typeset -g POWERLEVEL9K_NIX_SHELL_CONTENT_EXPANSION=
-
-  # Custom icon.
-  # typeset -g POWERLEVEL9K_NIX_SHELL_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   ##################################[ disk_usage: disk usage ]##################################
   # Colors for different levels of disk usage.
@@ -1052,16 +1029,6 @@
   # Custom icon.
   # typeset -g POWERLEVEL9K_RBENV_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
-  #######################[ rvm: ruby version from rvm (https://rvm.io) ]########################
-  # Rvm color.
-  typeset -g POWERLEVEL9K_RVM_FOREGROUND=168
-  # Don't show @gemset at the end.
-  typeset -g POWERLEVEL9K_RVM_SHOW_GEMSET=false
-  # Don't show ruby- at the front.
-  typeset -g POWERLEVEL9K_RVM_SHOW_PREFIX=false
-  # Custom icon.
-  # typeset -g POWERLEVEL9K_RVM_VISUAL_IDENTIFIER_EXPANSION='⭐'
-
   ###########[ fvm: flutter version management (https://github.com/leoafarias/fvm) ]############
   # Fvm color.
   typeset -g POWERLEVEL9K_FVM_FOREGROUND=38
@@ -1106,16 +1073,6 @@
   typeset -g POWERLEVEL9K_PLENV_SHOW_SYSTEM=true
   # Custom icon.
   # typeset -g POWERLEVEL9K_PLENV_VISUAL_IDENTIFIER_EXPANSION='⭐'
-
-  ###########[ perlbrew: perl version from perlbrew (https://github.com/gugod/App-perlbrew) ]############
-  # Perlbrew color.
-  typeset -g POWERLEVEL9K_PERLBREW_FOREGROUND=67
-  # Show perlbrew version only when in a perl project subdirectory.
-  typeset -g POWERLEVEL9K_PERLBREW_PROJECT_ONLY=true
-  # Don't show "perl-" at the front.
-  typeset -g POWERLEVEL9K_PERLBREW_SHOW_PREFIX=false
-  # Custom icon.
-  # typeset -g POWERLEVEL9K_PERLBREW_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   ############[ phpenv: php version from phpenv (https://github.com/phpenv/phpenv) ]############
   # PHP color.
