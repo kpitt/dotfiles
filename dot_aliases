@@ -1,5 +1,16 @@
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
+## chezmoi commands ##
+alias cmed='chezmoi edit --apply'
+alias cmen='chezmoi edit'
+alias cms='chezmoi status'
+alias cmapp='chezmoi apply'
+alias cmdry='chezmoi apply --dry-run --verbose'
+alias cma='chezmoi add'
+alias cmrm='chezmoi remove'
+alias cmup='chezmoi update'
+alias cmmrg='chezmoi merge'
+
 # Include custom aliases
 [[ ! -f ~/.aliases.local ]] || source ~/.aliases.local
