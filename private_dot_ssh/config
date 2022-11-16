@@ -1,3 +1,9 @@
 Host *
+    # enable persistent connection multiplexing
+    ControlMaster auto
+    ControlPath /tmp/ssh-%r@%h:%p
+    ControlPersist 10m
+
+    # cache private key passwords in Apple Keychain
     UseKeychain yes
     AddKeysToAgent yes
