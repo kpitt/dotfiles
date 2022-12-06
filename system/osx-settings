@@ -146,6 +146,9 @@ chflags nohidden ~/Library
 # Dock, menu bar, and hot corners                                             #
 ###############################################################################
 
+# Set a reasonable size for the dock icons
+defaults write com.apple.Dock tilesize -int 48
+
 # Minimize windows into their application's icon
 defaults write com.apple.dock minimize-to-application -bool true
 
