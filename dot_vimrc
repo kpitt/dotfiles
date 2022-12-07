@@ -17,6 +17,11 @@ call plug#begin('~/.vim/plugged')
 " chezmoi plugin must be loaded early, before other syntax or filetype plugins
 Plug 'alker0/chezmoi.vim'
 
+" Color schemes
+Plug 'cocopon/iceberg.vim'
+Plug 'tomasr/molokai'
+Plug 'sjl/badwolf'
+
 call plug#end()
 " }}}
 " }}}

@@ -16,24 +16,15 @@
 [submodule "vim/bundle/markdown"]
 	path = vim/bundle/markdown
 	url = https://github.com/tpope/vim-markdown.git
-[submodule "vim/bundle/molokai"]
-	path = vim/bundle/molokai
-	url = https://github.com/tomasr/molokai.git
 [submodule "vim/bundle/scala"]
 	path = vim/bundle/scala
 	url = https://github.com/derekwyatt/vim-scala.git
-[submodule "vim/bundle/badwolf"]
-	path = vim/bundle/badwolf
-	url = https://github.com/sjl/badwolf.git
 [submodule "vim/bundle/ps1"]
 	path = vim/bundle/ps1
 	url = https://github.com/PProvost/vim-ps1.git
 [submodule "vim/bundle/coffee-script"]
 	path = vim/bundle/coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule "vim/bundle/iceberg"]
-	path = vim/bundle/iceberg
-	url = https://github.com/cocopon/iceberg.vim.git
 [submodule "vim/bundle/taskpaper"]
 	path = vim/bundle/taskpaper
 	url = https://github.com/davidoc/taskpaper.vim.git
