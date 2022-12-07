@@ -17,6 +17,15 @@ call plug#begin('~/.vim/plugged')
 " chezmoi plugin must be loaded early, before other syntax or filetype plugins
 Plug 'alker0/chezmoi.vim'
 
+" General
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
+Plug 'kana/vim-textobj-user' | Plug 'kana/vim-textobj-entire' | Plug 'kana/vim-textobj-indent'
+Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim'
+
+Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+
 " Color schemes
 Plug 'cocopon/iceberg.vim'
 Plug 'tomasr/molokai'
