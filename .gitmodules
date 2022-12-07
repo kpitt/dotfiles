@@ -31,9 +31,6 @@
 [submodule "vim/bundle/coffee-script"]
 	path = vim/bundle/coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule "vim/bundle/zenburn"]
-	path = vim/bundle/zenburn
-	url = https://github.com/jnurmine/Zenburn.git
 [submodule "vim/bundle/iceberg"]
 	path = vim/bundle/iceberg
 	url = https://github.com/cocopon/iceberg.vim.git
@@ -46,9 +43,6 @@
 [submodule "vim/bundle/typescript"]
 	path = vim/bundle/typescript
 	url = https://github.com/leafgarland/typescript-vim.git
-[submodule "vim/bundle/nord"]
-	path = vim/bundle/nord
-	url = https://github.com/arcticicestudio/nord-vim.git
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
