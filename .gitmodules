@@ -70,9 +70,6 @@
 [submodule "vim/pack/plugins/start/vim-unimpaired"]
 	path = vim/plugins/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
-[submodule "vim/syntax/chezmoi"]
-	path = vim/syntax/chezmoi
-	url = https://github.com/alker0/chezmoi.vim
 [submodule "vim/plugins/editorconfig-vim"]
 	path = vim/plugins/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git

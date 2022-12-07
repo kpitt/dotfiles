@@ -8,10 +8,17 @@ let mapleader=' '
 " Initialization "{{{
 set nocompatible
 
+" Handle legacy bundles during conversion to `vim-plug`
 execute pathogen#infect()
 
-" chezmoi plugin must be loaded early before `syntax` or `filetype` options
-packadd chezmoi
+" Plugins {{{
+call plug#begin('~/.vim/plugged')
+
+" chezmoi plugin must be loaded early, before other syntax or filetype plugins
+Plug 'alker0/chezmoi.vim'
+
+call plug#end()
+" }}}
 " }}}
 
 " General options "{{{
