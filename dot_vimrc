@@ -8,10 +8,58 @@ let mapleader=' '
 " Initialization "{{{
 set nocompatible
 
-execute pathogen#infect()
+" Plugins {{{
+call plug#begin('~/.vim/plugged')
 
-" chezmoi plugin must be loaded early before `syntax` or `filetype` options
-packadd chezmoi
+" chezmoi plugin must be loaded early, before other syntax or filetype plugins
+Plug 'alker0/chezmoi.vim'
+
+" General
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
+Plug 'kana/vim-textobj-user' | Plug 'kana/vim-textobj-entire' | Plug 'kana/vim-textobj-indent'
+Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim'
+
+Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+
+" Color Schemes
+Plug 'cocopon/iceberg.vim'
+Plug 'tomasr/molokai'
+Plug 'sjl/badwolf'
+
+" General Programming
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'editorconfig/editorconfig-vim'
+
+" Configuration Files
+Plug 'cespare/vim-toml'
+Plug 'fladson/vim-kitty'
+
+" Programming Languages
+Plug 'elzr/vim-json'
+Plug 'leafgarland/typescript-vim'
+Plug 'kchmck/vim-coffee-script'
+
+Plug 'fatih/vim-go'
+
+Plug 'rust-lang/rust.vim'
+
+Plug 'derekwyatt/vim-scala'
+Plug 'derekwyatt/vim-sbt'
+
+" Markup Languages
+Plug 'tpope/vim-markdown'
+Plug 'kpitt/vim-liquid'
+Plug 'mattn/emmet-vim'
+
+" Miscellaneous
+Plug 'davidoc/taskpaper.vim'
+Plug 'PProvost/vim-ps1'
+
+call plug#end()
+" }}}
 " }}}
 
 " General options "{{{
