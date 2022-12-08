@@ -8,9 +8,6 @@ let mapleader=' '
 " Initialization "{{{
 set nocompatible
 
-" Handle legacy bundles during conversion to `vim-plug`
-execute pathogen#infect()
-
 " Plugins {{{
 call plug#begin('~/.vim/plugged')
 
