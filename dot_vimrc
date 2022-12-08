@@ -36,6 +36,31 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'editorconfig/editorconfig-vim'
 
+" Configuration Files
+Plug 'cespare/vim-toml'
+Plug 'fladson/vim-kitty'
+
+" Programming Languages
+Plug 'elzr/vim-json'
+Plug 'leafgarland/typescript-vim'
+Plug 'kchmck/vim-coffee-script'
+
+Plug 'fatih/vim-go'
+
+Plug 'rust-lang/rust.vim'
+
+Plug 'derekwyatt/vim-scala'
+Plug 'derekwyatt/vim-sbt'
+
+" Markup Languages
+Plug 'tpope/vim-markdown'
+Plug 'kpitt/vim-liquid'
+Plug 'mattn/emmet-vim'
+
+" Miscellaneous
+Plug 'davidoc/taskpaper.vim'
+Plug 'PProvost/vim-ps1'
+
 call plug#end()
 " }}}
 " }}}
