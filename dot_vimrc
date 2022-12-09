@@ -5,8 +5,13 @@
 " has no effect on the mapping.
 let mapleader=' '
 
-" Initialization "{{{
 set nocompatible
+
+" Use local before config if available {{{
+    if filereadable(expand("~/.vimrc.before.local"))
+        source ~/.vimrc.before.local
+    endif
+" }}}
 
 " Plugins {{{
 call plug#begin('~/.vim/plugged')
@@ -59,7 +64,6 @@ Plug 'davidoc/taskpaper.vim'
 Plug 'PProvost/vim-ps1'
 
 call plug#end()
-" }}}
 " }}}
 
 " General options "{{{
@@ -211,9 +215,10 @@ if &diff
 endif
 "}}}
 
-" Local config
-if filereadable($HOME . "/.vimrc.local")
-  source ~/.vimrc.local
-endif
+" Use local vimrc if available {{{
+    if filereadable(expand("~/.vimrc.local"))
+        source ~/.vimrc.local
+    endif
+" }}}
 
 " vim:foldmethod=marker:foldlevel=0
