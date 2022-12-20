@@ -6,11 +6,11 @@ init_age.sh
 Brewfile*
 system/
 
-# Directories that hold symlink targets
-vim/
-
 # Helper functions for chezmoi setup scripts
 script-helpers.sh
+
+# macOS metadata files
+**/.DS_Store
 
 # Ignore files for features that are not enabled
 {{ if not .features.ruby }}
