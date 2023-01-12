@@ -5,6 +5,7 @@
 [core]
     excludesfile = ~/.gitignore
     quotepath = false
+    untrackedcache = true
 
 [color]
     ui = auto
