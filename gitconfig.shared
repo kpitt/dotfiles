@@ -87,7 +87,7 @@
     # Basic convenience shortcuts
     ci = commit
     co = checkout
- 
+
     ## Shortcuts for working with submodules
     sm = submodule
     sma = submodule add
