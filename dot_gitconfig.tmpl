@@ -57,8 +57,13 @@
     branches = branch -a
     remotes = remote -v
 
-    # List stashes
+    # Shortcuts for stashes
     stashes = stash list
+
+    sapply = stash apply
+    sdrop = stash drop
+    slist = stash list
+    spop = stash pop
 
     # List aliases
     aliases = "!git config -l | grep '^alias\\.' | cut -c 7-"
