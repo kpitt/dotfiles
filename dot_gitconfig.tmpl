@@ -149,6 +149,10 @@
     merged = "!f() { DEFAULT=$(git default-branch); git branch --merged ${1-$DEFAULT} | grep -v " ${1-$DEFAULT}$"; }; f"
     bclean = "!f() { DEFAULT=$(git default-branch); git merged ${1-$DEFAULT} | xargs git branch -d; }; f"
 
+    ## Shortcut names for additional Git tools in `~/.bin`
+    in = incoming
+    out = outgoing
+
 [url "git@github.com:"]
     insteadOf = gh:
 [url "git@bitbucket.org"]
