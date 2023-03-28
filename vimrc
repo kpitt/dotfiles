@@ -30,9 +30,15 @@ endif
 syntax on           " syntax highlighting
 
 " Enable truecolor terminal support if available
-if has('termguicolors') && $COLORTERM == "truecolor"
+if exists('+termguicolors') && $COLORTERM == "truecolor"
+    " Use 24-bit GUI colors in terminal, if supported.
+    if !has('nvim') && exists('$TMUX') && &term == "screen-256color"
+        " Vim messes up the term codes inside tmux, so reset the term type.
+        set term=xterm-256color
+    endif
     set termguicolors
 endif
+
 set background=dark " set background before colorscheme to avoid possible screen flash
 colorscheme iceberg " default terminal color scheme, can be overridden for GUI in gvimrc
 
