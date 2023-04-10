@@ -24,7 +24,9 @@ Plug 'sjl/badwolf'
 " General Programming
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'editorconfig/editorconfig-vim'
+if !has('nvim-0.9')
+    Plug 'editorconfig/editorconfig-vim'
+endif
 
 " Configuration Files
 Plug 'cespare/vim-toml'
