@@ -2,7 +2,7 @@
 call plug#begin('~/.vim/plugged')
 " }}}
 
-" Plugins {{{
+" Shared Plugins {{{
 
 " chezmoi plugin must be loaded early, before other syntax or filetype plugins
 Plug 'alker0/chezmoi.vim'
@@ -51,6 +51,14 @@ Plug 'mattn/emmet-vim'
 Plug 'davidoc/taskpaper.vim'
 Plug 'PProvost/vim-ps1'
 
+" }}}
+
+" NeoVim Plugins {{{
+if has('nvim')
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+endif
 " }}}
 
 " Use local plugins config if available {{{
