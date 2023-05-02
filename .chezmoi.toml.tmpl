@@ -20,21 +20,9 @@
 {{-   end -}}
 {{- end -}}
 
-{{/* prompt for email address */}}
-{{- $email := "" -}}
-{{- if hasKey . "email" -}}
-{{-   $email = .email -}}
-{{- else if stdinIsATTY -}}
-{{-   $email = promptString "email" -}}
-{{- end -}}
-
-{{/* prompt for work machine */}}
-{{- $work := "" -}}
-{{- if hasKey . "work" -}}
-{{-   $work = .work -}}
-{{- else if stdinIsATTY -}}
-{{-   $work = promptBool "work" -}}
-{{- end -}}
+{{/* prompt for common configuration options */}}
+{{- $email := promptStringOnce . "email" "email address" -}}
+{{- $work := promptBoolOnce . "work" "work machine" -}}
 
 sourceDir = {{ .chezmoi.sourceDir | quote }}
 
