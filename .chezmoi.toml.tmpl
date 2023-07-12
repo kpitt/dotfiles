@@ -1,28 +1,20 @@
-{{/* feature flag default values */}}
+{{/* default option values */}}
+{{- $email := ""    -}}
+{{- $work  := false -}}
 {{- $gnupg := false -}}
 {{- $java  := false -}}
 {{- $ruby  := true  -}}
-{{- $rust  := true  -}}
+{{- $rust  := false -}}
 
-{{/* preserve feature flag edits */}}
-{{- with .features -}}
-{{-   if hasKey . "gnupg" -}}
-{{-     $gnupg = .gnupg -}}
-{{-   end -}}
-{{-   if hasKey . "java" -}}
-{{-     $java = .java -}}
-{{-   end -}}
-{{-   if hasKey . "ruby" -}}
-{{-     $ruby = .ruby -}}
-{{-   end -}}
-{{-   if hasKey . "rust" -}}
-{{-     $rust = .rust -}}
-{{-   end -}}
-{{- end -}}
+{{/* retrieve existing option values, or prompt if missing */}}
+{{/* to change values later, just edit the generated config file */}}
+{{- $email := promptStringOnce . "email" "email address"       -}}
+{{- $work  := promptBoolOnce   . "work"  "work machine"  $work -}}
 
-{{/* prompt for common configuration options */}}
-{{- $email := promptStringOnce . "email" "email address" -}}
-{{- $work := promptBoolOnce . "work" "work machine" -}}
+{{- $gnupg := promptBoolOnce . "features.gnupg" "install gnupg" $gnupg -}}
+{{- $java  := promptBoolOnce . "features.java"  "install java"  $java  -}}
+{{- $ruby  := promptBoolOnce . "features.ruby"  "install ruby"  $ruby  -}}
+{{- $rust  := promptBoolOnce . "features.rust"  "install rust"  $rust  -}}
 
 sourceDir = {{ .chezmoi.sourceDir | quote }}
 
@@ -44,6 +36,6 @@ onepasswordAccount = "E7LGR7SZ3VHB5PVJ5TE2MOTTRE"
 
   [data.features]
   gnupg = {{ $gnupg }}
-  java = {{ $java }}
-  ruby = {{ $ruby }}
-  rust = {{ $rust }}
+  java  = {{ $java }}
+  ruby  = {{ $ruby }}
+  rust  = {{ $rust }}
