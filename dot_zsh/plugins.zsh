@@ -17,6 +17,9 @@ antigen bundle agkozak/zsh-z
 
 antigen theme romkatv/powerlevel10k
 
+## Tell antigen that we're done
+antigen apply
+
 # load extra files in ~/.zsh/plugins
 _load_plugins() {
   setopt localoptions extendedglob
@@ -29,6 +32,3 @@ _load_plugins() {
 }
 _load_plugins "$HOME/.zsh/plugins"
 unset -f _load_plugins
-
-## Tell antigen that we're done
-antigen apply
