@@ -24,8 +24,8 @@
     summary = true
 
 [mergetool "smerge"]
-	cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
-	trustExitCode = true
+    cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+    trustExitCode = true
 
 [alias]
 
@@ -99,7 +99,7 @@
     ci = commit
     co = checkout
     cob = checkout -b
- 
+
     ## Shortcuts for working with submodules
     sm = submodule
     sma = submodule add
@@ -139,7 +139,7 @@
 
     smmerge = mergetool -y --tool=bc3
 
-    ## GitHub Flow aliases 
+    ## GitHub Flow aliases
     ## (see <https://haacked.com/archive/2014/07/28/github-flow-aliases/>)
     save = !git add -A && git commit -m 'SAVEPOINT'
     wip = commit -am 'WIP'
@@ -159,13 +159,13 @@
     insteadOf = bb:
 
 [hub]
-	protocol = ssh
+    protocol = ssh
 
 [filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
 
 [pager]
     diff = delta
