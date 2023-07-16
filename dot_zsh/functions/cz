@@ -1,0 +1,9 @@
+# No arguments: `chezmoi status`
+# With arguments: acts like `chezmoi`
+cz() {
+  if [[ $# -gt 0 ]]; then
+    chezmoi "$@"
+  else
+    chezmoi status
+  fi
+}
