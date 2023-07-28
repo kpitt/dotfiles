@@ -17,7 +17,7 @@ Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 
 " Color Schemes
-Plug 'cocopon/iceberg.vim'
+Plug 'kpitt/iceberg.vim'
 Plug 'tomasr/molokai'
 Plug 'sjl/badwolf'
 
