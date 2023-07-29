@@ -176,12 +176,30 @@
 [interactive]
     diffFilter = delta --color-only
 
+[color "diff"]
+    meta = "yellow"
+    frag = "magenta bold"
+    commit = "yellow bold"
+    old = "red bold"
+    new = "green bold"
+    func = "bold blue"
+    whitespace = "red reverse"
+
+[color "diff-highlight"]
+    oldNormal = "red bold"
+    oldHighlight = "bold #ceb0b6 #53343b"
+    newNormal = "green bold"
+    newHighlight = "bold #c0c5b9 #45493e"
+
 [delta]
-    plus-style = "syntax #344E56"
-    plus-emph-style = "syntax #2E696F"
-    minus-style = "syntax #494049"
-    minus-emph-style = "syntax #67414B"
-    syntax-theme = Coldark-Dark
+    plus-style = "syntax #45493e"
+    plus-emph-style = "bold syntax #5E664F"
+    minus-style = "syntax #432A30"
+    minus-emph-style = "bold syntax #76424E"
+    line-numbers-plus-style = "#9DA865"
+    line-numbers-minus-style = "#D45252"
+    line-numbers-zero-style = "#444B71"
+    syntax-theme = Nord
     navigate = true
     line-numbers = true
 
