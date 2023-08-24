@@ -59,6 +59,7 @@ Plug 'PProvost/vim-ps1'
 if has('nvim')
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 
 endif
 " }}}
