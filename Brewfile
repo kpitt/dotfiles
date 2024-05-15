@@ -11,9 +11,12 @@ brew "fzf"
 brew "gh"
 brew "git"
 brew "git-delta"
+brew "git-lfs"
+brew "glow" # replacement for mdcat
 brew "graphviz"
 brew "hexyl"
 brew "jump"
+brew "mdcat" # deprecated
 brew "p7zip"
 brew "pstree"
 brew "ripgrep"
@@ -24,8 +27,9 @@ brew "vim"
 brew "wget"
 brew "xz"
 
-## useful ncurses utilities
+## useful TUI utilities
 brew "htop"
+brew "lazygit"
 brew "ncdu"
 brew "tig"
 
@@ -39,9 +43,6 @@ brew "diffutils"
 
 # Personal manpages, written in Markdown
 brew "um"
-
-# Git Large File Support
-brew "git-lfs"
 
 # a modern Vim fork
 brew "neovim"
