@@ -35,13 +35,16 @@
     }
   },
 
-  "features": { "copilot": false },
-  "telemetry": { "metrics": false },
+  "features": {
+    "inline_completion_provider": "none"
+  },
   "assistant": {
     "version": "1",
     "enabled": false,
     "button": false
   },
+  "show_copilot_suggestions": false,
   "chat_panel": { "button": false },
-  "collaboration_panel": { "button": false }
+  "collaboration_panel": { "button": false },
+  "telemetry": { "metrics": false }
 }
