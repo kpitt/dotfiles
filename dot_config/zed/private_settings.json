@@ -20,7 +20,7 @@
 
   "project_panel": { "auto_fold_dirs": true },
 
-  "language_overrides": {
+  "languages": {
     "Scheme": {
       "tab_size": 2
     }
@@ -43,8 +43,9 @@
     "enabled": false,
     "button": false
   },
-  "show_copilot_suggestions": false,
+  "show_inline_completions": false,
   "chat_panel": { "button": false },
   "collaboration_panel": { "button": false },
+  "notification_panel": { "button": false },
   "telemetry": { "metrics": false }
 }
