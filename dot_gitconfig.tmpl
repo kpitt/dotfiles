@@ -23,6 +23,9 @@
 [merge]
     summary = true
 
+[init]
+	defaultBranch = main
+
 [mergetool "smerge"]
     cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
     trustExitCode = true
