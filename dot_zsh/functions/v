@@ -8,6 +8,6 @@ v(){
 # "vim recent", a quick and dirty version of https://github.com/rupa/v
 vr(){
   local file=$(awk '/^>/ { sub(/^> /, "") ; print }' ~/.viminfo | fzf)
-  vim "${file/\~/$HOME}"
+  ${VISUAL:-vim} "${file/\~/$HOME}"
 }
 
