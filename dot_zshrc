@@ -38,7 +38,7 @@ _evalcache() {
 
   local cacheFile="${cache_dir}/${cache_filename}.zsh"
 
-  if [ -s "$cacheFile" ]; then
+  if [[ -s "$cacheFile" ]]; then
     source "$cacheFile"
   else
     if command -v "$1" > /dev/null; then
@@ -64,8 +64,8 @@ fi
 _load_settings() {
   setopt localoptions extendedglob
   _dir="$1"
-  if [ -d "$_dir" ]; then
-    if [ -d "$_dir/pre" ]; then
+  if [[ -d "$_dir" ]]; then
+    if [[ -d "$_dir/pre" ]]; then
       for config in "$_dir"/pre/**/*~*.zwc(N-.); do
         . $config
       done
@@ -82,7 +82,7 @@ _load_settings() {
       esac
     done
 
-    if [ -d "$_dir/post" ]; then
+    if [[ -d "$_dir/post" ]]; then
       for config in "$_dir"/post/**/*~*.zwc(N-.); do
         . $config
       done

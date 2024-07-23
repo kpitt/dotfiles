@@ -24,7 +24,7 @@ antigen apply
 _load_plugins() {
   setopt localoptions extendedglob
   _dir="$HOME/.zsh/plugins"
-  if [ -d "$_dir" ]; then
+  if [[ -d "$_dir" ]]; then
     for config in "$_dir"/**/*~*.zwc(N-.); do
       . $config
     done
