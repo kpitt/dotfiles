@@ -44,5 +44,8 @@ brew "diffutils"
 # Personal manpages, written in Markdown
 brew "um"
 
+# System information utility, with terminal colors sample.
+brew "fastfetch"
+
 # a modern Vim fork
 brew "neovim"
