@@ -2,6 +2,8 @@
 alias path='echo $PATH | tr -s ":" "\n"'
 
 ## chezmoi commands ##
+alias cz='chezmoi'
+alias czs='chezmoi status'
 alias cze='chezmoi edit'
 alias czea='chezmoi edit --apply'
 alias czap='chezmoi apply'
@@ -11,5 +13,9 @@ alias czdf='chezmoi diff'
 alias czmg='chezmoi merge'
 alias czup='chezmoi update'
 
-# Include custom aliases
+## git commands ##
+alias g='git'
+alias gs='git status -sb'
+
+# Include local-only aliases
 [[ ! -f ~/.aliases.local ]] || source ~/.aliases.local
