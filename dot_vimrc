@@ -57,6 +57,8 @@ if stridx($TERM, "kitty") >= 0
     " Powerline fonts are always available if running Kitty terminal.
     let g:airline_powerline_fonts = 1
 endif
+" simplify the file position format
+let g:airline_section_z='%#__accent_bold#%l/%L:%v%#__restore__# %p%%'
 "}}}
 " Search options "{{{
 set incsearch		" do incremental searching
