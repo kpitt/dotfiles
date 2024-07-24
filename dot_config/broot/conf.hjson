@@ -1,0 +1,74 @@
+###############################################################
+# Configuration documentation is available at
+#     https://dystroy.org/broot
+#
+# This file's format is Hjson ( https://hjson.github.io/ ).
+#
+###############################################################
+
+# Show git info by default (use `br -G` to disable).
+default_flags: "-g"
+
+terminal_title: "[broot] {git-name}"
+show_selection_mark: false
+syntax_theme: OceanDark
+
+# https://docs.rs/chrono/0.4.11/chrono/format/strftime/index.html
+date_time_format: %F %R
+
+# ESC quits broot when there's nothing left to cancel
+quit_on_last_cancel: true
+
+content_search_max_file_size: 10MB
+lines_before_match_in_preview: 1
+lines_after_match_in_preview: 1
+
+max_panels_count: 2
+
+# Set this only if true color is not detected correctly.
+# true_colors: false
+
+# Uncomment to display file icons.
+# icon_theme: nerdfont
+
+# Uncomment to keep working dir unchanged when switching panels.
+# update_work_dir: false
+
+###############################################################
+# Special paths
+# Setting "list":"never" on a dir prevents broot from looking at its 
+#  children when searching, unless the dir is the selected root.
+# Setting "sum":"never" on a dir prevents broot from looking at its
+#  children when computing the total size and count of files.
+# Setting "show":"always" makes a file visible even if its name
+#  starts with a dot.
+# Setting "list":"always" may be useful on a link to a directory
+#  (they're otherwise not entered by broot unless selected)
+#
+special_paths: {
+    "~/.config": { "show": "always" }
+}
+
+preview_transformers: [
+    # Pretty-print JSON for preview
+    {
+        input_extensions: [ "json" ] 
+        output_extension: json
+        mode: text
+        command: [ "jq" ]
+    }
+]
+
+imports: [
+
+    verbs.hjson
+
+    {
+        luma: [ "dark", "unknown" ]
+        file: skins/catppuccin-mocha.hjson
+    }
+    {
+        luma: "light"
+        file: skins/white.hjson
+    }
+]

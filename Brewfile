@@ -28,6 +28,7 @@ brew "wget"
 brew "xz"
 
 ## useful TUI utilities
+brew "broot"
 brew "htop"
 brew "lazygit"
 brew "ncdu"

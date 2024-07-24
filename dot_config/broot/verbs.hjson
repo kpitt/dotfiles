@@ -1,0 +1,94 @@
+###############################################################
+# This file contains the verb definitions for broot
+#
+# Documentation at https://dystroy.org/broot/verbs/
+###############################################################
+
+verbs: [
+
+    # Default edit command (assumes vim-compatible command line)
+    {
+        invocation: edit
+        shortcut: e
+        key: ctrl-e
+        apply_to: text_file
+        execution: "$EDITOR +{line} {file}"
+        leave_broot: false
+    }
+
+    # Create a new text file under the current directory
+    {
+        invocation: create {subpath}
+        shortcut: new
+        execution: "$EDITOR {directory}/{subpath}"
+        leave_broot: false
+    }
+
+    # Run `git difftool` on selected file
+    {
+        invocation: git_diff
+        shortcut: gd
+        leave_broot: false
+        execution: "git difftool -y {file}"
+    }
+
+    # Change focus to the root of the current git repository
+    {
+        invocation: git_root
+        shortcut: gr
+        internal: ":focus {git-root}"
+    }
+
+    # Keyboard shortcuts for toggling options and filters:
+    {
+        key: alt-g
+        internal: ":toggle_git_status"
+    }
+    {
+        key: alt-d
+        internal: ":toggle_dates"
+    }
+    {
+        key: alt-s
+        internal: ":toggle_sizes"
+    }
+    # Additional pre-defined default keys:
+    #   alt-h :toggle_hidden
+    #   alt-i :toggle_git_ignore
+    #   ctrl-g :toggle_stage
+
+    # The ctrl-arrow keys conflict with default OS shortcuts on Mac,
+    # so duplicate them on the alt-arrow keys.
+    {
+        key: alt-Right
+        internal: ":panel_right"
+    }
+    {
+        key: alt-Left
+        internal: ":panel_left_no_open"
+    }
+    {
+        key: alt-Up
+        internal: ":root_up"
+    }
+    {
+        key: alt-Down
+        internal: ":root_down"
+    }
+
+    # ctrl-t launches a sub-shell, which will return to broot on exit
+    {
+        invocation: terminal
+        key: ctrl-t
+        execution: "$SHELL"
+        set_working_dir: true
+        leave_broot: false
+    }
+
+    # Ctrl-Home focuses the home directory.
+    {
+        invocation: home
+        key: ctrl-home
+        internal: ":focus ~"
+    }
+]

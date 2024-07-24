@@ -49,8 +49,8 @@ _evalcache() {
   fi
 }
 
-_evalcache_clear() {
-  rm -i "$HOME/.cache/zsh/init"/*.zsh
+evalcache_clear() {
+  rm -i "$HOME/.cache/zsh/init/*.zsh"
 }
 
 # autoload custom executable functions
