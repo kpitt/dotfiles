@@ -22,7 +22,11 @@ set nocompatible
 " General options "{{{
 set history=50		" keep 50 lines of command line history
 
-behave mswin
+set selection=exclusive
+set selectmode=mouse,key
+set mousemodel=popup
+set keymodel=startsel,stopsel
+
 set wildmenu
 set wildmode=longest:full
 "}}}
