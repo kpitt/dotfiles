@@ -10,6 +10,7 @@
 ###############################################################
 
 skin: {
+    # fg:$text bg:none
     input: rgb(205, 214, 244) none
     # fg:none bg:$surface2
     selected_line: none rgb(88, 91, 112) 
@@ -23,6 +24,7 @@ skin: {
 #
 ### PERMISSIONS
 #
+    # $subtext1
     perm__: rgb(186, 194, 222) none
     # $peach
     perm_r: rgb(250, 179, 135) none
@@ -102,8 +104,8 @@ skin: {
     status_bold: rgb(235, 160, 172) rgb(24, 24, 37) Bold
     # fg:$maroon bg:$mantle
     status_ellipsis: rgb(235, 160, 172) rgb(24, 24, 37) Bold
-    # fg:$text bg:$red
-    status_error: rgb(205, 214, 244) rgb(243, 139, 168)
+    # fg:$text bg:$dark_red
+    status_error: rgb(205, 214, 244) rgb(157, 61, 92)
     # fg:$maroon bg:$mantle
     status_job: rgb(235, 160, 172) rgb(40, 38, 37)
     # fg:$maroon bg:$mantle
@@ -134,9 +136,9 @@ skin: {
     hex_ascii_graphic: rgb(250, 179, 135) none
     # fg:$green
     hex_ascii_whitespace: rgb(166, 227, 161) none
-    # fg: teal
+    # fg:$teal
     hex_ascii_other: rgb(148, 226, 213) none
-    # fg: red
+    # fg:$red
     hex_non_ascii: rgb(243, 139, 168) none
 
     # fg:$text bg:$red
