@@ -30,6 +30,21 @@ set keymodel=startsel,stopsel
 set wildmenu
 set wildmode=longest:full
 "}}}
+
+" Color scheme customizations "{{{
+" Customizations must be defined before loading a color scheme.
+
+" Iceberg scheme customizations
+augroup iceberg-scheme-overrides
+    autocmd!
+    " Increase selection brightness for better visibility.
+    autocmd ColorScheme iceberg
+                \ hi Visual guibg=#313752 |
+                \ hi VisualNOS guibg=#313752 |
+                \ hi QuickFixLine guibg=#313752 |
+                \ hi SneakScope guibg=#313752
+augroup END
+"}}}
 " Appearance options "{{{
 set laststatus=2	" show status line all the time
 set ruler		    " show the cursor position all the time
