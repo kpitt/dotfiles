@@ -63,6 +63,14 @@ if stridx($TERM, "kitty") >= 0
 endif
 " simplify the file position format
 let g:airline_section_z='%#__accent_bold#%l/%L:%v%#__restore__# %p%%'
+if get(g:, 'airline_powerline_fonts', 0)
+    " override some of the default powerline symbols (using Nerd Fonts)
+    if !exists('g:airline_symbols')
+        let g:airline_symbols = {}
+    endif
+    let g:airline_symbols.colnr = " \ue0a3:"
+    let g:airline_symbols.dirty = "\u26a1\ufe0e"
+endif
 "}}}
 " Search options "{{{
 set incsearch		" do incremental searching
