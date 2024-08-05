@@ -3,6 +3,8 @@ Host *
     ControlMaster auto
     ControlPath /tmp/ssh-%r@%h:%p
     ControlPersist 10m
+    ServerAliveInterval 60
+    ServerAliveCountMax 10
 
     # cache private key passwords in Apple Keychain
     UseKeychain yes
