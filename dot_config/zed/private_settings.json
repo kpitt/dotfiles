@@ -10,6 +10,7 @@
   "theme": "Atelier Cave Dark",
   "buffer_font_family": "JetBrains Mono",
   "buffer_font_size": 14,
+  "buffer_font_fallbacks": ["Symbols Nerd Font Mono"],
 
   "wrap_guides": [80, 100],
   "git": {
