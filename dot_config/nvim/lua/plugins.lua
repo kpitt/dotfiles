@@ -4,6 +4,8 @@ local g   = vim.g
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
+local chezmoi_source = os.getenv("HOME") .. "/.dotfiles"
+
 return {
   -- main color scheme
   {
@@ -99,11 +101,28 @@ return {
     end,
   },
 
-  -- chezmoi plugin must be loaded early, before other syntax or filetype plugins
+  -- highlighting and handling of chezmoi-managed dot-files and templates
   {
     "alker0/chezmoi.vim",
     lazy = false,
-    priority = 500,
+    init = function()
+      vim.g["chezmoi#use_tmp_buffer"] = 1
+      vim.g["chezmoi#source_dir_path"] = chezmoi_source
+    end,
+  },
+  {
+    'xvzc/chezmoi.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = {},
+    init = function()
+      -- run chezmoi edit on file enter
+      vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+        pattern = { chezmoi_source .. "/*" },
+        callback = function()
+          vim.schedule(require("chezmoi.commands.__edit").watch)
+        end,
+      })
+    end,
   },
 
   -- General

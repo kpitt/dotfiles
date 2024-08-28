@@ -2,14 +2,15 @@ require('nvim-treesitter.configs').setup {
   ensure_installed = { "lua", "vim", "vimdoc", "query" },
   auto_install = true,
   highlight = {
-    enable = true,
+    disable = function()
+      -- disable if 'filetype' option includes 'chezmoitmpl'
+      if string.find(vim.bo.filetype, 'chezmoitmpl') then
+        return true
+      end
+    end,
   },
-  incremental_selection = {
-    enable = true,
-  },
-  playground = {
-    enable = true,
-  },
+  incremental_selection = { enable = true },
+  playground = { enable = true },
 }
 
 --- Require an optional module.
