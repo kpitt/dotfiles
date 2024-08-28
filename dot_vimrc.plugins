@@ -2,8 +2,6 @@
 call plug#begin('~/.vim/plugged')
 " }}}
 
-" Shared Plugins {{{
-
 " chezmoi plugin must be loaded early, before other syntax or filetype plugins
 Plug 'alker0/chezmoi.vim'
 
@@ -24,12 +22,9 @@ Plug 'sjl/badwolf'
 " General Programming
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-if !has('nvim-0.9')
-    Plug 'editorconfig/editorconfig-vim'
-endif
+Plug 'editorconfig/editorconfig-vim'
 
 " Configuration Files
-Plug 'cespare/vim-toml'
 Plug 'fladson/vim-kitty'
 
 " Programming Languages
@@ -52,17 +47,6 @@ Plug 'mattn/emmet-vim'
 " Miscellaneous
 Plug 'davidoc/taskpaper.vim'
 Plug 'PProvost/vim-ps1'
-
-" }}}
-
-" NeoVim Plugins {{{
-if has('nvim')
-
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/playground'
-
-endif
-" }}}
 
 " Use local plugins config if available {{{
     if filereadable(expand("~/.vimrc.plugins.local"))
