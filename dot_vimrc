@@ -7,17 +7,66 @@ let mapleader=' '
 
 set nocompatible
 
-" Use local before config if available {{{
-    if filereadable(expand("~/.vimrc.before.local"))
-        source ~/.vimrc.before.local
-    endif
-" }}}
+" Use local before config if available "{{{
+if filereadable(expand("~/.vimrc.before.local"))
+    source ~/.vimrc.before.local
+endif
+"}}}
 
-" Load plugins config {{{
+" Vim-only configuration "{{{
+" This block contains configuration that is not shared with NeoVim.
+" Equivalent configuration for NeoVim is provided in a different way.
+if !has('nvim')
+
+    " Load plugins config "{{{
     if filereadable(expand("~/.vimrc.plugins"))
         source ~/.vimrc.plugins
     endif
-" }}}
+    "}}}
+
+    " Color scheme customizations "{{{
+    " Customizations must be defined before loading a color scheme.
+
+    " Iceberg scheme customizations
+    augroup iceberg-scheme-overrides
+        autocmd!
+        " Increase selection brightness for better visibility.
+        autocmd ColorScheme iceberg
+                    \ hi Visual guibg=#313752 |
+                    \ hi VisualNOS guibg=#313752 |
+                    \ hi QuickFixLine guibg=#313752 |
+                    \ hi SneakScope guibg=#313752
+    augroup END
+
+    " Load local scheme customizations if available "{{{
+    if filereadable(expand("~/.vimrc.scheme.local"))
+        source ~/.vimrc.scheme.local
+    endif
+    "}}}
+    "}}}
+
+    " Airline configuration settings "{{{
+    set noshowmode      " only show mode in the airline status bar
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+    if stridx($TERM, "kitty") >= 0
+        " Powerline fonts are always available if running Kitty terminal.
+        let g:airline_powerline_fonts = 1
+    endif
+    " simplify the file position format
+    let g:airline_section_z='%#__accent_bold#%l/%L:%v%#__restore__# %p%%'
+    if get(g:, 'airline_powerline_fonts', 0)
+        " override some of the default powerline symbols (using Nerd Fonts)
+        if !exists('g:airline_symbols')
+            let g:airline_symbols = {}
+        endif
+        let g:airline_symbols.colnr = " \ue0a3:"
+        let g:airline_symbols.dirty = "\u26a1\ufe0e"
+    endif
+    "}}}
+
+endif
+"}}}
 
 " General options "{{{
 set history=50		" keep 50 lines of command line history
@@ -31,26 +80,6 @@ set wildmenu
 set wildmode=longest:full
 "}}}
 
-" Color scheme customizations "{{{
-" Customizations must be defined before loading a color scheme.
-
-" Iceberg scheme customizations
-augroup iceberg-scheme-overrides
-    autocmd!
-    " Increase selection brightness for better visibility.
-    autocmd ColorScheme iceberg
-                \ hi Visual guibg=#313752 |
-                \ hi VisualNOS guibg=#313752 |
-                \ hi QuickFixLine guibg=#313752 |
-                \ hi SneakScope guibg=#313752
-augroup END
-
-" Load local scheme customizations if available {{{
-    if filereadable(expand("~/.vimrc.scheme.local"))
-        source ~/.vimrc.scheme.local
-    endif
-" }}}
-"}}}
 " Appearance options "{{{
 set laststatus=2	" show status line all the time
 set ruler		    " show the cursor position all the time
@@ -73,25 +102,6 @@ endif
 
 set background=dark " set background before colorscheme to avoid possible screen flash
 colorscheme iceberg " default terminal color scheme, can be overridden for GUI in gvimrc
-
-" Airline configuration settings
-set noshowmode      " only show mode in the airline status bar
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-if stridx($TERM, "kitty") >= 0
-    " Powerline fonts are always available if running Kitty terminal.
-    let g:airline_powerline_fonts = 1
-endif
-" simplify the file position format
-let g:airline_section_z='%#__accent_bold#%l/%L:%v%#__restore__# %p%%'
-if get(g:, 'airline_powerline_fonts', 0)
-    " override some of the default powerline symbols (using Nerd Fonts)
-    if !exists('g:airline_symbols')
-        let g:airline_symbols = {}
-    endif
-    let g:airline_symbols.colnr = " \ue0a3:"
-    let g:airline_symbols.dirty = "\u26a1\ufe0e"
-endif
 "}}}
 " Search options "{{{
 set incsearch		" do incremental searching
@@ -203,10 +213,10 @@ if &diff
 endif
 "}}}
 
-" Use local vimrc if available {{{
-    if filereadable(expand("~/.vimrc.local"))
-        source ~/.vimrc.local
-    endif
-" }}}
+" Use local vimrc if available "{{{
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
+"}}}
 
 " vim:foldmethod=marker:foldlevel=0
