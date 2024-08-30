@@ -29,33 +29,52 @@ return {
 
   -- status line and tab bar
   {
-    "vim-airline/vim-airline",
-    init = function()
-      opt.showmode = false  -- only show mode in the airline status bar
-      g["airline#parts#ffenc#skip_expected_string"] = "utf-8[unix]"
-      -- simplify the file position format
-      g.airline_section_z = "%#__accent_bold#%l/%L:%v%#__restore__# %p%%"
-      -- enable powerline fonts if available
-      g.airline_powerline_fonts = 0
-      if vim.env.TERM:match("kitty") then
-        -- Powerline fonts are always available if running Kitty terminal.
-        g.airline_powerline_fonts = 1
-      end
-      if g.airline_powerline_fonts == 1 then
-        -- override some of the default powerline symbols (using Nerd Fonts)
-        if not g.airline_symbols then
-          g.airline_symbols = {}
-        end
-        g.airline_symbols = vim.tbl_extend('force', g.airline_symbols, {
-          colnr = " :", --= " \u{e0a3}:"
-          dirty = "⚡︎",  --= "\u{26a1}\u{fe0e}"
-        })
-      end
-      -- extensions configuration
-      g["airline#extensions#tabline#enabled"] = 1
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    event = "VeryLazy",
+    config = function()
+      opt.showmode = false  -- only show mode in the lualine status bar
+
+      require("lualine").setup({
+        sections = {
+          lualine_c = { { "filename", path = 1 } },
+          lualine_x = {
+            {
+              "encoding",
+              separator = "",
+              padding = { right = 0 },
+            },
+            {
+              "fileformat",
+              symbols = {
+                -- use text instead of icons
+                unix = "[unix]",
+                dos = "[dos]",
+                mac = "[mac]",
+              },
+            },
+            "filetype",
+          },
+        },
+        tabline = {
+          lualine_a = {
+            {
+              "buffers",
+              icons_enabled = false,
+              show_filename_only = false,
+            },
+          },
+          lualine_z = {
+            {
+              "tabs",
+              show_modified_status = false,
+            },
+          }
+        },
+        extensions = { "fugitive", "quickfix", "fzf", "lazy" },
+      })
     end,
   },
-  { "vim-airline/vim-airline-themes" },
 
   -- chezmoi plugin must be loaded early, before other syntax or filetype plugins
   {
