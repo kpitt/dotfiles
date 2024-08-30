@@ -35,14 +35,27 @@ return {
     config = function()
       opt.showmode = false  -- only show mode in the lualine status bar
 
+      local iceberg = require("config.lualine.iceberg")
       require("lualine").setup({
+        options = {
+          theme = iceberg.theme,
+          globalstatus = true,
+        },
         sections = {
+          lualine_b = {
+            { "branch", draw_empty = true },
+            "diff",
+            "diagnostics",
+          },
           lualine_c = { { "filename", path = 1 } },
           lualine_x = {
             {
               "encoding",
               separator = "",
               padding = { right = 0 },
+              cond = function()
+                return vim.o.fileencoding ~= "utf-8"
+              end,
             },
             {
               "fileformat",
@@ -53,7 +66,10 @@ return {
                 mac = "[mac]",
               },
             },
-            "filetype",
+            { "filetype", color = { fg = iceberg.colors.gradient_fg } },
+          },
+          lualine_y = {
+            { "progress", color = { fg = iceberg.colors.hilite_fg } },
           },
         },
         tabline = {
@@ -62,6 +78,13 @@ return {
               "buffers",
               icons_enabled = false,
               show_filename_only = false,
+              fmt = function(n)
+                -- Replace HOME directory with ~
+                -- Note that name has already been shortened before calling `fmt`
+                local home = vim.fn.fnamemodify(os.getenv("HOME"), ":p")
+                local short_home = vim.fn.pathshorten(home)
+                return n:gsub("^" .. short_home, "~/")
+              end,
             },
           },
           lualine_z = {
