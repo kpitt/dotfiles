@@ -175,8 +175,10 @@ nnoremap <S-F2>  :cprev<CR>
 nnoremap <F3>    :cnfile<CR>
 nnoremap <S-F3>  :cpfile<CR>
 
-" Plugin key mappings
-nnoremap <C-p> :<C-u>Files<CR>
+if !has('nvim')
+    " load Vim-only key mappings
+    source ~/.vim/config/keymaps.vim
+endif
 "}}}
 
 " Autocommands {{{
