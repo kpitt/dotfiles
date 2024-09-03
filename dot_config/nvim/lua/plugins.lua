@@ -140,12 +140,106 @@ return {
     dependencies = { "kana/vim-textobj-user" },
   },
   {
-    "junegunn/fzf",
-    build = ":call fzf#install()",
-  },
-  {
-    "junegunn/fzf.vim",
-    dependencies = { "junegunn/fzf" },
+    "ibhagwan/fzf-lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    cmd = "FzfLua",
+    opts = function(_, opts)
+      local actions = require("fzf-lua.actions")
+
+      local defaults = require("fzf-lua.profiles.default-title")
+      -- use the same prompt for all
+      local function fix(t)
+        t.prompt = t.prompt ~= nil and " " or nil
+        for _, v in pairs(t) do
+          if type(v) == "table" then
+            fix(v)
+          end
+        end
+      end
+      fix(defaults)
+
+      return vim.tbl_deep_extend("force", defaults, {
+        fzf_colors = true,
+        fzf_opts = {
+          ["--no-scrollbar"] = true,
+        },
+        defaults = {
+          formatter = "path.dirname_first",
+        },
+        winopts = {
+          width = 0.8,
+          height = 0.8,
+          row = 0.5,
+          col = 0.5,
+          preview = {
+            scrollchars = { "┃", "" },
+          },
+        },
+        files = {
+          cwd_prompt = false,
+          actions = {
+            ["alt-i"] = { actions.toggle_ignore },
+            ["alt-h"] = { actions.toggle_hidden },
+          },
+        },
+        grep = {
+          actions = {
+            ["alt-i"] = { actions.toggle_ignore },
+            ["alt-h"] = { actions.toggle_hidden },
+          },
+        },
+        lsp = {
+          code_actions = {
+            previewer = "codeaction_native",
+          },
+        },
+      })
+    end,
+    config = function(_, opts)
+      local fzf_lua = require("fzf-lua")
+      fzf_lua.setup(opts)
+      -- Use `fzf-lua` as the `vim.ui.select` picker
+      fzf_lua.register_ui_select()
+    end,
+    keys = {
+      { "<c-p>", "<cmd>FzfLua files<cr>", desc = "Find Files" },
+      {
+        "<c-\\>",
+        "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>",
+        desc = "Switch Buffer",
+      },
+      { "<F1>", "<cmd>FzfLua help_tags<cr>", desc = "Help Pages" },
+      {
+        "<leader>,",
+        "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>",
+        desc = "Switch Buffer",
+      },
+      { "<leader>/", "<cmd>FzfLua live_grep<cr>", desc = "Grep" },
+      { "<leader>:", "<cmd>FzfLua command_history<cr>", desc = "Command History" },
+      { "<leader><space>", "<cmd>FzfLua files<cr>", desc = "Find Files" },
+      -- find
+      { "<leader>fb", "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
+      {
+        "<leader>fc",
+        function()
+          require("fzf-lua").files({ cwd = vim.fn.stdpath("config") })
+        end,
+        desc = "Find Config File",
+      },
+      { "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Find Files" },
+      { "<leader>fg", "<cmd>FzfLua git_files<cr>", desc = "Find Files (git-files)" },
+      { "<leader>fr", "<cmd>FzfLua oldfiles<cr>", desc = "Recent" },
+      -- git
+      { "<leader>gc", "<cmd>FzfLua git_commits<CR>", desc = "Commits" },
+      { "<leader>gs", "<cmd>FzfLua git_status<CR>", desc = "Status" },
+      -- search
+      { "<leader>sc", "<cmd>FzfLua command_history<cr>", desc = "Command History" },
+      { "<leader>sC", "<cmd>FzfLua commands<cr>", desc = "Commands" },
+      { "<leader>sh", "<cmd>FzfLua help_tags<cr>", desc = "Help Pages" },
+      { "<leader>sk", "<cmd>FzfLua keymaps<cr>", desc = "Key Maps" },
+      { "<leader>sR", "<cmd>FzfLua resume<cr>", desc = "Resume" },
+      { "<leader>sq", "<cmd>FzfLua quickfix<cr>", desc = "Quickfix List" },
+    },
   },
 
   -- which-key shows a popup to help with remembering key bindings
@@ -157,6 +251,20 @@ return {
       delay = function(ctx)
         return ctx.plugin and 0 or 500
       end,
+      spec = {
+        {
+          mode = { "n", "v" },
+          { "<leader>f", group = "file/find" },
+          { "<leader>g", group = "git" },
+          { "<leader>s", group = "search" },
+          { "[", group = "prev" },
+          { "]", group = "next" },
+          { "g", group = "goto" },
+          { "z", group = "fold" },
+          -- better descriptions
+          { "gx", desc = "Open with system app" },
+        },
+      },
     },
     keys = {
       {
