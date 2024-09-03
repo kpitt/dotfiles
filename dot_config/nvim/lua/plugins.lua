@@ -46,7 +46,19 @@ return {
         sections = {
           lualine_b = {
             { "branch", draw_empty = true },
-            "diff",
+            {
+              "diff",
+              source = function()
+                local gitsigns = vim.b.gitsigns_status_dict
+                if gitsigns then
+                  return {
+                    added = gitsigns.added,
+                    modified = gitsigns.changed,
+                    removed = gitsigns.removed,
+                  }
+                end
+              end,
+            },
             "diagnostics",
           },
           lualine_c = { { "filename", path = 1 } },
@@ -288,6 +300,11 @@ return {
   -- General Programming
   { "tpope/vim-commentary" },
   { "tpope/vim-fugitive" },
+  {
+    "lewis6991/gitsigns.nvim",
+    event = "LazyFile",
+    opts = {},
+  },
 
   -- Configuration Files
   { "fladson/vim-kitty" },
