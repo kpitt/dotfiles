@@ -130,8 +130,17 @@ return {
       -- run chezmoi edit on file enter
       vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
         pattern = { chezmoi_source .. "/*" },
-        callback = function()
-          vim.schedule(require("chezmoi.commands.__edit").watch)
+        callback = function(ev)
+          local win_id = vim.api.nvim_get_current_win()
+          local bufnr = ev.buf
+          local edit_watch = function()
+            -- diff mode usually indicates a `chezmoi merge`, so don't auto-apply
+            local diff_opt = vim.api.nvim_get_option_value("diff", { win = win_id })
+            if not diff_opt then
+              require("chezmoi.commands.__edit").watch(bufnr)
+            end
+          end
+          vim.schedule(edit_watch)
         end,
       })
     end,
