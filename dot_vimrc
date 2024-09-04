@@ -156,9 +156,6 @@ vmap Q gq
 nnoremap j gj
 nnoremap k gk
 
-" Clear the search highlighting.
-nmap <silent> <leader>/ :nohlsearch<CR>
-
 " Reselect the text that was just pasted.
 nnoremap <leader>v V`]
 
