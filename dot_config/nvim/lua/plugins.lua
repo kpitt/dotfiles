@@ -6,6 +6,26 @@ local autocmd = vim.api.nvim_create_autocmd
 
 local chezmoi_source = os.getenv("HOME") .. "/.dotfiles"
 
+local fzf_chezmoi = function()
+  local fzf_lua = require("fzf-lua")
+  local chezmoi = require("chezmoi.commands")
+  local results = chezmoi.list({ args = {"--include=files"} })
+
+  local opts = {
+    fzf_opts = {},
+    fzf_colors = true,
+    actions = {
+      ["default"] = function(selected)
+        chezmoi.edit({
+          targets = { "~/" .. selected[1] },
+          args = { "--watch" },
+        })
+      end,
+    },
+  }
+  fzf_lua.fzf_exec(results, opts)
+end
+
 return {
   -- main color scheme
   {
@@ -123,9 +143,12 @@ return {
     end,
   },
   {
-    'xvzc/chezmoi.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    "xvzc/chezmoi.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},
+    keys = {
+      { "<leader>fz", fzf_chezmoi, desc = "Chezmoi" },
+    },
     init = function()
       -- run chezmoi edit on file enter
       vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
