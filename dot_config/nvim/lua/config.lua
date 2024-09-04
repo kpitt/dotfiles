@@ -13,6 +13,8 @@ require('nvim-treesitter.configs').setup {
   playground = { enable = true },
 }
 
+require("config.keymaps")
+
 --- Require an optional module.
 -- @param name The name of the module.
 -- @return module or nil
