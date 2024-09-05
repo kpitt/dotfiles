@@ -26,6 +26,21 @@ local fzf_chezmoi = function()
   fzf_lua.fzf_exec(results, opts)
 end
 
+local function hilite(group, opts)
+  local args
+  if opts["link"] then
+    args = { bang = true, "link", group, opts.link }
+  else
+    args = { group }
+    vim.list_extend(args,
+      vim.iter(opts)
+      :map(function(k, v) return k .. "=" .. v end)
+      :totable()
+    )
+  end
+  vim.cmd.highlight(args)
+end
+
 return {
   -- main color scheme
   {
@@ -34,17 +49,33 @@ return {
     priority = 1000,
     init = function()
       -- Iceberg scheme customizations
-      local group = augroup("iceberg-scheme-overrides", { clear = true })
+      local group = augroup("iceberg-colorscheme-overrides", { clear = true })
       autocmd("ColorScheme", {
         pattern = "iceberg",
         group = group,
-        desc = "Iceberg color scheme customizations",
-        command = [[
-          hi Visual guibg=#313752
-          hi VisualNOS guibg=#313752
-          hi QuickFixLine guibg=#313752
-          hi SneakScope guibg=#313752
-        ]],
+        desc = "Iceberg colorscheme customizations",
+        callback = function()
+          -- stylua: ignore
+          local highlights = {
+            -- increase bg contrast for selections
+            Visual = { guibg="#313752" },
+            VisualNOS = { guibg="#313752" },
+            QuickFixLine = { guibg="#313752" },
+            SneakScope = { guibg="#313752" },
+
+            -- visible window separator line
+            WinSeparator = { guibg="#161821", guifg="#686f9a" },
+
+            -- floating window colors (not defined in colorscheme)
+            NormalFloat = { guibg="#1e2132", guifg="#c6c8d1" },
+            FloatBorder = { guibg="#1e2132", guifg="#6b7089" },
+            FloatTitle  = { guibg="#1e2132", guifg="#e2a478" },
+          }
+
+          for group, opts in pairs(highlights) do
+            hilite(group, opts)
+          end
+        end,
       })
     end,
   },
