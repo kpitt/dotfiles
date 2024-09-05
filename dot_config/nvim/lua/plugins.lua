@@ -9,7 +9,14 @@ local chezmoi_source = os.getenv("HOME") .. "/.dotfiles"
 local fzf_chezmoi = function()
   local fzf_lua = require("fzf-lua")
   local chezmoi = require("chezmoi.commands")
-  local results = chezmoi.list({ args = {"--include=files"} })
+  -- stylua: ignore
+  local results = chezmoi.list({
+    args = {
+      "--include", "files",
+      "--exclude", "externals,encrypted",
+      "--path-style", "relative",
+    },
+  })
 
   local opts = {
     fzf_opts = {},
