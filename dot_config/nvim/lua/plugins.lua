@@ -395,7 +395,7 @@ return {
 
   -- Markup Languages
   { "tpope/vim-markdown" },
-  { "kpitt/vim-liquid" },
+  { "tpope/vim-liquid" },
   { "mattn/emmet-vim" },
 
   -- Miscellaneous
