@@ -41,7 +41,7 @@ Plug 'derekwyatt/vim-sbt'
 
 " Markup Languages
 Plug 'tpope/vim-markdown'
-Plug 'kpitt/vim-liquid'
+Plug 'tpope/vim-liquid'
 Plug 'mattn/emmet-vim'
 
 " Miscellaneous

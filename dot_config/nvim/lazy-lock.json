@@ -19,7 +19,7 @@
   "vim-go": { "branch": "master", "commit": "f365d961e540579e413acb092c8f18d62153cbaf" },
   "vim-json": { "branch": "master", "commit": "3727f089410e23ae113be6222e8a08dd2613ecf2" },
   "vim-kitty": { "branch": "main", "commit": "9cc594a634308aa3bfaf3da5b5e741da1c0144c1" },
-  "vim-liquid": { "branch": "master", "commit": "d6ae02c3318a2a522d01dde555829eb6080deceb" },
+  "vim-liquid": { "branch": "master", "commit": "fd2f0017fbc50f214db2f57c207c34cda3aa1522" },
   "vim-markdown": { "branch": "master", "commit": "f405b47fd8774ecd5e808e6de9c85d9029da251c" },
   "vim-ps1": { "branch": "master", "commit": "839cec1550e09fc902c74103053e9e765051083d" },
   "vim-repeat": { "branch": "master", "commit": "65846025c15494983dafe5e3b46c8f88ab2e9635" },
