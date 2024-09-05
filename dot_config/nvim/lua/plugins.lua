@@ -362,10 +362,12 @@ return {
   -- Tree-sitter Support
   {
     "nvim-treesitter/nvim-treesitter",
-    lazy = false,
     build = ":TSUpdate",
+    event = { "LazyFile", "VeryLazy" },
+    lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
+    cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+    opts_extend = { "ensure_installed" }, -- allow other plugin specs to extend parser list
   },
-  { "nvim-treesitter/playground" },
 
   -- General Programming
   { "tpope/vim-commentary" },

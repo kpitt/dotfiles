@@ -1,3 +1,13 @@
+local min_nvim_ver = "0.9.2"
+if vim.fn.has("nvim-" .. min_nvim_ver) == 0 then
+  vim.api.nvim_echo({
+    { "This configuration requires Neovim >= " .. min_nvim_ver .. "\n", "ErrorMsg" },
+    { "Press any key to exit", "MoreMsg" },
+  }, true, {})
+  vim.fn.getchar()
+  vim.cmd.quit()
+end
+
 -- Need to load `lazy.nvim` plugins before sourcing shared config.
 require('config.lazy')
 
