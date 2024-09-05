@@ -339,6 +339,7 @@ return {
           { "<leader>f", group = "file/find" },
           { "<leader>g", group = "git" },
           { "<leader>s", group = "search" },
+          { "<leader>u", group = "ui", icon = { icon = "󰙵 ", color = "cyan" } },
           { "[", group = "prev" },
           { "]", group = "next" },
           { "g", group = "goto" },
@@ -367,6 +368,25 @@ return {
     lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
     cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
     opts_extend = { "ensure_installed" }, -- allow other plugin specs to extend parser list
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    event = { "LazyFile" },
+    opts = {
+      mode = "cursor",
+      max_lines = 3,
+      trim_scope = "inner",
+    },
+    keys = {
+      {
+        "<leader>ut",
+        function()
+          local tsc = require("treesitter-context")
+          tsc.toggle()
+        end,
+        desc = "Toggle Treesitter Context",
+      },
+    },
   },
 
   -- General Programming
