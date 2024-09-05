@@ -1,5 +1,13 @@
-require('nvim-treesitter.configs').setup {
-  ensure_installed = { "lua", "vim", "vimdoc", "query" },
+require("nvim-treesitter.configs").setup {
+  ensure_installed = {
+    "lua",
+    "vim",
+    "vimdoc",
+    "query",
+    "regex",
+    "markdown",
+    "markdown_inline",
+  },
   auto_install = true,
   highlight = {
     disable = function()
@@ -10,7 +18,6 @@ require('nvim-treesitter.configs').setup {
     end,
   },
   incremental_selection = { enable = true },
-  playground = { enable = true },
 }
 
 require("config.keymaps")
