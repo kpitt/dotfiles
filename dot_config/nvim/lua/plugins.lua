@@ -1,8 +1,9 @@
 local opt = vim.opt
 local g   = vim.g
 
-local augroup = vim.api.nvim_create_augroup
-local autocmd = vim.api.nvim_create_autocmd
+local function augroup(name)
+  return vim.api.nvim_create_augroup(name, { clear = true })
+end
 
 local chezmoi_source = os.getenv("HOME") .. "/.dotfiles"
 
@@ -56,10 +57,9 @@ return {
     priority = 1000,
     init = function()
       -- Iceberg scheme customizations
-      local group = augroup("iceberg-colorscheme-overrides", { clear = true })
-      autocmd("ColorScheme", {
+      vim.api.nvim_create_autocmd("ColorScheme", {
         pattern = "iceberg",
-        group = group,
+        group = augroup("iceberg-colorscheme-overrides"),
         desc = "Iceberg colorscheme customizations",
         callback = function()
           -- stylua: ignore
