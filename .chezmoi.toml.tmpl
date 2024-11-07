@@ -29,6 +29,10 @@ recipient = "age1wx4x86nt97ya4tfmfhkpj8urfylwlqg8vjg206wy0w2jn9d57sfsc76efl"
 
 {{ end -}}
 
+[merge]
+command = "nvim"
+args = ["-d", "{{ "{{ .Destination }}" }}", "{{ "{{ .Source }}" }}", "{{ "{{ .Target }}" }}"]
+
 [data]
 email = {{ $email | quote }}
 work = {{ $work }}
