@@ -10,6 +10,7 @@ require("nvim-treesitter.configs").setup {
   },
   auto_install = true,
   highlight = {
+    enable = true,
     disable = function()
       -- disable if 'filetype' option includes 'chezmoitmpl'
       if string.find(vim.bo.filetype, 'chezmoitmpl') then
