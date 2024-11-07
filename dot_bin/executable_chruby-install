@@ -27,7 +27,7 @@ usage() {
 	cat <<'USAGE'
 Usage: chruby-install [-kfU] [<ruby-version>]
        chruby-install -l|--list
-       chruby-install -L|--latest
+       chruby-install -U|--update
        chruby-install -V|--version
 
   -k, --keep    Do not remove source tree after installation
@@ -60,6 +60,7 @@ argv=()
 install_opts=()
 unset FORCE
 unset KEEP
+unset LIST_ONLY
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -68,19 +69,16 @@ while [[ $# -gt 0 ]]; do
       exit 0
       ;;
     -l|--list)
-      exec ruby-install
+      LIST_ONLY=true
       ;;
     -U|--update)
-      install_opts+=("--latest")
-      shift
+      install_opts+=("--update")
       ;;
     -f|--force)
       FORCE=true
-      shift
       ;;
     -k|--keep)
       KEEP=true
-      shift
       ;;
     -V|--version)
       exec ruby-install --version
@@ -91,15 +89,17 @@ while [[ $# -gt 0 ]]; do
       ;;
     *)
       argv+=($1)
-      shift
       ;;
   esac
+  shift
 done
 
 if (( UID == 0 )); then
   echo "chruby-install: cannot be run as root" >&2
   exit 1
 fi
+
+[[ -n "$LIST_ONLY" ]] && exec ruby-install ${install_opts[@]}
 
 cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/ruby-install"
 
