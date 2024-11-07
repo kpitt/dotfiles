@@ -15,17 +15,31 @@ if not vim.uv.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- The `mapleader` and `maplocalleader` values should be set before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
 -- Add support for the LazyFile event
 local Event = require("lazy.core.handler.event")
 Event.mappings.LazyFile = { id = "LazyFile", event = { "BufReadPost", "BufNewFile", "BufWritePre" } }
 Event.mappings["User LazyFile"] = Event.mappings.LazyFile
 
+-- autocmds can be loaded lazily when not opening a file
+local lazy_autocmds = vim.fn.argc(-1) == 0
+if not lazy_autocmds then
+  require("config.autocmds")
+end
+
+-- execute lazy configuration when `lazy.nvim` "VeryLazy" event is fired
+local group = vim.api.nvim_create_augroup("very_lazy_config", { clear = true })
+vim.api.nvim_create_autocmd("User", {
+  group = group,
+  pattern = "VeryLazy",
+  callback = function()
+    if lazy_autocmds then
+      require("config.autocmds")
+    end
+    require("config.keymaps")
+  end,
+})
+
+-- initialize the plugin manager and load user plugins
 require("lazy").setup("plugins", {
   ui = {
     border = "rounded",
