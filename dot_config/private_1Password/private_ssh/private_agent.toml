@@ -1,0 +1,35 @@
+# This is the 1Password SSH agent config file, which allows you to customize the
+# behavior of the SSH agent running on this machine.
+#
+# The following attributes are recognized under each `[[ssh-keys]]` entry:
+#
+# `item`:    The name or ID of a specific key
+# `vault`:   The name or ID of the vault
+# `account`: The name, sign-in address or ID of the 1Password account
+#
+# Keys will be offered in the order listed.  All keys that match the attributes
+# provided will be added.  Multiple matching keys will be ordered according to
+# when the item was created, starting with the oldest.
+#
+# You can test the result by running:
+#
+#  SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ssh-add -l
+#
+# Documentation for the agent config file can be found here:
+#  https://developer.1password.com/docs/ssh/agent/config
+
+# Add primary personal key first, followed by primary work key.
+[[ssh-keys]]
+item = "Personal SSH Key"
+vault = "Private"
+
+[[ssh-keys]]
+item = "Work SSH Key"
+vault = "Work"
+
+# Add any additional keys from Private and Work vaults
+[[ssh-keys]]
+vault = "Private"
+
+[[ssh-keys]]
+vault = "Work"
