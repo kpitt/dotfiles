@@ -159,6 +159,14 @@
     in = incoming
     out = outgoing
 
+    # With no arguments, this alias assumes `main` is the default branch.
+    # If `master` is the default branch, use `git oldest-ancestor master`.
+    oldest-ancestor = !zsh -c 'diff --old-line-format= --new-line-format= <(git rev-list --first-parent "${1:-main}") <(git rev-list --first-parent "${2:-HEAD}") | head -1' -
+
+    ## Commands that provide useful info about a repository.
+    root = rev-parse --show-toplevel
+    count = rev-list --count HEAD
+
 [url "git@github.com:"]
     insteadOf = gh:
 [url "git@bitbucket.org:"]

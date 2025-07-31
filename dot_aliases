@@ -16,6 +16,8 @@ alias czup='chezmoi update'
 ## git commands ##
 alias g='git'
 alias gs='git status -sb'
+alias gbc='git branch --all --contains'
+alias gtc='git tag --contains'
 
 # Include local-only aliases
 [[ ! -f ~/.aliases.local ]] || source ~/.aliases.local
