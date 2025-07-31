@@ -50,3 +50,8 @@ brew "fastfetch"
 
 # a modern Vim fork
 brew "neovim"
+
+# Go development utilities
+brew "go"
+brew "gopls"
+brew "gofumpt"
