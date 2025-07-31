@@ -1,0 +1,20 @@
+theme = "catppuccin_mocha"
+
+[editor]
+cursorline = true
+color-modes = true
+
+[editor.indent-guides]
+render = true
+
+[editor.statusline]
+right = [
+  "diagnostics",
+  "version-control",
+  "spacer",
+  "selections",
+  "position",
+  "file-encoding",
+  "file-line-ending",
+  "file-type",
+]
