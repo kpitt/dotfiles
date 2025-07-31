@@ -1,5 +1,5 @@
 {{ if .work -}}
-{{   onepasswordRead "op://Work/MF SSH Key/id_ed25519" .onepasswordAccount }}
+{{   onepasswordRead "op://Work/Work SSH Key/id_ed25519" .onepasswordAccount }}
 {{ else -}}
-{{   onepasswordRead "op://Private/SSH Key/id_ed25519" .onepasswordAccount }}
+{{   onepasswordRead "op://Private/Personal SSH Key/id_ed25519" .onepasswordAccount }}
 {{ end -}}

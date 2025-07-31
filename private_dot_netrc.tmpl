@@ -1,5 +1,5 @@
 {{ if .work -}}
-machine {{ index (urlParse (onepasswordRead "op://Work/MF Artifactory API/website")) "hostname" }}
-    login {{ onepasswordRead "op://Work/MF Artifactory API/username" }}
-    password {{ onepasswordRead "op://Work/MF Artifactory API/password" }}
+machine {{ index (urlParse (onepasswordRead "op://Work/MF Artifactory API - SWINFRA/website")) "hostname" }}
+    login {{ onepasswordRead "op://Work/MF Artifactory API - SWINFRA/username" }}
+    password {{ onepasswordRead "op://Work/MF Artifactory API - SWINFRA/password" }}
 {{ end -}}
