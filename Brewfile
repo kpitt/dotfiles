@@ -55,3 +55,7 @@ brew "neovim"
 brew "go"
 brew "gopls"
 brew "gofumpt"
+
+# Jujutsu VCS
+brew "jj"
+brew "jjui"

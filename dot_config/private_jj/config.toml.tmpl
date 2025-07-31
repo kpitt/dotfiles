@@ -1,0 +1,34 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+
+[user]
+name = "Kenny Pitt"
+email = {{ .email | quote }}
+
+[ui]
+default-command = "log"
+diff-editor = ":builtin"
+
+[aliases]
+difft = [ "diff", "--tool=difft" ]
+showt = [ "show", "--tool=difft" ]
+dupe = [ "duplicate" ]
+
+# from https://mkaz.blog/code/jujutsu-vcs/
+init = ["git", "init", "--colocate"]
+fetch = ["git", "fetch"]
+push = ["git", "push", "--allow-new"]
+mark = ["bookmark", "set", "-r", "@"]
+track = ["bookmark", "track"]
+
+[colors]
+# Highlight hunks with background
+"diff removed token" = { bg = "#400E0E", underline = false }
+"diff added token" = { bg = "#2D311A", underline = false }
+
+[git]
+private-commits = '''description(glob:'private:*')'''
+
+[merge-tools.bc4]
+program = "bcomp"
+diff-args = ["$left", "$right"]
+merge-args = ["$left", "$right", "$base", "$output"]
