@@ -4,22 +4,22 @@ brew "ack"
 brew "age"
 brew "bat"
 brew "ctags"
-brew "diff-so-fancy"
 brew "direnv"
+brew "editorconfig"
 brew "fd"
 brew "fzf"
 brew "gh"
 brew "git"
-brew "git-delta"
 brew "git-lfs"
-brew "glow" # replacement for mdcat
+brew "glab"
 brew "graphviz"
 brew "hexyl"
 brew "jump"
-brew "mdcat" # deprecated
-brew "p7zip"
+brew "mdcat"
+brew "multimarkdown"
 brew "pstree"
 brew "ripgrep"
+brew "sevenzip"
 brew "tmux"
 brew "tree"
 brew "tree-sitter"
@@ -29,6 +29,7 @@ brew "xz"
 
 ## useful TUI utilities
 brew "broot"
+brew "btop"
 brew "htop"
 brew "lazygit"
 brew "ncdu"
@@ -39,6 +40,10 @@ brew "jq"
 # jq-like utility for yaml files
 brew "yq"
 
+# Improved file diff tools
+brew "git-delta"
+brew "diff-so-fancy"
+brew "difftastic"
 # macOS ships with an older version that doesn't support `diff --color`.
 brew "diffutils"
 
@@ -59,3 +64,6 @@ brew "gofumpt"
 # Jujutsu VCS
 brew "jj"
 brew "jjui"
+ 
+# Tool version managers
+brew "mise"
