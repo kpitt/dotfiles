@@ -77,6 +77,9 @@ return {
             NormalFloat = { guibg="#1e2132", guifg="#c6c8d1" },
             FloatBorder = { guibg="#1e2132", guifg="#6b7089" },
             FloatTitle  = { guibg="#1e2132", guifg="#e2a478" },
+
+            -- treesitter-context separator
+            TreesitterContextBottom = { gui="underline", guisp="#313752" },
           }
 
           for group, opts in pairs(highlights) do
@@ -93,8 +96,6 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     event = "VeryLazy",
     config = function()
-      opt.showmode = false  -- only show mode in the lualine status bar
-
       local iceberg = require("config.lualine.iceberg")
       require("lualine").setup({
         options = {
@@ -142,6 +143,18 @@ return {
           },
           lualine_y = {
             { "progress", color = { fg = iceberg.colors.hilite_fg } },
+          },
+          lualine_z = {
+            function()
+              local line = vim.fn.line(".")
+              local ccol = vim.fn.charcol(".")
+              local vcol = vim.fn.virtcol(".")
+              if ccol == vcol then
+                return string.format("%3d:%-2d", line, ccol)
+              else
+                return string.format("%3d:%d-%-2d", line, ccol, vcol)
+              end
+            end,
           },
         },
         tabline = {
@@ -385,6 +398,15 @@ return {
           tsc.toggle()
         end,
         desc = "Toggle Treesitter Context",
+      },
+      {
+        "[c",
+        function()
+          local tsc = require("treesitter-context")
+          tsc.go_to_context(vim.v.count1)
+        end,
+        silent = true,
+        desc = "Previous Treesitter Context",
       },
     },
   },
