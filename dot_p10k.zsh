@@ -34,6 +34,7 @@
     # os_icon               # os identifier
     dir                     # current directory
     vcs                     # git status
+    jj_vcs                  # jujutsu status
     # =========================[ Line #2 ]=========================
     newline                 # \n
     prompt_char             # prompt symbol
@@ -482,6 +483,111 @@
   typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND=76
   typeset -g POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND=76
   typeset -g POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=178
+
+  ####################################[ jj_vcs: jj status ]#####################################
+
+  typeset -g _jj_vcs_display=""
+  typeset -g _jj_vcs_workspace=""
+
+  function prompt_jj_vcs() {
+    local workspace
+
+    command -v jj >/dev/null 2>&1 || return
+    if workspace=$(jj workspace root 2>/dev/null); then
+      p10k display "*/jj=show"
+      p10k display "*/vcs=hide"
+    else
+      p10k display "*/jj=hide"
+      p10k display "*/vcs=show"
+      return
+    fi
+
+  # track current workspace for the async worker
+  if [[ $_jj_vcs_workspace != "$workspace" ]]; then
+    _jj_vcs_display=""
+    _jj_vcs_workspace="$workspace"
+  fi
+
+    # request async job for the current workspace
+    async_job _jj_vcs_worker _jj_vcs_async "$workspace"
+
+    # use single quotes so this will be interpreted each time
+    p10k segment -t '$_jj_vcs_display' -e
+  }
+
+  # This function is called by the async worker, and does the work
+  # of calculating the jj status.
+  _jj_vcs_async() {
+    local workspace=$1
+    local display revision bookmark distance
+
+    revision=$(jj log --repository "$workspace" --ignore-working-copy \
+      --no-graph --limit 1 --color always \
+      --revisions @ -T 'shell_prompt')
+
+    bookmark=$(jj log --repository "$workspace" --ignore-working-copy \
+      --no-graph --limit 1 --color always \
+      -r "closest_bookmark(@)" -T 'bookmarks.join(" ")' 2>/dev/null)
+
+    distance=$(jj log --repository "$workspace" --ignore-working-copy \
+      --no-graph --color never \
+      -r "closest_bookmark(@)..@" \
+      -T 'change_id ++ "\n"' 2>/dev/null | wc -l | tr -d ' ')
+
+    file_status=$(jj log --repository "$workspace" --ignore-working-copy \
+      --no-graph --color never --revisions @ \
+      -T 'self.diff().files().map(|f| f.status()).join("\n")' 2>/dev/null | \
+      # sort | uniq -c | awk '
+      #   /modified/ { parts[++i] = "%F{cyan}±" $1 "%f" }
+      #   /added/ { parts[++i] = "%F{green}+" $1 "%f" }
+      #   /removed/ { parts[++i] = "%F{red}-" $1 "%f" }
+      #   /copied/ { parts[++i] = "%F{yellow}⧉" $1 "%f" }
+      #   /renamed/ { parts[++i] = "%F{magenta}↻" $1 "%f" }
+      #   END { for (j=1; j<=i; j++) printf "%s%s", parts[j], (j<i ? " " : "") }
+      # ')
+      sort | uniq -c | awk '
+        /modified/ { parts[++i] = "%F{cyan}±" $1 "%f" }
+        /added/ { parts[++i] = "%F{green}+" $1 "%f" }
+        /removed/ { parts[++i] = "%F{red}-" $1 "%f" }
+        /copied/ { parts[++i] = "%F{yellow}⧉" $1 "%f" }
+        /renamed/ { parts[++i] = "%F{magenta}↻" $1 "%f" }
+        END { for (j=1; j<=i; j++) printf "%s", parts[j] }
+      ')
+
+    display="%81Fjj:%f@$revision"
+
+    if [[ -n "$bookmark" ]]; then
+      display+=" $bookmark"
+      if [[ "$distance" -gt 0 ]]; then
+        # display+=" %7F⇡${distance}"
+        # display+="%7F›${distance}"
+        display+="%F{magenta}›${distance}"
+      fi
+    fi
+    if [[ -n "$file_status" ]]; then
+      display+=" ${file_status}"
+    fi
+
+    echo "$display" | sed 's/\x1b\[[0-9;]*m/%{&%}/g'
+  }
+
+  _jj_vcs_callback() {
+    local job_name=$1 exit_code=$2 output=$3 execution_time=$4 stderr=$5 next_pending=$6
+    if [[ $exit_code == 0 ]]; then
+      _jj_vcs_display=$output
+    else
+      _jj_vcs_display="$output %F{red}$stderr%f"
+    fi
+    p10k display -r
+  }
+
+  # Finally, initialize and register the worker and callbacks.
+  # this unregisters first so we can easily reload everything.
+  async_init
+  async_stop_worker _jj_vcs_worker 2>/dev/null
+  async_start_worker _jj_vcs_worker
+  async_unregister_callback _jj_vcs_worker 2>/dev/null
+  async_register_callback _jj_vcs_worker _jj_vcs_callback
 
   ##########################[ status: exit code of the last command ]###########################
   # Enable OK_PIPE, ERROR_PIPE and ERROR_SIGNAL status states to allow us to enable, disable and

@@ -13,6 +13,9 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 
+# Add support for async scripts.
+antigen bundle mafredri/zsh-async@main
+
 antigen bundle agkozak/zsh-z
 
 antigen theme romkatv/powerlevel10k

@@ -24,6 +24,9 @@ track = ["bookmark", "track"]
 # Highlight hunks with background
 "diff removed token" = { bg = "#400E0E", underline = false }
 "diff added token" = { bg = "#2D311A", underline = false }
+# Custom colors for shell_prompt template
+wip = "yellow"
+toto = "blue"
 
 [git]
 private-commits = '''description(glob:'private:*')'''
@@ -32,3 +35,19 @@ private-commits = '''description(glob:'private:*')'''
 program = "bcomp"
 diff-args = ["$left", "$right"]
 merge-args = ["$left", "$right", "$base", "$output"]
+
+[revset-aliases]
+'closest_bookmark(to)' = 'heads(::to & bookmarks())'
+
+[template-aliases]
+'format_short_change_id(id)' = 'id.shortest(4)'
+shell_prompt = '''
+separate(" ",
+  format_short_change_id_with_hidden_and_divergent_info(self),
+  if(empty, label("empty", "(empty)"), ""),
+  if(description == "", label("description placeholder", "(no description)"), ""),
+  if(description.starts_with("wip"), label("wip", "(wip)"), ""),
+  if(description.starts_with("todo"), label("todo", "(todo)"), ""),
+  if(conflict, label("conflict", "(conflict)"), "")
+)
+'''
