@@ -24,4 +24,19 @@ return {
       },
     },
   },
+  {
+    "folke/noice.nvim",
+    opts = {
+      -- disable all special handling for cmdline and command completion
+      cmdline = { enabled = false },
+      messages = { enabled = false },
+      popupmenu = { enabled = false },
+      -- shift "mini" view up to account for extra cmdheight line
+      views = {
+        mini = {
+          position = { row = -2 },
+        },
+      },
+    },
+  },
 }

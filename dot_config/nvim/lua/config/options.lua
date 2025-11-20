@@ -4,5 +4,5 @@
 vim.g.snacks_animate = false -- disable all snacks animations
 vim.g.trouble_lualine = false -- don't show document symbols in status line
 
-local opt = vim.opt
-opt.relativenumber = false -- use absolute line numbers
+vim.o.relativenumber = false -- use absolute line numbers
+vim.o.cmdheight = 1 -- keep a line at the bottom for commands
