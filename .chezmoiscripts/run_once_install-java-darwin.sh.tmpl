@@ -9,8 +9,7 @@ installing_feature "Java"
 
 install_packages <<'EOB'
 # Make sure we always have a system default version
-tap "homebrew/cask-versions"
-cask "zulu11"
+cask "zulu@21"
 
 # Use `jenv` to manage alternate versions
 brew "jenv"
@@ -23,11 +22,11 @@ brew "gradle"
 brew "bazelisk"
 EOB
 
-if [[ ! -d ~/.jenv/versions/11.0 ]]; then
-  # No Java 11 alias, so try to add the default Java 11 JDK
-  jenv add "$(/usr/libexec/java_home -v 11)"
+if [[ ! -d ~/.jenv/versions/21 ]]; then
+  # No Java 21 alias, so try to add the default Java 21 JDK
+  jenv add "$(/usr/libexec/java_home -v 21)"
 else
-  # Refresh version aliases in case Homebrew upgraded `zulu11`
+  # Refresh version aliases in case Homebrew instlled a JDK upgrade
   jenv refresh-versions
 fi
 

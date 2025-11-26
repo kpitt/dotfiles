@@ -15,7 +15,9 @@ fi
 
 # jenv
 if command -v jenv &>/dev/null; then
-  _evalcache jenv-init jenv init - zsh
+  # Don't cache "jenv init" script because it wreaks havoc
+  # when jenv is upgraded.
+  eval "$(jenv init - zsh)"
 fi
 
 # mkdir .git/safe in the root of repositories you trust

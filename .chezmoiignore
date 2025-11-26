@@ -13,6 +13,10 @@ script-helpers.sh
 **/.DS_Store
 
 # Ignore files for features that are not enabled
+{{ if not .features.java }}
+.jenv/version
+{{ end }}
+
 {{ if not .features.ruby }}
 .zsh/configs/chruby.zsh
 .bin/chruby-install
