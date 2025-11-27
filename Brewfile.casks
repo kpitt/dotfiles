@@ -4,9 +4,12 @@
 # "fail" when the apps are actually already installed.
 
 cask "font-iosevka"
-cask "font-inconsolata"
 # Jetbrains Mono font
 cask "font-jetbrains-mono"
+# iaWriter fonts
+cask "font-ia-writer-mono"
+cask "font-ia-writer-duo"
+cask "font-ia-writer-quattro"
 
 cask "1password"
 cask "1password-cli"
