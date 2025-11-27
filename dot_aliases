@@ -1,6 +1,12 @@
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
+## enhanced ls commands
+alias ll='eza -lh --group-directories-first --icons'
+alias lla='ll -a'
+alias lt='eza --tree --level=2 --long --icons'
+alias lta='lt -a'
+
 ## chezmoi commands ##
 alias cz='chezmoi'
 alias czs='chezmoi status'
