@@ -26,6 +26,7 @@ brew "tree-sitter-cli"
 brew "vim"
 brew "wget"
 brew "xz"
+brew "zoxide"
 
 ## useful TUI utilities
 brew "broot"
