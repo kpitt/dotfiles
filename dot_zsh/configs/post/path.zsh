@@ -13,13 +13,6 @@ if [[ -r "$HOME"/.cargo/env ]]; then
   alias ci="cargo install --path . --force"
 fi
 
-# jenv
-if command -v jenv &>/dev/null; then
-  # Don't cache "jenv init" script because it wreaks havoc
-  # when jenv is upgraded.
-  eval "$(jenv init - zsh)"
-fi
-
 # mkdir .git/safe in the root of repositories you trust
 PATH=".git/safe/../../bin:$PATH"
 

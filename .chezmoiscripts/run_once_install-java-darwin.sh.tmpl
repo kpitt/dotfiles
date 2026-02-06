@@ -8,12 +8,6 @@ require_homebrew
 installing_feature "Java"
 
 install_packages <<'EOB'
-# Make sure we always have a system default version
-cask "zulu@21"
-
-# Use `jenv` to manage alternate versions
-brew "jenv"
-
 # Install standard Java build tools
 brew "ant"
 brew "ant-contrib"
@@ -21,14 +15,6 @@ brew "maven"
 brew "gradle"
 brew "bazelisk"
 EOB
-
-if [[ ! -d ~/.jenv/versions/21 ]]; then
-  # No Java 21 alias, so try to add the default Java 21 JDK
-  jenv add "$(/usr/libexec/java_home -v 21)"
-else
-  # Refresh version aliases in case Homebrew instlled a JDK upgrade
-  jenv refresh-versions
-fi
 
 # vim: syntax=bash filetype=bash
 {{ end -}}

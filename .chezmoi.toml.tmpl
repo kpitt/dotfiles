@@ -3,7 +3,6 @@
 {{- $work  := false -}}
 {{- $gnupg := false -}}
 {{- $java  := false -}}
-{{- $ruby  := true  -}}
 {{- $rust  := false -}}
 
 {{/* retrieve existing option values, or prompt if missing */}}
@@ -13,7 +12,6 @@
 
 {{- $gnupg := promptBoolOnce . "features.gnupg" "install gnupg" $gnupg -}}
 {{- $java  := promptBoolOnce . "features.java"  "install java"  $java  -}}
-{{- $ruby  := promptBoolOnce . "features.ruby"  "install ruby"  $ruby  -}}
 {{- $rust  := promptBoolOnce . "features.rust"  "install rust"  $rust  -}}
 
 sourceDir = {{ .chezmoi.sourceDir | quote }}
@@ -41,5 +39,4 @@ onepasswordAccount = "E7LGR7SZ3VHB5PVJ5TE2MOTTRE"
   [data.features]
   gnupg = {{ $gnupg }}
   java  = {{ $java }}
-  ruby  = {{ $ruby }}
   rust  = {{ $rust }}
