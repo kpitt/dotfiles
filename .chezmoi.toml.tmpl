@@ -28,8 +28,8 @@ recipient = "age1wx4x86nt97ya4tfmfhkpj8urfylwlqg8vjg206wy0w2jn9d57sfsc76efl"
 {{ end -}}
 
 [merge]
-command = "nvim"
-args = ["-d", "{{ "{{ .Destination }}" }}", "{{ "{{ .Source }}" }}", "{{ "{{ .Target }}" }}"]
+command = "bcomp"
+args = ["{{ .Destination }}", "{{ .Source }}", "{{ .Target }}", "{{ .Source }}"]
 
 [data]
 email = {{ $email | quote }}
