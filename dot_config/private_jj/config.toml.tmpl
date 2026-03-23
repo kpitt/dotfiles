@@ -13,6 +13,9 @@ difft = [ "diff", "--tool=difft" ]
 showt = [ "show", "--tool=difft" ]
 dupe = [ "duplicate" ]
 
+diffbc = [ "diff", "--tool=bcomp" ]
+resolvebc = [ "resolve", "--tool=bcomp" ]
+
 # from https://mkaz.blog/code/jujutsu-vcs/
 init = ["git", "init", "--colocate"]
 fetch = ["git", "fetch"]
@@ -31,7 +34,7 @@ toto = "blue"
 [git]
 private-commits = '''description(glob:'private:*')'''
 
-[merge-tools.bc4]
+[merge-tools.bcomp]
 program = "bcomp"
 diff-args = ["$left", "$right"]
 merge-args = ["$left", "$right", "$base", "$output"]
@@ -40,7 +43,7 @@ merge-args = ["$left", "$right", "$base", "$output"]
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
 
 [template-aliases]
-'format_short_change_id(id)' = 'id.shortest(4)'
+'format_short_change_id(id)' = 'id.shortest(6)'
 shell_prompt = '''
 separate(" ",
   format_short_change_id_with_hidden_and_divergent_info(self),
