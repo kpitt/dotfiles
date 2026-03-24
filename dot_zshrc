@@ -14,6 +14,8 @@ fi
 export HOMEBREW_NO_ANALYTICS=1
 # Only run autoupdate once a day.
 export HOMEBREW_AUTOUPDATE_SECS=86400
+# Don't show auto-updating casks in `brew outdated`.
+export HOMEBREW_NO_UPGRADE_AUTO_UPDATES_CASKS=1
 # Use `bat` for the `brew cat` command.
 export HOMEBREW_BAT=1
 # Disable additional hints about environment config.
