@@ -17,14 +17,14 @@
 [color]
     ui = auto
 
+[init]
+    defaultBranch = main
+
 [push]
     default = upstream
 
 [merge]
-    summary = true
-
-[init]
-	defaultBranch = main
+    log = true
 
 [mergetool "smerge"]
     cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
@@ -218,7 +218,7 @@
     line-numbers = true
 
 [rerere]
-	enabled = true
+    enabled = true
 
 # Optional extension files (last value wins, so order is important)
 [include]
