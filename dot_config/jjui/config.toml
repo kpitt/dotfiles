@@ -1,2 +1,10 @@
+[preview]
+show_at_start = true
+
+[ui]
+background_blend = 0.5
+
 [ui.colors]
-"selected" = { bg = "#313752" }
+":selected" = { bg = "#313752" }
+"bookmarks:selected" = { bg = "#313752" }
+"git:selected" = { bg = "#313752" }

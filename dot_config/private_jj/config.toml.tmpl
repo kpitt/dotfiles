@@ -11,10 +11,12 @@ diff-editor = ":builtin"
 [aliases]
 difft = [ "diff", "--tool=difft" ]
 showt = [ "show", "--tool=difft" ]
+bcomp = [ "diff", "--tool=bcomp" ]
+bcdiff = [ "diff", "--tool=bcomp" ]
+bcresolve = [ "resolve", "--tool=bcomp" ]
+bcedit = [ "diffedit", "--tool=bcomp" ]
 dupe = [ "duplicate" ]
-
-diffbc = [ "diff", "--tool=bcomp" ]
-resolvebc = [ "resolve", "--tool=bcomp" ]
+tug = [ "bookmark", "advance" ]
 
 # from https://mkaz.blog/code/jujutsu-vcs/
 init = ["git", "init", "--colocate"]
@@ -54,3 +56,6 @@ separate(" ",
   if(conflict, label("conflict", "(conflict)"), "")
 )
 '''
+
+[fsmonitor]
+backend = "watchman"
