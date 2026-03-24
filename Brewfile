@@ -33,9 +33,7 @@ brew "zoxide"
 brew "broot"
 brew "btop"
 brew "htop"
-brew "lazygit"
 brew "ncdu"
-brew "tig"
 
 # sed for json: https://robots.thoughtbot.com/jq-is-sed-for-json
 brew "jq"
@@ -63,7 +61,13 @@ brew "go"
 brew "gopls"
 brew "gofumpt"
 
-# Jujutsu VCS
+# Enhanced source control
+
+## Git enhancements
+brew "lazygit"
+brew "tig"
+
+## Jujutsu VCS
 brew "jj"
 brew "jjui"
  
