@@ -6,6 +6,9 @@ Host *
     ServerAliveInterval 60
     ServerAliveCountMax 10
 
+    # enable 1Password as the SSH agent
+    IdentityAgent "~/.1password/agent.sock"
+
     # cache private key passwords in Apple Keychain
     UseKeychain yes
     AddKeysToAgent yes

@@ -12,6 +12,11 @@ script-helpers.sh
 # macOS metadata files
 **/.DS_Store
 
+{{ if ne .chezmoi.os "darwin" }}
+Library/
+.1password/agent.sock
+{{ end }}
+
 # Ignore files for features that are not enabled
 {{ if not .features.rust }}
 .zsh/pack/syntax/start/rust
