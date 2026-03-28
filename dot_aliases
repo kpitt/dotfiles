@@ -2,9 +2,9 @@
 alias path='echo $PATH | tr -s ":" "\n"'
 
 ## enhanced ls commands
-alias ll='eza -lh --group-directories-first --icons'
+alias ll='eza -lh --group-directories-first --icons=auto'
 alias lla='ll -a'
-alias lt='eza --tree --level=2 --long --icons'
+alias lt='eza -lhT --level=2 --icons=auto'
 alias lta='lt -a'
 
 ## chezmoi commands ##
