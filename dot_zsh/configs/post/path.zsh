@@ -1,11 +1,6 @@
-# Prepend user-specific PATH directories, if they exist.
-# Each directory is added to the beginning of the path, so
-# these should be in reverse order of priority.
-[[ -d $HOME/.local/bin ]] && PATH="$HOME/.local/bin:$PATH"
-[[ -d $HOME/bin ]] && PATH="$HOME/bin:$PATH"
-
-# ensure dotfiles bin directory is loaded first
-PATH="$HOME/.bin:$PATH"
+# Add PATH entries after all other shell initialization is complete.
+# Use this for entries that may depend on previous configuration,
+# or for prepending entries that need to have the highest precedence.
 
 # Rust
 if [[ -r "$HOME"/.cargo/env ]]; then

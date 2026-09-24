@@ -70,6 +70,3 @@ brew "tig"
 ## Jujutsu VCS
 brew "jj"
 brew "jjui"
- 
-# Tool version managers
-brew "mise"

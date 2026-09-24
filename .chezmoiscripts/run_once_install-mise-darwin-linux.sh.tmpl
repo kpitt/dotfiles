@@ -1,0 +1,11 @@
+{{- if or (eq .chezmoi.os "darwin") (eq .chezmoi.od "linux") -}}
+#!/bin/bash
+set -e
+
+. "{{ .chezmoi.sourceDir }}/script-helpers.sh"
+
+installing_feature "mise-en-place"
+curl https://mise.run | sh
+
+# vim: syntax=bash filetype=bash
+{{ end -}}
